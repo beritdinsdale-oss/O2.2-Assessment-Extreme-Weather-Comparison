@@ -1,9 +1,9 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Extreme Weather: Change the View</title><link rel="stylesheet" href="change-view-v5.css"></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Extreme Weather: Change the View</title><link rel="stylesheet" href="change-view-v6.css"></head><body>
 <a class="skip" href="#main">Skip to activity</a>
 <header class="hero"><img src="Garden-Frost-Adobe-Stock-Ann.jpeg" alt="Garden plants covered with frost during cold weather."><div><p class="eyebrow">INTERACTIVE EXPLORATION</p><h1>Extreme Weather:<br><span>Change the View</span></h1><p>Change <b>where</b>, <b>when</b>, and <b>how far back</b> you look to see how extreme weather fits into a changing climate.</p><p class="keys">📍 WHERE &nbsp; 📅 WHEN &nbsp; 🔎 OVER TIME</p><button data-go="1">Begin</button><small>Photo: Ann / Adobe Stock</small></div></header>
 <main id="main"><nav class="tabs"><button data-go="0">Start</button><button data-go="1">Where</button><button data-go="2">Climate lens</button><button data-go="3">When</button><button data-go="4">Over time</button><button data-go="5">Your view</button></nav>
 
-<section class="panel" data-p="1"><h2>📍 Change the location</h2><p class="lead">Same summer. Two very different extremes.</p><div class="context"><b>2021</b> · <b>SUMMER</b> · Choose a location</div>
+<section class="panel place-view" data-p="1"><h2>📍 Change the location</h2><p class="lead">Same summer. Two very different extremes.</p><div class="context"><b>2021</b> · <b>SUMMER</b> · Choose a location</div>
 <div class="choices"><button class="loc active" data-id="pnw">Pacific Northwest</button><button class="loc" data-id="tn">Tennessee</button></div>
 <article class="scene active" id="pnw"><div class="visual heat">☀️<span>🌡️</span></div><div><small>JUNE 2021</small><h3>Extreme heat</h3><p>A persistent heat dome pushed temperatures far beyond typical early-summer conditions across the Pacific Northwest.</p><button class="videoBtn" data-video="TcU8YNYQmGg">▶ Watch event video</button><div class="video"></div></div></article>
 <article class="scene" id="tn"><div class="visual rain">☁️<span>💧💧💧</span></div><div><small>AUGUST 2021</small><h3>Extreme rainfall</h3><p>Exceptionally heavy rainfall around Waverly produced extreme flash flooding. More than 20 inches was recorded within 24 hours near the event area.</p><button class="videoBtn" data-video="gDvWd8uphXk">▶ Watch event video</button><div class="video"></div></div></article>
@@ -69,62 +69,26 @@
   </div>
 </section>
 
-<section class="panel" data-p="3"><h2>📅 Change the season</h2><p class="lead">Keep the place fixed. Move through the year.</p><div class="context">📍 <b>Willamette Valley, Oregon · 2021</b></div>
-<div id="seasonBox" class="seasonBox"><div class="seasonIcon">❄️</div><div><small>FEBRUARY</small><h3>Ice storm</h3><p>Freezing rain coated trees, roads, and power lines with damaging ice.</p></div></div>
-<label for="season"><b>Move through 2021</b></label><input id="season" type="range" min="0" max="3" step="1" value="0"><div class="rangeLabels"><span>Feb ❄️</span><span>Apr 🌱</span><span>Jun ☀️</span><span>Oct 🍂</span></div>
-<button id="compare">Compare February + June</button><div id="comparison" hidden><div class="versus"><b>FEB · 🧊 ICE</b><span>SAME PLACE</span><b>JUN · ☀️ HEAT</b></div><p>A region can experience very different extremes in different seasons. Warming does not eliminate winter weather.</p><div class="meters"><p><b>Extreme heat:</b> ● ● ● ● Strong climate connection</p><p><b>Ice storms:</b> ● ● ○ ○ Relationship still being studied</p></div></div></section>
-
-<section class="panel" data-p="4"><h2>🔎 Zoom out</h2><p class="lead">When does weather become a climate pattern?</p><p>Move from one year to decades. The same noisy observations look different when you change the time scale.</p>
-<label for="zoom"><b>Time scale</b></label><input id="zoom" type="range" min="0" max="2" step="1" value="0"><div class="rangeLabels"><span>One year</span><span>Several years</span><span>Decades</span></div>
-<svg id="chart" viewBox="0 0 800 280" role="img" aria-label="Conceptual graph showing year-to-year variability around a long-term upward trend"><line x1="45" y1="245" x2="760" y2="245" class="axis"/><polyline points="45,210 85,175 125,215 165,145 205,185 245,130 285,170 325,105 365,150 405,115 445,135 485,80 525,120 565,70 605,105 645,55 685,85 725,40" class="weather"/><line x1="45" y1="205" x2="725" y2="60" class="trend"/></svg><p id="zoomText" class="result"><b>One year:</b> mostly weather. A single year cannot establish a climate trend.</p>
-<div class="choices trends"><button class="trendBtn active" data-t="heat">☀️ Extreme heat</button><button class="trendBtn" data-t="rain">🌧️ Heavy precipitation</button><button class="trendBtn" data-t="cold">❄️ Extreme cold</button></div><p id="trendText" class="evidence"><b>Extreme heat:</b> long-term U.S. records show heat waves becoming more frequent, longer, and more intense.</p></section>
-
-<section class="panel" data-p="5">
-  <h2>🎛️ Build your view</h2>
-  <p class="lead">Change the settings and watch the interpretation change.</p>
-
-  <div class="controls">
-    <label>📍 WHERE
-      <select id="whereFinal">
-        <option value="pnw">Pacific Northwest</option>
-        <option value="tn">Tennessee</option>
-      </select>
-    </label>
-    <label>📅 WHEN
-      <select id="whenFinal">
-        <option value="winter">Winter</option>
-        <option value="summer" selected>Summer</option>
-      </select>
-    </label>
-    <label>🔎 TIME SCALE
-      <select id="scaleFinal">
-        <option value="event">One event</option>
-        <option value="decades">Decades</option>
-      </select>
-    </label>
-  </div>
-
-  <div class="final-view" aria-live="polite">
-    <div class="final-scene" id="finalScene">
-      <div class="final-icon" id="finalIcon">☀️</div>
-      <div>
-        <p class="final-kicker" id="finalKicker">Pacific Northwest · Summer · One event</p>
-        <h3 id="finalHeading">You are looking at weather.</h3>
-        <p id="finalBody">A single extreme-heat event tells you what happened at one place and time. It does not, by itself, establish a climate trend.</p>
-      </div>
-    </div>
-
-    <div class="view-meaning">
-      <p><strong>WHERE</strong><br><span id="whereMeaning">Location changes which extreme-weather hazards are most likely.</span></p>
-      <p><strong>WHEN</strong><br><span id="whenMeaning">Season changes the atmospheric conditions in which weather develops.</span></p>
-      <p><strong>TIME SCALE</strong><br><span id="scaleMeaning">One event shows weather; decades reveal climate patterns.</span></p>
-    </div>
-  </div>
-
-  <div class="final-message">
-    <h3 id="finalTakeawayHeading">Climate is the pattern.</h3>
-    <p id="finalTakeaway">Change location, season, and time scale to see why extreme weather cannot be understood from a single event alone.</p>
-  </div>
-</section>
+<section class="panel season-view" data-p="3">
+<div class="concept season-banner"><b>📅 SAME PLACE</b><strong>CHANGE THE SEASON</strong><span>📍 Willamette Valley · 2021</span></div>
+<h2>One place. Different seasonal extremes.</h2><p class="lead">The location stays fixed. Select a season and watch the scene and weather hazard change.</p>
+<div class="photoStory"><div id="storyPhoto" class="storyPhoto winter"><div class="photoText"><small id="storyMonth">FEBRUARY</small><h3 id="storyTitle">Ice storm</h3></div></div>
+<div class="storyCopy"><p id="storyText">Freezing rain coated trees, roads, and power lines with damaging ice.</p><p class="constant"><b>STAYS THE SAME</b><br>Willamette Valley</p><p class="changes"><b>CHANGES</b><br>Season + atmospheric conditions</p></div></div>
+<div class="seasonStops"><button class="seasonStop active" data-s="0">❄️<b>February</b><small>Ice</small></button><button class="seasonStop" data-s="1">🌱<b>April</b><small>Spring</small></button><button class="seasonStop" data-s="2">☀️<b>June</b><small>Heat</small></button><button class="seasonStop" data-s="3">🍂<b>October</b><small>Fall</small></button></div>
+<div class="seasonCompare"><div><b>FEBRUARY</b><span>🧊 Ice storm</span></div><strong>SAME PLACE<br>DIFFERENT SEASON</strong><div><b>JUNE</b><span>☀️ Extreme heat</span></div></div>
+<p class="result"><b>Season matters.</b> A warming climate does not make every season—or every extreme—look alike.</p></section>
+<section class="panel time-view" data-p="4"><div class="concept time-banner"><b>🔎 SAME INDICATOR</b><strong>CHANGE THE TIME SCALE</strong><span>One event → decades</span></div>
+<h2>Zoom out to see the pattern.</h2><p class="lead"><strong>This is a conceptual illustration—not U.S. or Oregon data.</strong> It shows why climate questions require many years of observations.</p>
+<label for="zoom"><b>Move from weather toward climate</b></label><input id="zoom" type="range" min="0" max="2" step="1" value="0"><div class="rangeLabels"><span>One year</span><span>Several years</span><span>Decades</span></div>
+<svg id="chart" viewBox="0 0 800 280" role="img" aria-label="Conceptual graph of year-to-year variability around a long-term trend"><line x1="45" y1="245" x2="760" y2="245" class="axis"/><polyline points="45,210 85,175 125,215 165,145 205,185 245,130 285,170 325,105 365,150 405,115 445,135 485,80 525,120 565,70 605,105 645,55 685,85 725,40" class="weather"/><line x1="45" y1="205" x2="725" y2="60" class="trend"/></svg>
+<p id="zoomText" class="result"><b>One year:</b> mostly weather. A single year cannot establish a climate trend.</p>
+<div class="nextLocal"><small>NEXT: APPLY THIS LOCALLY</small><h3>What does the pattern look like where you live?</h3><p>The final section moves from this conceptual view to real tools for investigating your own region.</p></div></section>
+<section class="panel region-view" data-p="5"><div class="concept region-banner"><b>🧭 YOUR LOCATION</b><strong>EXPLORE YOUR REGION</strong><span>Apply the climate lens</span></div>
+<h2>What does extreme weather look like where you live?</h2><p class="lead">Use real records to explore your own location. Look for evidence across <strong>place, season, and time</strong>.</p>
+<div class="regionSteps"><article><span>1</span><div><h3>Find events near you</h3><p>Search NOAA's Storm Events Database by state or county. Notice which event types repeat and when they occur.</p><a href="https://www.ncei.noaa.gov/stormevents/choosedates.jsp?statefips=-999%2CALL" target="_blank" rel="noopener">Open NOAA Storm Events ↗</a></div></article>
+<article><span>2</span><div><h3>Zoom out to climate</h3><p>Use NOAA Climate at a Glance to explore long-term temperature or precipitation patterns.</p><a href="https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/county/mapping" target="_blank" rel="noopener">Open Climate at a Glance ↗</a></div></article>
+<article><span>3</span><div><h3>Build your regional picture</h3><p>Record what you notice below. Your notes save automatically in this browser.</p></div></article></div>
+<div class="notebook"><label>My location<input id="regionName" placeholder="Example: Marion County, Oregon"></label><label>Which extreme events appear, and when?<textarea id="eventNotes" rows="4" placeholder="Note event types, seasons, and patterns."></textarea></label><label>What long-term pattern do you notice?<textarea id="trendNotes" rows="4" placeholder="Describe temperature or precipitation trends and variability."></textarea></label><label>What more would you need to know?<textarea id="evidenceNotes" rows="3" placeholder="Consider length of record, reporting consistency, or event type."></textarea></label><small id="saveNote">Notes save automatically on this device.</small></div>
+<div class="final-message"><h3>Bring the three views together.</h3><p><b>Place</b> shapes which hazards occur. <b>Season</b> shapes when and how they occur. <b>Long-term records</b> reveal whether the pattern is changing.</p></div></section>
 </main>
-<nav class="bottom"><button id="prev">← Previous</button><span id="pos">Start</span><button id="next">Next →</button></nav><script src="change-view-v5.js"></script></body></html>
+<nav class="bottom"><button id="prev">← Previous</button><span id="pos">Start</span><button id="next">Next →</button></nav><script src="change-view-v6.js"></script></body></html>
