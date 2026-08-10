@@ -105,3 +105,14 @@ Garden-Frost-Adobe-Stock-Ann.jpeg
 
 Do not keep old change-view-v*.css or change-view-v*.js files in the repository
 unless you intentionally want archived versions.
+
+V8 — Simplified review build
+----------------------------
+- Reduced repeated explanatory text across screens.
+- Climate Central visuals now appear large with concise explanations below.
+- Climate Lens tabs remain mutually exclusive.
+- Seasonal labels standardized: Ice storm / Mild spring / Extreme heat / Fall rain.
+- Removed repeated "same place/different season" statements and comparison block.
+- Final journal prompt list removed.
+- Explore Your Region ends with a direct Canvas button to My Garden Observation Journal.
+- The real-data Over Time interaction remains in place for review before further revision.
