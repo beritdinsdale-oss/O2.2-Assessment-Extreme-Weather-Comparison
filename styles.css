@@ -1,1 +1,79 @@
 *{box-sizing:border-box}:root{--g:#397a5b;--gl:#eaf5ee;--b:#3f83a9;--bl:#eaf5fb;--o:#d96f3c;--ol:#fff0e7;--ink:#26353d;--line:#d5e1dc;--focus:#ffbf47}html{font:18px Arial,sans-serif;color:var(--ink);background:#f7faf8}body{margin:0;line-height:1.55}.skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;background:#fff;padding:.5rem;z-index:99}.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:580px;background:#fff}.hero>img{width:100%;height:100%;object-fit:cover}.hero>div{padding:clamp(2rem,6vw,5rem);display:flex;flex-direction:column;justify-content:center}.eyebrow{color:var(--g);font-weight:900;letter-spacing:.1em}.hero h1{font-size:clamp(2.5rem,5vw,4.5rem);line-height:1;margin:.2rem 0}.hero h1 span{color:var(--g)}.keys{background:var(--gl);padding:.7rem;border-radius:9px;font-weight:900}.hero small{margin-top:1rem;color:#65757c}.hero button,.panel button,.bottom button{padding:.65rem .85rem;border:2px solid var(--g);border-radius:8px;background:var(--g);color:#fff;font:inherit;font-weight:800;cursor:pointer}main{width:min(1050px,calc(100% - 2rem));margin:1rem auto 7rem}.tabs{display:flex;gap:.3rem;overflow:auto;margin-bottom:1rem}.tabs button{background:transparent;color:#65757c;border:0;border-bottom:4px solid transparent;border-radius:0}.tabs button.active{color:var(--g);border-color:var(--g)}.panel{display:none;background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(1rem,3vw,2rem)}.panel.active{display:block}.panel h2{font-size:2rem;margin:.1rem 0}.lead{font-size:1.2rem;font-weight:700}.context,.result,.evidence,.predict{padding:.75rem .9rem;border-radius:9px;background:#f2f7f4;margin:1rem 0}.choices{display:flex;gap:.6rem;margin:1rem 0}.choices button{flex:1;background:#fff;color:var(--ink);border-color:var(--line)}.choices button.active{background:var(--gl);border-color:var(--g);color:#24583f}.scene,.lensPanel{display:none;grid-template-columns:.8fr 1.2fr;gap:1.2rem;align-items:center}.scene.active,.lensPanel.active{display:grid}.visual{min-height:300px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:6rem}.visual span{font-size:3rem}.heat{background:linear-gradient(#dceff7,#ffe1b6)}.rain{background:linear-gradient(#bed9e5,#e0e9e5)}.scene h3,.lensPanel h3,.seasonBox h3{font-size:1.7rem;margin:.1rem 0}.scene small,.seasonBox small{font-weight:900;color:#65757c}.videoBtn{background:#fff!important;color:var(--g)!important}.video{margin-top:.6rem}.video iframe{width:100%;aspect-ratio:16/9;border:0}.diagram{position:relative;background:linear-gradient(90deg,var(--bl),var(--ol));padding:1rem;border-radius:12px;min-height:260px}.bar{height:48px;margin:1.1rem 0;padding:.7rem;border-radius:999px;color:#fff;font-weight:800;background:linear-gradient(90deg,#58a1c6,#edb54d,#d65e3c);width:65%}.bar.new{margin-left:18%;width:76%}.extreme{position:absolute;right:1rem;top:42%;border-left:3px dashed var(--o);padding:1rem .3rem;color:#9d4b28;font-weight:900}.moisture{min-height:260px;background:var(--bl);border-radius:12px;display:flex;align-items:center;justify-content:center;gap:.8rem}.moisture div{background:#fff;border-radius:50%;width:145px;height:145px;display:grid;place-items:center;text-align:center}.predict button{display:block;margin-top:.5rem}.seasonBox{min-height:280px;padding:1.2rem;border-radius:14px;background:linear-gradient(#dceaf3,#eaf0ec);display:grid;grid-template-columns:.5fr 1fr;align-items:center}.seasonIcon{font-size:6rem;text-align:center}input[type=range]{width:100%;accent-color:var(--g);margin-top:1rem}.rangeLabels{display:flex;justify-content:space-between;font-size:.8rem;font-weight:800}.versus{display:flex;justify-content:space-around;align-items:center;margin:1rem 0;padding:.8rem;background:var(--bl);border-radius:10px}.meters{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}.meters p{background:var(--gl);padding:.7rem;border-radius:8px}svg{width:100%;max-height:340px;background:#fbfcfc;margin-top:1rem}.axis{stroke:#8d9c94;stroke-width:2}.weather{fill:none;stroke:var(--b);stroke-width:5}.trend{stroke:var(--o);stroke-width:7;opacity:0}#chart.mid .trend{opacity:.35}#chart.long .trend{opacity:1}#chart.long .weather{opacity:.4}.controls{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}.controls label{border:1px solid var(--line);padding:.8rem;border-radius:9px;font-weight:900}.controls select{display:block;width:100%;padding:.5rem;margin-top:.4rem;font:inherit}.conclusions p{padding:.7rem;background:#f3f7f5;border-radius:8px}.final{text-align:center;background:linear-gradient(135deg,var(--gl),var(--bl));padding:1.2rem;border-radius:14px}.final h3{font-size:2rem;margin:.2rem}.bottom{position:fixed;bottom:0;left:0;right:0;display:grid;grid-template-columns:auto 1fr auto;align-items:center;background:#fffffff5;border-top:1px solid var(--line);padding:.6rem 1rem;z-index:10}.bottom span{text-align:center;font-weight:800}button:focus-visible,input:focus-visible,select:focus-visible{outline:4px solid var(--focus);outline-offset:3px}@media(max-width:760px){html{font-size:17px}.hero{grid-template-columns:1fr}.hero>img{max-height:330px}.scene.active,.lensPanel.active{grid-template-columns:1fr}.choices{flex-direction:column}.controls,.meters{grid-template-columns:1fr}.seasonBox{grid-template-columns:1fr;text-align:center}.versus{flex-direction:column;gap:.5rem}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+.climate-toggle-row{
+  display:flex;justify-content:center;align-items:center;gap:.7rem;
+  margin:1rem 0;padding:.7rem;background:#f4f7f6;border-radius:12px;
+  font-size:.85rem;font-weight:800;color:#65757c;
+}
+.climate-toggle{
+  display:flex!important;align-items:center;gap:.5rem!important;
+  background:#dfe7e3!important;color:#26353d!important;
+  border:0!important;border-radius:999px!important;
+  padding:.35rem .7rem .35rem .35rem!important;
+}
+.climate-toggle.on{background:var(--g)!important;color:#fff!important}
+.toggle-knob{
+  width:1.55rem;height:1.55rem;border-radius:50%;background:#fff;
+  box-shadow:0 1px 4px #0003;display:block;transition:transform .35s ease;
+}
+.climate-toggle.on .toggle-knob{transform:translateX(.18rem)}
+.heat-sim,.rain-sim{
+  min-height:320px;border-radius:14px;position:relative;overflow:hidden;
+  background:linear-gradient(90deg,#e8f5fb,#fff1e8);padding:1.2rem;
+}
+.heat-axis{display:flex;justify-content:space-between;color:#65757c;font-size:.8rem;font-weight:800}
+.heat-track{position:relative;height:180px;margin-top:2rem}
+.heat-threshold{
+  position:absolute;right:22%;top:0;bottom:0;border-left:3px dashed var(--o);z-index:2;
+}
+.extreme-zone-label{
+  position:absolute;right:1rem;top:3.1rem;color:#9b4e2a;font-size:.8rem;font-weight:900;
+}
+.distribution{
+  position:absolute;left:12%;bottom:20px;width:48%;height:120px;
+  transition:left .8s cubic-bezier(.2,.7,.2,1),width .8s ease;
+}
+.distribution-core{
+  width:100%;height:100%;
+  background:radial-gradient(ellipse at center bottom,rgba(63,131,169,.75) 0 35%,rgba(221,117,64,.55) 70%,rgba(221,117,64,0) 72%);
+  border-radius:50% 50% 0 0;
+}
+.climate-on .heat-dist{left:28%;width:54%}
+.sim-labels{display:flex;justify-content:space-between;gap:1rem;font-size:.84rem;font-weight:800}
+.extreme-share{color:#9b4e2a}
+.climate-on .baseline-label::after{content:" → shifted warmer";color:var(--o)}
+.climate-on .extreme-share{font-weight:900}
+.rain-sim{
+  display:grid;grid-template-rows:auto auto auto auto;justify-items:center;
+  background:linear-gradient(#eaf5fb,#f7fbfd);
+}
+.air-column{
+  width:78%;min-height:145px;border:2px solid #a8cbdc;border-radius:18px;
+  background:rgba(255,255,255,.75);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:background .6s ease,border-color .6s ease;
+}
+.air-temp{font-weight:900;color:#4a768d;margin-bottom:.6rem}
+.vapor-field{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;font-size:1.5rem;max-width:260px}
+.vapor-field .extra{opacity:0;transform:scale(.6);transition:opacity .45s ease,transform .45s ease}
+.storm-cloud{font-size:4rem;margin:.2rem 0 -.2rem}
+.rainfall{display:flex;gap:.55rem;color:#4384ae;font-size:2.2rem;line-height:.7}
+.extra-rain{opacity:0;transition:opacity .45s ease}
+.rain-caption{font-weight:900;color:#4a768d;margin-top:.5rem}
+.climate-on .air-column{background:#fff3eb;border-color:#e2a985}
+.climate-on .air-temp{color:#a55a32}
+.climate-on .air-temp::after{content:" → Warmer atmosphere"}
+.climate-on .vapor-field .extra{opacity:1;transform:scale(1)}
+.climate-on .extra-rain{opacity:1}
+.climate-on .rain-caption::before{content:"Heavier "}
+.climate-on .rain-caption{color:#2f6f95}
+.lens-explanation{padding:.4rem}
+.mirror-line{
+  margin:.8rem 0;padding:.7rem .8rem;border-radius:9px;background:#f5f8f7;
+  display:flex;justify-content:space-between;gap:.8rem;flex-wrap:wrap;
+}
+.mirror-line span{color:#65757c}
+.interpret-box{
+  margin-top:1rem;padding:.9rem 1rem;border-radius:12px;background:#fff7dc;border-left:5px solid #ad7c17;
+}
+@media(max-width:760px){
+  .climate-toggle-row{flex-wrap:wrap}
+}

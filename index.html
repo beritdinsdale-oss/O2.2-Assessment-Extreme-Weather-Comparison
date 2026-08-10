@@ -9,10 +9,87 @@
 <article class="scene" id="tn"><div class="visual rain">☁️<span>💧💧💧</span></div><div><small>AUGUST 2021</small><h3>Extreme rainfall</h3><p>Exceptionally heavy rainfall around Waverly produced extreme flash flooding. More than 20 inches was recorded within 24 hours near the event area.</p><button class="videoBtn" data-video="gDvWd8uphXk">▶ Watch event video</button><div class="video"></div></div></article>
 <div class="result"><b>Same year + same season ≠ same extreme.</b><br>Change the location → the extreme-weather picture changes.</div></section>
 
-<section class="panel" data-p="2"><h2>🔬 Turn on the Climate Lens</h2><p class="lead">What changes the odds?</p><div class="choices"><button class="lens active" data-id="heatLens">☀️ Extreme heat</button><button class="lens" data-id="rainLens">🌧️ Heavy precipitation</button></div>
-<article class="lensPanel active" id="heatLens"><div class="diagram"><h3>Warmer baseline</h3><div class="bar old">Earlier climate</div><div class="bar new">Warmer climate →</div><div class="extreme">EXTREME HEAT</div></div><div><h3>Warmer baseline → higher odds</h3><p>As average temperatures rise, the range of possible temperatures shifts warmer. Very hot conditions become more likely.</p><p class="evidence"><b>Climate connection:</b> ● ● ● ● Strong</p></div></article>
-<article class="lensPanel" id="rainLens"><div class="moisture"><div>Cooler air<br>💧 💧</div><b>→ warming →</b><div>Warmer air<br>💧 💧 💧 💧</div></div><div><h3>Warmer air → more available moisture</h3><p>A warmer atmosphere can hold more water vapor. When rain develops, extra moisture can contribute to heavier downpours.</p><p class="evidence"><b>Climate connection:</b> ● ● ● ● Strong, with regional variation</p></div></article>
-<div class="predict"><b>Pause and predict:</b> If the climate continues warming, what part of these diagrams changes?<button id="reveal">Reveal explanation</button><p id="answer" hidden>The temperature baseline continues shifting warmer, and the atmosphere can hold more moisture. This changes the <em>likelihood or intensity</em> of some extremes—not day-to-day weather everywhere.</p></div></section>
+<section class="panel" data-p="2">
+  <h2>🔬 Turn on the Climate Lens</h2>
+  <p class="lead">Watch the variable change—not just the explanation.</p>
+
+  <div class="choices">
+    <button class="lens active" data-id="heatLens">☀️ Extreme heat</button>
+    <button class="lens" data-id="rainLens">🌧️ Heavy precipitation</button>
+  </div>
+
+  <div class="climate-toggle-row">
+    <span>Weather view</span>
+    <button id="climateToggle" class="climate-toggle" type="button" role="switch" aria-checked="false">
+      <span class="toggle-knob"></span>
+      <strong>Climate lens OFF</strong>
+    </button>
+    <span>Climate lens</span>
+  </div>
+
+  <article class="lensPanel active" id="heatLens">
+    <div class="heat-sim">
+      <div class="heat-axis">
+        <span>cooler</span>
+        <span>hotter</span>
+      </div>
+      <div class="extreme-zone-label">EXTREME HEAT ZONE</div>
+      <div class="heat-track">
+        <div class="heat-threshold"></div>
+        <div class="distribution heat-dist">
+          <div class="distribution-core"></div>
+        </div>
+      </div>
+      <div class="sim-labels">
+        <span class="baseline-label">Typical temperature range</span>
+        <span class="extreme-share">Small share reaches extreme heat</span>
+      </div>
+    </div>
+
+    <div class="lens-explanation">
+      <h3>What changes?</h3>
+      <p class="off-copy"><strong>Weather view:</strong> most hot days stay below the extreme-heat threshold.</p>
+      <p class="on-copy" hidden><strong>Climate lens:</strong> the whole temperature range shifts warmer. The threshold does not move, so more of the range falls into extreme heat.</p>
+      <div class="mirror-line">
+        <span>Variable in the visual:</span>
+        <strong>temperature baseline</strong>
+      </div>
+      <div class="evidence"><b>Climate connection:</b> ● ● ● ● Strong</div>
+    </div>
+  </article>
+
+  <article class="lensPanel" id="rainLens">
+    <div class="rain-sim">
+      <div class="air-column">
+        <div class="air-temp">Cooler atmosphere</div>
+        <div class="vapor-field" aria-hidden="true">
+          <span>💧</span><span>💧</span><span>💧</span><span class="extra">💧</span><span class="extra">💧</span><span class="extra">💧</span>
+        </div>
+      </div>
+      <div class="storm-cloud" aria-hidden="true">☁️</div>
+      <div class="rainfall" aria-hidden="true">
+        <span>│</span><span>│</span><span>│</span><span class="extra-rain">│</span><span class="extra-rain">│</span>
+      </div>
+      <div class="rain-caption">Moderate rainfall</div>
+    </div>
+
+    <div class="lens-explanation">
+      <h3>What changes?</h3>
+      <p class="off-copy"><strong>Weather view:</strong> the atmosphere contains a certain amount of water vapor available to a storm.</p>
+      <p class="on-copy" hidden><strong>Climate lens:</strong> warmer air can hold more water vapor. When a storm forms, that larger moisture supply can contribute to heavier rainfall.</p>
+      <div class="mirror-line">
+        <span>Variable in the visual:</span>
+        <strong>available atmospheric moisture</strong>
+      </div>
+      <div class="evidence"><b>Climate connection:</b> ● ● ● ● Strong, with regional variation</div>
+    </div>
+  </article>
+
+  <div class="interpret-box">
+    <strong>What should you notice?</strong>
+    <p id="interpretText">Turn on the Climate Lens and watch what physically changes in the visual.</p>
+  </div>
+</section>
 
 <section class="panel" data-p="3"><h2>📅 Change the season</h2><p class="lead">Keep the place fixed. Move through the year.</p><div class="context">📍 <b>Willamette Valley, Oregon · 2021</b></div>
 <div id="seasonBox" class="seasonBox"><div class="seasonIcon">❄️</div><div><small>FEBRUARY</small><h3>Ice storm</h3><p>Freezing rain coated trees, roads, and power lines with damaging ice.</p></div></div>

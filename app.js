@@ -5,9 +5,38 @@ document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>show(+b.dataset.
 document.querySelectorAll(".loc").forEach(b=>b.onclick=()=>{document.querySelectorAll(".loc").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".scene").forEach(x=>x.classList.remove("active"));document.querySelector("#"+b.dataset.id).classList.add("active")});
 document.querySelectorAll(".videoBtn").forEach(b=>b.onclick=()=>{let box=b.nextElementSibling;if(box.innerHTML){box.innerHTML="";b.textContent="▶ Watch event video"}else{box.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.video}" title="Event video" allowfullscreen></iframe>`;b.textContent="Hide video"}});
 document.querySelectorAll(".lens").forEach(b=>b.onclick=()=>{document.querySelectorAll(".lens").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".lensPanel").forEach(x=>x.classList.remove("active"));document.querySelector("#"+b.dataset.id).classList.add("active")});
-document.querySelector("#reveal").onclick=e=>{let a=document.querySelector("#answer");a.hidden=!a.hidden;e.target.textContent=a.hidden?"Reveal explanation":"Hide explanation"};
 const ss=[["❄️","FEBRUARY","Ice storm","Freezing rain coated trees, roads, and power lines with damaging ice.","linear-gradient(#dceaf3,#eaf0ec)"],["🌱","APRIL","Spring transition","Milder spring conditions return as the seasonal cycle moves forward.","linear-gradient(#d9eef4,#eaf6df)"],["☀️","JUNE","Extreme heat","Exceptional heat affected the same broader region only a few months later.","linear-gradient(#cfeaf5,#ffe4b7)"],["🍂","OCTOBER","Autumn","The seasonal cycle continues with a different range of typical weather.","linear-gradient(#dbe9ee,#f3d7ad)"]];
 document.querySelector("#season").oninput=e=>{let s=ss[+e.target.value],b=document.querySelector("#seasonBox");b.style.background=s[4];b.querySelector(".seasonIcon").textContent=s[0];b.querySelector("div:last-child").innerHTML=`<small>${s[1]}</small><h3>${s[2]}</h3><p>${s[3]}</p>`};
 document.querySelector("#compare").onclick=e=>{let c=document.querySelector("#comparison");c.hidden=!c.hidden;e.target.textContent=c.hidden?"Compare February + June":"Hide comparison"};
 document.querySelector("#zoom").oninput=e=>{let v=+e.target.value,c=document.querySelector("#chart"),t=document.querySelector("#zoomText");c.className=v===1?"mid":v===2?"long":"";t.innerHTML=v===0?"<b>One year:</b> mostly weather. A single year cannot establish a climate trend.":v===1?"<b>Several years:</b> variability dominates, but a possible direction begins to emerge.":"<b>Decades:</b> the long-term pattern becomes visible through year-to-year variability."};
 const f={heat:"<b>Extreme heat:</b> long-term U.S. records show heat waves becoming more frequent, longer, and more intense.",rain:"<b>Heavy precipitation:</b> heavy precipitation has increased overall across the contiguous U.S., with regional differences.",cold:"<b>Extreme cold:</b> extreme cold events have generally become less frequent and less intense across much of the U.S."};document.querySelectorAll(".trendBtn").forEach(b=>b.onclick=()=>{document.querySelectorAll(".trendBtn").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelector("#trendText").innerHTML=f[b.dataset.t]});show(0);
+const climateToggle=document.querySelector("#climateToggle");
+function updateClimateLens(){
+  const on=climateToggle.getAttribute("aria-checked")==="true";
+  document.querySelectorAll("#heatLens,#rainLens").forEach(panel=>{
+    panel.classList.toggle("climate-on",on);
+    const off=panel.querySelector(".off-copy"), oncopy=panel.querySelector(".on-copy");
+    if(off) off.hidden=on;
+    if(oncopy) oncopy.hidden=!on;
+  });
+  climateToggle.classList.toggle("on",on);
+  climateToggle.querySelector("strong").textContent=`Climate lens ${on?"ON":"OFF"}`;
+  const active=document.querySelector(".lensPanel.active");
+  const interpret=document.querySelector("#interpretText");
+  if(!on){
+    interpret.textContent="Turn on the Climate Lens and watch what physically changes in the visual.";
+  }else if(active?.id==="heatLens"){
+    interpret.textContent="The temperature distribution shifts toward the fixed extreme-heat threshold. More of the range now falls into the extreme zone.";
+  }else{
+    interpret.textContent="The warmer atmosphere holds more water vapor, and the rainfall intensifies when the storm draws from that larger moisture supply.";
+  }
+}
+climateToggle?.addEventListener("click",()=>{
+  const on=climateToggle.getAttribute("aria-checked")!=="true";
+  climateToggle.setAttribute("aria-checked",String(on));
+  updateClimateLens();
+});
+document.querySelectorAll(".lens").forEach(btn=>{
+  btn.addEventListener("click",()=>setTimeout(updateClimateLens,0));
+});
+updateClimateLens();
