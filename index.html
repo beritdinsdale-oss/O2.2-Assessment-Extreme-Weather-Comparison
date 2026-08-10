@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Extreme Weather: Change the View</title><link rel="stylesheet" href="change-view-v10.css"></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Extreme Weather: Change the View</title><link rel="stylesheet" href="change-view-v11.css"></head><body>
 <a class="skip" href="#main">Skip to activity</a>
 <header class="hero" id="start"><img src="Garden-Frost-Adobe-Stock-Ann.jpeg" alt="Garden plants covered with frost during cold weather."><div class="hero-copy"><p class="eyebrow">INTERACTIVE EXPLORATION</p><h1>Extreme Weather:<span> Change the View</span></h1><p>Explore how extreme weather changes across <b>place</b>, <b>season</b>, and <b>time</b> using two examples.</p><div class="hazard-badges"><span>☀️ Extreme heat</span><span>🌧️ Heavy precipitation</span></div><button class="primary" data-open="hub">Choose a path</button><small>Photo: Ann / Adobe Stock</small></div></header>
 <main id="main">
@@ -28,15 +28,98 @@
 <div class="season-feature" id="seasonFeature"><div id="seasonFeatureImage" class="feature-image winter"></div><div class="feature-copy"><p id="seasonMonth">FEBRUARY 2021</p><h3 id="seasonTitle">Ice storm</h3><p id="seasonText">Freezing rain coated trees, roads, and power lines with damaging ice.</p><div id="seasonEvidence" class="evidence-note">Climate connection: <b>still being studied for regional ice-storm frequency.</b></div></div></div>
 <div class="season-punch"><span>🧊 FEBRUARY</span><strong>SAME REGION</strong><span>☀️ JUNE</span></div></section>
 
-<section id="bigpicture" class="screen bigpicture" hidden><button class="back" data-open="hub">← Back to choices</button><div class="topic-title big-title"><span>📈</span><div><p>THE BIG PICTURE</p><h2>What changes across decades?</h2></div><b>Observed U.S. metro data</b></div><p class="lead">Choose an extreme to explore.</p>
-<div class="hazard-choice" role="tablist"><button class="hazard-choice-btn heat-choice active" data-hazard="heat" aria-selected="true"><span>☀️</span><b>Extreme Heat</b><small>Frequency · duration · season · intensity</small></button><button class="hazard-choice-btn rain-choice" data-hazard="precip" aria-selected="false"><span>🌧️</span><b>Heavy Precipitation</b><small>Frequency and regional patterns</small></button></div>
-<div id="heatBigView" class="big-hazard-view active"><p class="view-prompt">Choose a heat-wave characteristic.</p>
-<div class="metric-tabs"><button class="metric-btn active" data-metric="frequency">Frequency</button><button class="metric-btn" data-metric="duration">Duration</button><button class="metric-btn" data-metric="season">Season length</button><button class="metric-btn" data-metric="intensity">Intensity</button></div><div class="chart-card"><div class="chart-top"><div><small>OBSERVED DATA</small><h3 id="metricTitle">Average heat waves per year</h3></div><strong id="metricChange"></strong></div><svg id="realHeatChart" viewBox="0 0 820 390" role="img" aria-labelledby="chartTitle chartDesc"><title id="chartTitle">Heat wave frequency by decade</title><desc id="chartDesc">Bar chart showing decadal heat wave characteristics across 50 large U.S. metropolitan areas from 1961 through 2023.</desc><g id="heatBars"></g><line x1="65" y1="320" x2="785" y2="320" class="axis"></line></svg><p id="metricInterpretation" class="chart-note"></p><p class="source"><b>Data:</b> EPA Climate Change Indicators; NOAA data, 2024. Decadal averages across 50 large U.S. metropolitan areas, 1961–2023.</p></div></div>
-<div id="precipBigView" class="big-hazard-view">
-<div class="precip-explore"><div class="precip-graphic"><div class="rain-cloud">🌧️</div><div class="threshold-bars"><button class="threshold active" data-threshold="top1"><span class="drop-fill first"></span><b>Heaviest 1%</b><small>U.S. pattern</small></button><button class="threshold" data-threshold="regional"><span class="drop-fill second"></span><b>By region</b><small>Compare change</small></button></div></div>
-<div class="precip-story"><p class="chart-kicker">OBSERVED U.S. PATTERN</p><h3 id="precipTitle">Heavy precipitation is becoming more frequent.</h3><p id="precipText">Since the 1950s, heavy precipitation events have occurred more often across the contiguous United States, with especially large increases in the Northeast and Midwest.</p><div class="precip-callout"><b>“Extreme” depends on place and season.</b><span>EPA defines extreme precipitation here as the top 1% of the heaviest events for a location using its historical record.</span></div></div></div>
-<p class="source"><b>Data/context:</b> U.S. EPA Extreme Precipitation indicator, based on observed U.S. precipitation records since the 1950s.</p></div>
-<button class="primary next-path" data-open="regionexplore">Explore your own region →</button></section>
+<section id="bigpicture" class="screen bigpicture" hidden>
+<button class="back" data-open="hub">← Back to choices</button>
+<div class="topic-title big-title"><span>📈</span><div><p>THE BIG PICTURE</p><h2>What changes across decades?</h2></div><b>Observed regional data</b></div>
+<p class="lead">Choose the same two extremes you explored earlier—now at the regional scale.</p>
+
+<div class="hazard-choice" role="tablist" aria-label="Choose regional climate data">
+  <button class="hazard-choice-btn heat-choice active" data-hazard="nwheat" aria-selected="true">
+    <span>☀️</span><b>Extreme Heat — Northwest</b><small>Oregon · Washington · Idaho</small>
+  </button>
+  <button class="hazard-choice-btn rain-choice" data-hazard="seprecip" aria-selected="false">
+    <span>🌧️</span><b>Heavy Precipitation — Southeast</b><small>Regional observed change</small>
+  </button>
+</div>
+
+<div id="nwheatBigView" class="big-hazard-view active">
+  <div class="regional-data-card heat-regional">
+    <div class="region-data-heading">
+      <div><p class="chart-kicker">NORTHWEST · SUMMER · 1910–2020</p><h3>How much of the region experienced extremely warm days?</h3></div>
+      <span class="region-chip">Top 10% of historical daytime highs</span>
+    </div>
+
+    <div class="regional-comparison">
+      <div class="period-block earlier">
+        <small>FIRST 90 YEARS OF RECORD</small>
+        <strong>3 summers</strong>
+        <p>had extreme heat covering more than half of the Northwest.</p>
+      </div>
+      <div class="comparison-arrow">→</div>
+      <div class="period-block recent">
+        <small>PAST 20 YEARS OF THE 1910–2020 RECORD</small>
+        <strong>6 summers</strong>
+        <p>had extreme heat covering more than half of the Northwest.</p>
+      </div>
+    </div>
+
+    <div class="footprint-visual" aria-label="Illustration of increasing regional footprint of extreme heat">
+      <div class="footprint-row">
+        <span class="footprint-label">Earlier record</span>
+        <div class="region-grid earlier-grid">
+          <i></i><i></i><i></i><i></i><i class="hot"></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+      <div class="footprint-row">
+        <span class="footprint-label">Recent decades</span>
+        <div class="region-grid recent-grid">
+          <i class="hot"></i><i class="hot"></i><i class="hot"></i><i class="hot"></i><i class="hot"></i><i class="hot"></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+      <small class="visual-note">Illustration of regional footprint—not a map or annual data plot.</small>
+    </div>
+
+    <p class="regional-takeaway"><b>The footprint of extreme summer heat has expanded.</b> NOAA notes that the area of the Northwest experiencing extremely warm days has increased sharply in recent decades.</p>
+    <p class="source"><b>Data:</b> NOAA Climate Extremes Index. Northwest = Oregon, Washington, and Idaho. Extremely warm days are daytime highs in the top 10% of the historical record, summer 1910–2020.</p>
+    <a class="source-button" href="https://www.climate.gov/media/12918" target="_blank" rel="noopener">View NOAA source graph ↗</a>
+  </div>
+</div>
+
+<div id="seprecipBigView" class="big-hazard-view">
+  <div class="regional-data-card rain-regional">
+    <div class="region-data-heading">
+      <div><p class="chart-kicker">SOUTHEAST · 1958–2021</p><h3>How much precipitation falls on the heaviest 1% of days?</h3></div>
+      <span class="region-chip rain-chip">Observed regional change</span>
+    </div>
+
+    <div class="precip-change-visual">
+      <div class="precip-baseline">
+        <small>1958 baseline</small>
+        <div class="rain-volume base-volume"><span>100</span></div>
+        <b>Relative amount</b>
+      </div>
+      <div class="big-plus">+37%</div>
+      <div class="precip-baseline">
+        <small>2021 trend endpoint</small>
+        <div class="rain-volume new-volume"><span>137</span></div>
+        <b>Relative amount</b>
+      </div>
+    </div>
+
+    <p class="regional-takeaway rain-takeaway"><b>The heaviest precipitation days have become wetter.</b> In the Southeast, total precipitation falling on the heaviest 1% of days increased 37% from 1958–2021.</p>
+    <div class="definition-box"><b>What does “heaviest 1%” mean?</b><span>The wettest 1% of precipitation days in the historical record for that region.</span></div>
+    <p class="source"><b>Data:</b> Fifth National Climate Assessment / NOAA Climate.gov. Southeast regional change in total precipitation falling on the heaviest 1% of days, 1958–2021.</p>
+    <a class="source-button" href="https://www.climate.gov/news-features/features/can-noaa-predict-next-flood-new-research-shows-promise" target="_blank" rel="noopener">View NOAA explanation ↗</a>
+  </div>
+</div>
+
+<div class="regional-bridge">
+  <span>☀️ Northwest</span><b>Different hazard, different region—same question:</b><span>🌧️ Southeast</span>
+  <p>What changes when we stop looking at one event and examine decades of observations?</p>
+</div>
+
+<button class="primary next-path" data-open="regionexplore">Explore your own region →</button>
+</section>
 
 <section id="regionexplore" class="screen regionexplore" hidden><button class="back" data-open="hub">← Back to choices</button><div class="topic-title explore-title"><span>🧭</span><div><p>YOUR REGION</p><h2>Now make it local.</h2></div></div><div class="explore-steps"><article><span>1</span><div><h3>Find local events</h3><p>Search NOAA's Storm Events Database for your area.</p><a href="https://www.ncei.noaa.gov/stormevents/choosedates.jsp?statefips=-999%2CALL" target="_blank" rel="noopener">Open NOAA Storm Events ↗</a></div></article><article><span>2</span><div><h3>Look across time</h3><p>Explore long-term temperature or precipitation patterns for your state or county.</p><a href="https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/county/mapping" target="_blank" rel="noopener">Open Climate at a Glance ↗</a></div></article></div><div class="journal-box"><span>📓</span><div><small>NEXT STEP</small><h3>Record what you found.</h3><p>Complete the <b>Extreme Weather</b> entry in <em>My Garden Observation Journal</em>.</p><a href="https://canvas.oregonstate.edu/courses/2038983/pages/my-garden-journal?module_item_id=27047126" target="_top">Open My Garden Observation Journal</a></div></div></section>
-</main><script src="change-view-v10.js"></script></body></html>
+</main><script src="change-view-v11.js"></script></body></html>

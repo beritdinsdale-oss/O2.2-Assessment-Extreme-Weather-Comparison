@@ -28,3 +28,25 @@ Explore Your Region ends with a direct Canvas button to My Garden Observation Jo
 
 Required local title image: Garden-Frost-Adobe-Stock-Ann.jpeg
 Some decorative/event photographs are loaded from NASA and Unsplash. Essential content does not depend on the images loading.
+
+V11 — Regional Big Picture
+--------------------------
+The Big Picture now mirrors the geographic examples used earlier in the activity.
+
+EXTREME HEAT — NORTHWEST
+- Region: Oregon, Washington, Idaho
+- Metric: percent area experiencing extremely warm summer days
+- Definition: daytime highs in the top 10% of the historical record
+- Record: 1910–2020
+- Source: NOAA Climate Extremes Index
+- NOAA summary used in activity: in the first 90 years of the record, >50% regional
+  extreme-heat footprint occurred 3 times; in the final 20 years, it occurred 6 times.
+
+HEAVY PRECIPITATION — SOUTHEAST
+- Metric: total precipitation falling on the heaviest 1% of days
+- Period: 1958–2021
+- Observed change: +37%
+- Source: Fifth National Climate Assessment / NOAA Climate.gov
+
+These two displays intentionally use different regional indicators because the most useful
+published observed datasets for heat and precipitation are not identical metrics.
