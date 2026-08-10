@@ -185,3 +185,11 @@ footer{padding:1rem 0;background:#324940;color:#fff;font-size:.86rem}
   .footer-grid{display:block}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.climate-video-note{
+  margin:.75rem 0;
+  padding:.7rem .8rem;
+  border-radius:10px;
+  background:var(--blue-soft);
+  border-left:5px solid var(--blue);
+}

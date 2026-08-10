@@ -62,7 +62,8 @@ Regions event rainfall: gDvWd8uphXk
 Regions climate heat: LdRV9OjpYEY
 Regions climate rain: w-dbv4F4i3k
 
-Seasons ice: bD_VkWPEUP8
+Seasons ice event: sq4B9U-Eoy4
+Seasons ice climate explainer: bD_VkWPEUP8
 Seasons heat (different video): _ruKbQogo3c
 
 CANVAS
@@ -77,3 +78,8 @@ After GitHub Pages finishes deploying:
   style="border:0; width:100%;"
   loading="eager">
 </iframe>
+
+V2 revision:
+- Ice-storm event page now uses KGW Feb. 13, 2021 event coverage.
+- Ice-storm explanatory video moved to the climate page.
+- Removed learner-facing wording about avoiding repetitive videos.
