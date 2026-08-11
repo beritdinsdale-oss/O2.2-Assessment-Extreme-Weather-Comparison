@@ -32,3 +32,34 @@ eventClimateButton.addEventListener('click',()=>{
       : 'Heavy precipitation: how warmer air can increase available moisture.';
   }
 });
+
+const knowledgeChallenges=[
+ {kicker:'CHALLENGE 1 · LOCATION',question:'Same summer, different places. What does that reveal?',prompt:'Build the strongest explanation by selecting two evidence tiles.',scene:'',tiles:[
+  ['Location changes the hazards and conditions a region experiences.',true],
+  ['Every region should experience the same extreme in the same season.',false],
+  ['The same season can produce very different extremes in different places.',true],
+  ['A single extreme event tells us the climate trend everywhere.',false]],feedback:'Exactly. Holding the season roughly constant while changing location reveals regional differences in extreme weather.'},
+ {kicker:'CHALLENGE 2 · SEASON',question:'Same region, different seasons. What does that reveal?',prompt:'Choose two pieces of evidence that belong in the explanation.',scene:'season-scene',tiles:[
+  ['A region can experience different hazards as conditions change through the year.',true],
+  ['Extreme heat means winter extremes can no longer occur.',false],
+  ['Season changes the background conditions in which an extreme develops.',true],
+  ['Climate change makes every season behave the same way.',false]],feedback:'Right. Season matters: the same region can experience ice, dryness, heat, and heavy rain at different times of year.'},
+ {kicker:'CHALLENGE 3 · CLIMATE',question:'Why do we zoom out from one event to decades?',prompt:'Choose the two statements that best complete the explanation.',scene:'climate-scene',tiles:[
+  ['One event is weather; repeated observations over time reveal a climate pattern.',true],
+  ['Climate change can shift the background conditions that influence some extremes.',true],
+  ['One extreme event by itself proves climate change caused it.',false],
+  ['If an extreme happened in the past, climate cannot affect it now.',false]],feedback:'Yes. Long records reveal changing patterns, while climate change can alter the background conditions in which individual weather events occur.'}
+];
+let knowledgeIndex=0,knowledgeSelected=[];
+const challengeCard=document.querySelector('#challengeCard'),knowledgeComplete=document.querySelector('#knowledgeComplete');
+function renderKnowledge(){
+ const c=knowledgeChallenges[knowledgeIndex];knowledgeSelected=[];
+ challengeScene.className='challenge-scene '+c.scene;challengeKicker.textContent=c.kicker;challengeQuestion.textContent=c.question;challengePrompt.textContent=c.prompt;
+ selectedEvidence.textContent='Choose two pieces of evidence.';knowledgeFeedback.hidden=true;nextChallenge.hidden=true;checkEvidence.hidden=false;checkEvidence.disabled=true;
+ evidenceTiles.innerHTML='';
+ c.tiles.forEach((t,i)=>{const b=document.createElement('button');b.className='evidence-tile';b.textContent=t[0];b.addEventListener('click',()=>{if(b.classList.contains('selected')){b.classList.remove('selected');knowledgeSelected=knowledgeSelected.filter(x=>x!==i)}else if(knowledgeSelected.length<2){b.classList.add('selected');knowledgeSelected.push(i)}selectedEvidence.textContent=knowledgeSelected.length?knowledgeSelected.map(x=>c.tiles[x][0]).join(' + '):'Choose two pieces of evidence.';checkEvidence.disabled=knowledgeSelected.length!==2});evidenceTiles.appendChild(b)});
+ document.querySelectorAll('.challenge-dot').forEach((d,i)=>{d.classList.toggle('active',i===knowledgeIndex);d.classList.toggle('done',i<knowledgeIndex)});
+}
+checkEvidence.addEventListener('click',()=>{const c=knowledgeChallenges[knowledgeIndex],ok=knowledgeSelected.every(i=>c.tiles[i][1]);knowledgeFeedback.hidden=false;knowledgeFeedback.classList.toggle('try-again',!ok);knowledgeFeedback.innerHTML=ok?'<b>Strong explanation.</b> '+c.feedback:'<b>Not quite.</b> Look for evidence that explains the pattern without claiming that one event proves climate change.';if(ok){checkEvidence.hidden=true;nextChallenge.hidden=false}});
+nextChallenge.addEventListener('click',()=>{knowledgeIndex++;if(knowledgeIndex<knowledgeChallenges.length)renderKnowledge();else{challengeCard.hidden=true;knowledgeComplete.hidden=false;document.querySelectorAll('.challenge-dot').forEach(d=>{d.classList.remove('active');d.classList.add('done')})}});
+document.querySelectorAll('[data-open="knowledge"]').forEach(b=>b.addEventListener('click',()=>{knowledgeIndex=0;challengeCard.hidden=false;knowledgeComplete.hidden=true;renderKnowledge()}));

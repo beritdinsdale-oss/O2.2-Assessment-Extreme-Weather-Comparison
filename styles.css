@@ -78,3 +78,119 @@
 .season-card.spring{background-image:url('spring-poster.jpg')!important}
 .season-card.summer{background-image:url('summer-poster.jpg')!important}
 .season-card.fall{background-image:url('fall-poster.jpg')!important}
+
+/* Journal + Test Your Knowledge */
+.hub-intro{max-width:850px;margin:0 auto 1.2rem;text-align:center}.hub-intro h2{font-size:clamp(1.8rem,4vw,2.7rem);margin:.2rem 0}
+.path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.path-card{min-height:190px;border:0;border-radius:18px;padding:1.2rem;text-align:left;cursor:pointer;box-shadow:0 8px 22px #0001;transition:.2s transform,.2s box-shadow}.path-card:hover,.path-card:focus-visible{transform:translateY(-4px);box-shadow:0 12px 26px #0002}.path-icon{font-size:2.5rem;display:block}.path-card b{display:block;font-size:1.35rem;margin:.5rem 0}.path-card small{font-size:.95rem}.regions-path{background:#e8f3f6}.seasons-path{background:#fff1dc}.big-path{background:#edf3e8}
+.ready-panel{margin-top:1.4rem;padding:1.2rem;border-radius:18px;background:#f6f4ef}.finish-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.finish-card{display:flex;gap:.9rem;align-items:center;padding:1rem;border:2px solid #d8d5cc;border-radius:14px;background:#fff;text-decoration:none;color:inherit;text-align:left;cursor:pointer}.finish-card span{font-size:2rem}.finish-card b,.finish-card small{display:block}.finish-card b{font-size:1.15rem}.finish-card small{margin-top:.2rem;color:var(--muted)}.knowledge-card{border-color:#8ca7b4}.journal-card{border-color:#9aae87}
+.challenge-progress{display:flex;align-items:center;justify-content:center;margin:1rem auto 1.4rem;max-width:400px}.challenge-dot{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#e2e5e2;font-weight:900}.challenge-dot.active{background:var(--green);color:#fff}.challenge-dot.done{background:#76955d;color:#fff}.challenge-line{height:3px;flex:1;background:#d9ddd9}
+.challenge-card{max-width:900px;margin:auto;padding:1.2rem;border:2px solid var(--line);border-radius:18px;background:#fff}.challenge-scene{height:125px;border-radius:13px;background:linear-gradient(120deg,#dbeef5 0 48%,#f7dfb4 48%);margin-bottom:1rem;position:relative;overflow:hidden}.challenge-scene::after{content:"📍  ↔  📍";position:absolute;inset:0;display:grid;place-items:center;font-size:2.5rem}.challenge-scene.season-scene{background:linear-gradient(90deg,#d9e8ef,#e7f0d5,#f8df9e,#d9a96e)}.challenge-scene.season-scene::after{content:"❄️  →  🌱  →  ☀️  →  🌧️"}.challenge-scene.climate-scene{background:linear-gradient(90deg,#d9e9ef,#f6d5a8)}.challenge-scene.climate-scene::after{content:"weather  →  decades";font-weight:900;font-size:1.5rem}
+.challenge-kicker{font-size:.78rem;font-weight:900;letter-spacing:.09em;color:var(--muted)}.challenge-card h3{font-size:1.55rem;margin:.25rem 0}.evidence-tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin:1rem 0}.evidence-tile{padding:.85rem;border:2px solid #ccd5d0;border-radius:11px;background:#fafcfb;text-align:left;cursor:pointer;font-weight:750}.evidence-tile.selected{border-color:var(--green);background:var(--green2)}.explanation-builder{padding:.9rem;background:#f4f6f5;border-radius:11px;margin-bottom:.8rem}.explanation-builder>span{font-size:.8rem;font-weight:900;text-transform:uppercase}.selected-evidence{margin-top:.35rem;min-height:30px}.knowledge-feedback{margin-top:.9rem;padding:1rem;border-radius:11px;background:#eef6e9;border-left:6px solid var(--green)}.knowledge-feedback.try-again{background:#fff4e4;border-color:#c78327}.secondary-action{margin-top:.8rem}.knowledge-complete{text-align:center;max-width:760px;margin:2rem auto;padding:2rem;border-radius:18px;background:#f1f6ed}.complete-icon{display:grid;place-items:center;width:60px;height:60px;margin:auto;border-radius:50%;background:var(--green);color:#fff;font-size:2rem}.complete-actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}.journal-link{text-decoration:none}
+@media(max-width:760px){.path-grid,.finish-grid,.evidence-tiles{grid-template-columns:1fr}}
+
+/* Accessible roadmap menu */
+.roadmap-screen{
+  background:linear-gradient(180deg,#fbfaf5 0%,#f7f8f3 100%);
+  position:relative;
+  overflow:hidden;
+}
+.roadmap-screen::before,
+.roadmap-screen::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  background:#edf2e6;
+  opacity:.7;
+  z-index:0;
+}
+.roadmap-screen::before{width:240px;height:240px;right:-80px;top:90px}
+.roadmap-screen::after{width:170px;height:170px;left:-60px;bottom:180px}
+.roadmap-screen>*{position:relative;z-index:1}
+.roadmap-intro{max-width:760px;margin:0 auto 1.5rem;text-align:center}
+.roadmap-intro h2{font-size:clamp(2rem,4vw,3rem);margin:.2rem 0 .45rem}
+.roadmap-intro p:last-child{font-size:1.08rem;color:var(--muted)}
+.roadmap-wrap{position:relative;max-width:980px;margin:0 auto;padding:1rem 0}
+.road-line{
+  position:absolute;
+  left:46px;
+  top:34px;
+  bottom:42px;
+  width:18px;
+  border-radius:20px;
+  background:linear-gradient(180deg,#d6c59d,#e6d8b7);
+  box-shadow:inset 0 0 0 3px #f4ead0;
+}
+.road-line::after{
+  content:"";
+  position:absolute;inset:0;
+  background:radial-gradient(circle,#9c8c68 0 2px,transparent 3px);
+  background-size:16px 36px;
+  opacity:.45;
+}
+.road-stop{display:grid;grid-template-columns:94px 1fr;gap:1rem;align-items:start;margin:1rem 0 1.5rem;position:relative}
+.road-marker{
+  width:72px;height:88px;margin-left:10px;
+  clip-path:polygon(50% 100%,6% 50%,6% 28%,18% 10%,50% 0,82% 10%,94% 28%,94% 50%);
+  display:grid;place-items:start center;
+  padding-top:13px;color:#fff;font-size:1.8rem;font-weight:900;
+  box-shadow:0 5px 12px #0002;
+}
+.marker-one{background:#56782f}.marker-two{background:#2c6098}.marker-three{background:#70509d}.marker-four{background:#c58a05}
+.road-card{
+  border:1px solid #dad7cb;border-radius:18px;background:#fff;color:var(--ink);
+  box-shadow:0 8px 22px #00000010;
+  text-align:left;text-decoration:none;overflow:hidden;
+}
+button.road-card{width:100%;font:inherit;cursor:pointer}
+.road-card-large{padding:1.15rem}
+.road-heading{display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.road-heading h3,.road-card-copy h3{font-size:1.65rem;margin:.1rem 0}
+.road-kicker{margin:0;font-size:.76rem;letter-spacing:.09em;font-weight:900;color:#4e6d31}
+.road-icon{font-size:2.1rem}
+.road-summary{margin:.3rem 0 1rem;color:var(--muted)}
+.road-example-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.road-example{
+  border:1px solid #d9ddd8;border-radius:14px;background:#fff;padding:0;overflow:hidden;
+  text-align:left;color:var(--ink);cursor:pointer;box-shadow:0 4px 14px #0000000c;
+}
+.road-example:hover,.road-example:focus-visible,.road-card:hover,.road-card:focus-visible{
+  transform:translateY(-2px);box-shadow:0 10px 24px #00000018
+}
+.road-example,.road-card{transition:transform .18s ease,box-shadow .18s ease}
+.road-photo{height:145px;background-size:cover;background-position:center}
+.regions-road-photo{
+  background-image:linear-gradient(#0000,#0002),url('https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/148000/148506/seattle_eco_2021176_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=600&w=1000')
+}
+.seasons-road-photo{display:grid;grid-template-columns:repeat(4,1fr)}
+.season-strip{display:block;background-size:cover;background-position:center}
+.seasons-road-photo .s1{background-image:url('winter-poster.jpg')}
+.seasons-road-photo .s2{background-image:url('spring-poster.jpg')}
+.seasons-road-photo .s3{background-image:url('summer-poster.jpg')}
+.seasons-road-photo .s4{background-image:url('fall-poster.jpg')}
+.road-example-copy{display:grid;grid-template-columns:auto 1fr;gap:.7rem;padding:.85rem}
+.mini-icon{font-size:1.6rem}.road-example-copy b,.road-example-copy small,.road-example-copy em{display:block}
+.road-example-copy b{font-size:1.12rem}.road-example-copy small{color:var(--muted);margin-top:.1rem}
+.road-example-copy em,.road-card-copy em{font-style:normal;font-weight:900;color:var(--green);margin-top:.5rem;display:block}
+.road-card-wide{display:grid;grid-template-columns:34% 66%;min-height:190px;align-items:stretch}
+.road-card-copy{padding:1.15rem;display:flex;flex-direction:column;justify-content:center}
+.climate-road-card{background:linear-gradient(90deg,#eaf1f8,#fff)}
+.climate-road-card .road-kicker{color:#2c6098}
+.road-illustration{position:relative;overflow:hidden;min-height:190px}
+.climate-road-visual{background:linear-gradient(#dbe8f5 0 58%,#6e8a71 59% 100%)}
+.mountain{position:absolute;bottom:36%;width:0;height:0;border-left:110px solid transparent;border-right:110px solid transparent;border-bottom:95px solid #7895a8}
+.m1{left:-20px}.m2{left:100px;border-bottom-color:#58778c;transform:scale(.85)}
+.trend-line{position:absolute;left:16%;right:8%;top:48%;height:5px;background:#235d99;transform:rotate(-14deg);border-radius:99px}
+.trend-line::before,.trend-line::after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:#235d99;top:-3px}
+.trend-line::before{left:10%}.trend-line::after{right:0}
+.knowledge-road-card{background:linear-gradient(90deg,#f0eafb,#fff)}
+.knowledge-road-card .road-kicker{color:#70509d}
+.knowledge-road-icon{display:grid;place-items:center;font-size:5rem;background:#e4d9f5}
+.journal-road-card{background:linear-gradient(90deg,#fff3cf,#fff)}
+.journal-road-card .road-kicker{color:#a06d00}
+.journal-road-visual{display:flex;align-items:center;justify-content:center;gap:.6rem;font-size:3.3rem;background:linear-gradient(135deg,#f4e1a6,#e9efce)}
+.roadmap-note{max-width:780px;margin:1.3rem auto 0;display:flex;gap:.7rem;align-items:center;justify-content:center;padding:.8rem;border-radius:12px;background:#eef3e8;color:#4b5e44}
+.roadmap-note p{margin:0}
+@media(max-width:760px){
+  .road-line{left:27px;width:12px}.road-stop{grid-template-columns:58px 1fr}.road-marker{width:52px;height:66px;margin-left:1px;font-size:1.25rem;padding-top:9px}
+  .road-example-grid,.road-card-wide{grid-template-columns:1fr}.road-photo{height:125px}.road-illustration{min-height:140px}.knowledge-road-icon,.journal-road-visual{min-height:120px}
+}

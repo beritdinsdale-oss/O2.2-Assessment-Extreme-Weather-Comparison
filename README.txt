@@ -103,3 +103,22 @@ Navigation fix
 Removed an orphaned fragment from the retired Climate Lens tab handler.
 That JavaScript error stopped the script during page load and prevented the
 Choose a path button from working.
+
+Choose Your Path additions
+--------------------------
+- Hub now tells learners to explore resources, test their understanding, and complete a journal entry.
+- Added direct Canvas My Garden Journal link.
+- Added a 3-part Test Your Knowledge activity using evidence-building rather than multiple choice.
+- Challenges assess location, season, and long-term climate-pattern reasoning.
+
+Roadmap menu redesign
+---------------------
+The former Choose Your Path page is now a visual roadmap:
+1. See How Extremes Vary
+   - Different Regions
+   - Different Seasons
+2. The Big Climate Picture
+3. Test Your Knowledge
+4. Explore Your Region / Garden Journal
+
+All roadmap stops are accessible HTML links/buttons, not a single flattened image.

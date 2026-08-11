@@ -2,12 +2,109 @@
 <a class="skip" href="#main">Skip to activity</a>
 <header class="hero" id="start"><img src="Garden-Frost-Adobe-Stock-Ann.jpeg" alt="Garden plants covered with frost during cold weather."><div class="hero-copy"><p class="eyebrow">INTERACTIVE EXPLORATION</p><h1>Extreme Weather:<span> Change the View</span></h1><p>Explore how extreme weather changes across <b>place</b>, <b>season</b>, and <b>time</b> using two examples.</p><div class="hazard-badges"><span>☀️ Extreme heat</span><span>🌧️ Heavy precipitation</span></div><button class="primary" data-open="hub">Choose a path</button><small>Photo: Ann / Adobe Stock</small></div></header>
 <main id="main">
-<section id="hub" class="screen hub" hidden><div class="hub-heading"><p class="eyebrow">CHOOSE YOUR PATH</p><h2>Extreme weather looks different depending on how you view it.</h2><p>Select a topic. Return here whenever you want to explore another.</p></div>
-<div class="path-grid">
-<button class="path-card regions-card" data-open="regions"><span class="card-shade"></span><span class="path-number">01</span><span class="path-copy"><small>EXTREME WEATHER</small><strong>Different Regions</strong><em>Same summer. Different places.</em></span></button>
-<button class="path-card seasons-card" data-open="seasons"><span class="card-shade"></span><span class="path-number">02</span><span class="path-copy"><small>EXTREME WEATHER</small><strong>Same Region, Different Seasons</strong><em>One place. Move through the year.</em></span></button>
-<button class="path-card big-card" data-open="bigpicture"><span class="card-shade"></span><span class="path-number">03</span><span class="path-copy"><small>EXTREME WEATHER</small><strong>The Big Picture</strong><em>Zoom out across decades.</em></span></button>
-</div></section>
+<section id="hub" class="screen roadmap-screen" hidden>
+  <button class="back roadmap-back" data-open="start">← Back to title</button>
+
+  <div class="roadmap-intro">
+    <p class="eyebrow">EXTREME WEATHER ROADMAP</p>
+    <h2>Explore Extreme Weather</h2>
+    <p>Extreme weather doesn’t look the same everywhere—or throughout the year. Follow the roadmap to explore examples, see the big climate picture, test what you’ve learned, and apply it to your own region.</p>
+  </div>
+
+  <div class="roadmap-wrap">
+    <div class="road-line" aria-hidden="true"></div>
+
+    <section class="road-stop stop-one" aria-labelledby="road-step-1">
+      <div class="road-marker marker-one"><span>1</span></div>
+      <div class="road-card road-card-large">
+        <div class="road-heading">
+          <div>
+            <p class="road-kicker">SEE HOW EXTREMES VARY</p>
+            <h3 id="road-step-1">Start with two examples</h3>
+          </div>
+          <span class="road-icon" aria-hidden="true">🌦️</span>
+        </div>
+        <p class="road-summary">First, look at how extreme weather changes with <strong>place</strong> and <strong>season</strong>.</p>
+
+        <div class="road-example-grid">
+          <button class="road-example regions-example" data-open="regions">
+            <div class="road-photo regions-road-photo" aria-hidden="true"></div>
+            <div class="road-example-copy">
+              <span class="mini-icon">📍</span>
+              <div>
+                <b>Different Regions</b>
+                <small>Same summer. Different places.</small>
+                <em>Explore this example →</em>
+              </div>
+            </div>
+          </button>
+
+          <button class="road-example seasons-example" data-open="seasons">
+            <div class="road-photo seasons-road-photo" aria-hidden="true">
+              <span class="season-strip s1"></span><span class="season-strip s2"></span><span class="season-strip s3"></span><span class="season-strip s4"></span>
+            </div>
+            <div class="road-example-copy">
+              <span class="mini-icon">📅</span>
+              <div>
+                <b>Different Seasons</b>
+                <small>Same region. One year.</small>
+                <em>Explore this example →</em>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="road-stop stop-two" aria-labelledby="road-step-2">
+      <div class="road-marker marker-two"><span>2</span></div>
+      <button class="road-card road-card-wide climate-road-card" data-open="bigpicture">
+        <div class="road-illustration climate-road-visual" aria-hidden="true">
+          <span class="mountain m1"></span><span class="mountain m2"></span><span class="trend-line"></span>
+        </div>
+        <div class="road-card-copy">
+          <p class="road-kicker">THE BIG CLIMATE PICTURE</p>
+          <h3 id="road-step-2">What changes across decades?</h3>
+          <p>Zoom out from individual events and examine long-term evidence for Northwest extreme heat and Southeast heavy precipitation.</p>
+          <em>Explore the evidence →</em>
+        </div>
+      </button>
+    </section>
+
+    <section class="road-stop stop-three" aria-labelledby="road-step-3">
+      <div class="road-marker marker-three"><span>3</span></div>
+      <button class="road-card road-card-wide knowledge-road-card" data-open="knowledge">
+        <div class="knowledge-road-icon" aria-hidden="true">🧩</div>
+        <div class="road-card-copy">
+          <p class="road-kicker">TEST YOUR KNOWLEDGE</p>
+          <h3 id="road-step-3">Put the pieces together</h3>
+          <p>Use the evidence to explain how location, season, and climate shape extreme weather.</p>
+          <em>Try the challenge →</em>
+        </div>
+      </button>
+    </section>
+
+    <section class="road-stop stop-four" aria-labelledby="road-step-4">
+      <div class="road-marker marker-four"><span>4</span></div>
+      <a class="road-card road-card-wide journal-road-card" href="https://canvas.oregonstate.edu/courses/2038983/pages/my-garden-journal?module_item_id=27047126" target="_top">
+        <div class="journal-road-visual" aria-hidden="true">
+          <span>📓</span><span>🌱</span>
+        </div>
+        <div class="road-card-copy">
+          <p class="road-kicker">EXPLORE YOUR REGION</p>
+          <h3 id="road-step-4">Bring it home</h3>
+          <p>Investigate extreme weather where you live using real data, then record what you discover in your Garden Journal.</p>
+          <em>Go to My Garden Journal →</em>
+        </div>
+      </a>
+    </section>
+  </div>
+
+  <div class="roadmap-note">
+    <span aria-hidden="true">↩️</span>
+    <p>You can return to this roadmap at any time and revisit any section.</p>
+  </div>
+</section>
 
 <section id="regions" class="screen regions" hidden><button class="back" data-open="hub">← Back to choices</button><div class="topic-title"><span>📍</span><div><p>DIFFERENT REGIONS</p><h2>Same summer. Different extremes.</h2></div><b>Summer 2021</b></div>
 <div class="event-postcards">
@@ -101,4 +198,38 @@
 </section>
 
 <section id="regionexplore" class="screen regionexplore" hidden><button class="back" data-open="hub">← Back to choices</button><div class="topic-title explore-title"><span>🧭</span><div><p>YOUR REGION</p><h2>Now make it local.</h2></div></div><div class="explore-steps"><article><span>1</span><div><h3>Find local events</h3><p>Search NOAA's Storm Events Database for your area.</p><a href="https://www.ncei.noaa.gov/stormevents/choosedates.jsp?statefips=-999%2CALL" target="_blank" rel="noopener">Open NOAA Storm Events ↗</a></div></article><article><span>2</span><div><h3>Look across time</h3><p>Explore long-term temperature or precipitation patterns for your state or county.</p><a href="https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/county/mapping" target="_blank" rel="noopener">Open Climate at a Glance ↗</a></div></article></div><div class="journal-box"><span>📓</span><div><small>NEXT STEP</small><h3>Record what you found.</h3><p>Complete the <b>Extreme Weather</b> entry in <em>My Garden Observation Journal</em>.</p><a href="https://canvas.oregonstate.edu/courses/2038983/pages/my-garden-journal?module_item_id=27047126" target="_top">Open My Garden Observation Journal</a></div></div></section>
+<section id="knowledge" class="screen knowledge" hidden>
+  <button class="back" data-open="hub">← Back to choices</button>
+  <div class="topic-title knowledge-title"><span>🧩</span><div><p>TEST YOUR KNOWLEDGE</p><h2>Build the explanation</h2></div><b>3 short challenges</b></div>
+  <p class="lead">Use what you noticed in the activity. For each challenge, choose the evidence that completes the explanation.</p>
+
+  <div class="challenge-progress" aria-label="Challenge progress">
+    <span class="challenge-dot active">1</span><span class="challenge-line"></span><span class="challenge-dot">2</span><span class="challenge-line"></span><span class="challenge-dot">3</span>
+  </div>
+
+  <div id="challengeCard" class="challenge-card">
+    <div class="challenge-scene" id="challengeScene" aria-hidden="true"></div>
+    <p class="challenge-kicker" id="challengeKicker">CHALLENGE 1 · LOCATION</p>
+    <h3 id="challengeQuestion">Same summer, different places. What does that reveal?</h3>
+    <p id="challengePrompt">Build the strongest explanation by selecting two evidence tiles.</p>
+    <div id="evidenceTiles" class="evidence-tiles"></div>
+    <div class="explanation-builder">
+      <span>My explanation:</span>
+      <div id="selectedEvidence" class="selected-evidence" aria-live="polite">Choose two pieces of evidence.</div>
+    </div>
+    <button id="checkEvidence" class="primary" disabled>Check my explanation</button>
+    <div id="knowledgeFeedback" class="knowledge-feedback" hidden></div>
+    <button id="nextChallenge" class="primary secondary-action" hidden>Next challenge →</button>
+  </div>
+
+  <div id="knowledgeComplete" class="knowledge-complete" hidden>
+    <span class="complete-icon">✓</span>
+    <h3>You changed the view.</h3>
+    <p>Location, season, and long-term climate all shape the extreme-weather picture. A single event is weather; patterns across many events and years reveal climate.</p>
+    <div class="complete-actions">
+      <button class="primary" data-open="hub">Return to choices</button>
+      <a class="primary journal-link" href="https://canvas.oregonstate.edu/courses/2038983/pages/my-garden-journal?module_item_id=27047126" target="_top">Explore your region in the journal →</a>
+    </div>
+  </div>
+</section>
 </main><script src="app.js"></script></body></html>
