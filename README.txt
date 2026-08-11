@@ -97,3 +97,9 @@ Season thumbnail fix
 --------------------
 The four seasonal choice cards now use the bundled poster images:
 winter-poster.jpg, spring-poster.jpg, summer-poster.jpg, fall-poster.jpg.
+
+Navigation fix
+--------------
+Removed an orphaned fragment from the retired Climate Lens tab handler.
+That JavaScript error stopped the script during page load and prevented the
+Choose a path button from working.
