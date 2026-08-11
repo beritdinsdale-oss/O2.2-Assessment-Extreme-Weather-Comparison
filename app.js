@@ -32,6 +32,3 @@ eventClimateButton.addEventListener('click',()=>{
       : 'Heavy precipitation: how warmer air can increase available moisture.';
   }
 });
-  document.querySelectorAll('.climate-view').forEach(v=>v.classList.remove('active'));
-  document.querySelector('#'+target+'Visual').classList.add('active');
-});
