@@ -70,3 +70,19 @@ V13
 - April and October are now presented as representative Willamette Valley seasonal climate patterns based on NOAA 1991–2020 normals rather than Eugene-specific 2021 weather.
 - February and June remain 2021 extreme-event examples.
 - October now has a built-in animated rainy valley scene, so it no longer depends on an external photo loading.
+
+V14
+---
+- Seasonal cards are now Winter / Spring / Summer / Fall.
+- Spring and fall describe actual 2021 regional conditions rather than climate normals.
+- Local real-image posters are bundled for every season; fake CSS rain/heat animation removed.
+- The feature area is prepared for genuine muted looping MP4 cinemagraphs. If a clip is unavailable, the real local poster remains visible.
+- Different Regions now has an event-specific climate-connection button. Heat opens only the heat explanation; rainfall opens only precipitation.
+- Removed the blue '100' circle from Southeast precipitation.
+- Expanded the +37% explanation in plain language.
+
+WORKING BUILD
+-------------
+This build uses stable filenames (index.html, styles.css, app.js) for easier local iteration.
+Four user-selected seasonal MP4 loops are bundled locally and compressed for web use.
+Poster JPGs are bundled for reduced-motion/fallback display.
