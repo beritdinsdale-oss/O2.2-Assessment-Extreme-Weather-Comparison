@@ -50,3 +50,13 @@ HEAVY PRECIPITATION — SOUTHEAST
 
 These two displays intentionally use different regional indicators because the most useful
 published observed datasets for heat and precipitation are not identical metrics.
+
+V12
+---
+- April and October now use actual 2021 conditions from the NWS Portland annual Eugene climate report.
+- Removed the February / SAME REGION / June bar.
+- Added cinemagraph-style motion overlays to seasonal imagery, with reduced-motion support.
+- Replaced the abstract Northwest footprint graphic with a normalized frequency comparison:
+  3 of first 90 summers (~3%) versus 6 of final 20 summers (30%).
+- Replaced precipitation's confusing 100/137 index graphic with the actual reported statistic:
+  +37% change in the amount of precipitation falling on the heaviest 1% of days.

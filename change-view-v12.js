@@ -1,0 +1,20 @@
+const screens=[...document.querySelectorAll('.screen')];function openScreen(id){document.querySelector('.hero').style.display=id==='start'?'grid':'none';screens.forEach(s=>{s.hidden=s.id!==id});document.querySelectorAll('iframe').forEach(f=>f.remove());window.scrollTo(0,0)}document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openScreen(b.dataset.open)));
+const events={pnw:{place:'PACIFIC NORTHWEST · JUNE 2021',title:'Extreme heat',text:'A persistent heat dome pushed temperatures far beyond typical early-summer conditions across the Pacific Northwest.',video:'TcU8YNYQmGg'},tn:{place:'WAVERLY, TENNESSEE · AUGUST 2021',title:'Extreme rainfall',text:'Exceptionally heavy rainfall produced extreme flash flooding. More than 20 inches was recorded within 24 hours near the event area.',video:'gDvWd8uphXk'}};let currentEvent='pnw';document.querySelectorAll('.event-postcard').forEach(b=>b.addEventListener('click',()=>{currentEvent=b.dataset.event;document.querySelectorAll('.event-postcard').forEach(x=>x.classList.toggle('active',x===b));let e=events[currentEvent];eventPlace.textContent=e.place;eventTitle.textContent=e.title;eventText.textContent=e.text;videoBox.innerHTML='';eventVideo.textContent='▶ Watch event video';if(imageNote)imageNote.hidden=currentEvent!=='pnw'}));eventVideo.addEventListener('click',()=>{if(videoBox.innerHTML){videoBox.innerHTML='';eventVideo.textContent='▶ Watch event video'}else{videoBox.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${events[currentEvent].video}" title="Event video" allowfullscreen></iframe>`;eventVideo.textContent='Hide video'}});
+document.querySelectorAll('.climate-tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.climate-tab').forEach(x=>{let on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-selected',String(on))});document.querySelectorAll('.climate-view').forEach(v=>v.classList.remove('active'));document.querySelector('#'+b.dataset.climate+'Visual').classList.add('active')}));
+const seasonData=[
+{cls:'winter',month:'FEBRUARY 2021',title:'Ice storm',text:'A major ice storm affected the northern and central Willamette Valley, coating trees and power lines with damaging ice.',evidence:'This was a short-lived winter extreme within the same broader valley region.'},
+{cls:'spring',month:'APRIL 2021',title:'Exceptionally dry spring',text:'At Eugene, April brought only 0.35 inches of rain—the driest April on record there. Afternoon temperatures were often in the 60s and 70s, reaching the low 80s on April 17–18.',evidence:'NWS Portland: Eugene rainfall was 2.98 inches below normal for April 2021.'},
+{cls:'summer',month:'JUNE 2021',title:'Extreme heat',text:'The late-June heat wave pushed Eugene to 111°F on June 27, the highest temperature ever recorded there at the time.',evidence:'June 2021 tied 2015 as Eugene’s warmest June on record.'},
+{cls:'fall',month:'OCTOBER 2021',title:'Cooler weather and returning rain',text:'Eugene returned to more typical fall weather, with cool conditions and rain from time to time. Monthly rainfall was 2.74 inches, slightly below normal.',evidence:'NWS Portland described October 2021 in Eugene as a more expected October, without a major rain event.'}
+];document.querySelectorAll('.season-card').forEach((b,i)=>b.addEventListener('click',()=>{let s=seasonData[i];document.querySelectorAll('.season-card').forEach(x=>x.classList.toggle('active',x===b));seasonFeatureImage.className='feature-image '+s.cls;seasonMonth.textContent=s.month;seasonTitle.textContent=s.title;seasonText.textContent=s.text;seasonEvidence.innerHTML=s.evidence}));
+
+document.querySelectorAll('.hazard-choice-btn').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.hazard-choice-btn').forEach(b=>{
+    const on=b===btn;
+    b.classList.toggle('active',on);
+    b.setAttribute('aria-selected',String(on));
+  });
+  document.querySelectorAll('.big-hazard-view').forEach(v=>v.classList.remove('active'));
+  document.querySelector('#'+btn.dataset.hazard+'BigView').classList.add('active');
+}));
+openScreen('start');
