@@ -60,3 +60,13 @@ V12
   3 of first 90 summers (~3%) versus 6 of final 20 summers (30%).
 - Replaced precipitation's confusing 100/137 index graphic with the actual reported statistic:
   +37% change in the amount of precipitation falling on the heaviest 1% of days.
+
+V13
+---
+- Removed both 'different hazard, different region—same question' bridge treatments.
+- Removed learner-facing 'No 100 inches here' troubleshooting language.
+- Expanded the heavy-precipitation definition: the heaviest 1% means the wettest 1 out of every 100 precipitation days, ranked within the regional historical record.
+- Clarified that +37% is percent change in precipitation contributed by those exceptionally wet days, not inches.
+- April and October are now presented as representative Willamette Valley seasonal climate patterns based on NOAA 1991–2020 normals rather than Eugene-specific 2021 weather.
+- February and June remain 2021 extreme-event examples.
+- October now has a built-in animated rainy valley scene, so it no longer depends on an external photo loading.
