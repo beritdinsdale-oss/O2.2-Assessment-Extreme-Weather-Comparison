@@ -61,3 +61,20 @@
 .feature-image.has-video video{display:block}.feature-image.has-video img{display:none}
 @media(prefers-reduced-motion:reduce){.feature-image video{display:none!important}.feature-image img{display:block!important}}
 .percent-example{display:none!important}
+
+/* Climate connection pathway fix */
+#climatePathLabel{
+  max-width:860px;
+  margin:.25rem auto 1rem;
+  padding:.75rem 1rem;
+  border-radius:10px;
+  background:var(--green2);
+  border-left:6px solid var(--green);
+  font-size:1.05rem;
+}
+
+/* Seasonal thumbnail poster fix */
+.season-card.winter{background-image:url('winter-poster.jpg')!important}
+.season-card.spring{background-image:url('spring-poster.jpg')!important}
+.season-card.summer{background-image:url('summer-poster.jpg')!important}
+.season-card.fall{background-image:url('fall-poster.jpg')!important}

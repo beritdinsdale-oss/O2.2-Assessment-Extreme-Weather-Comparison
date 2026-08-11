@@ -86,3 +86,14 @@ WORKING BUILD
 This build uses stable filenames (index.html, styles.css, app.js) for easier local iteration.
 Four user-selected seasonal MP4 loops are bundled locally and compressed for web use.
 Poster JPGs are bundled for reduced-motion/fallback display.
+
+Climate pathway fix
+-------------------
+The event-specific climate connection no longer displays heat/precipitation choice tabs.
+Selecting the Northwest heat event opens only the heat climate explanation.
+Selecting the Tennessee rainfall event opens only the precipitation climate explanation.
+
+Season thumbnail fix
+--------------------
+The four seasonal choice cards now use the bundled poster images:
+winter-poster.jpg, spring-poster.jpg, summer-poster.jpg, fall-poster.jpg.
