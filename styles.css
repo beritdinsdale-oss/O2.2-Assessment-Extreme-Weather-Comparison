@@ -245,3 +245,72 @@
 .simple-key span{display:flex;align-items:center;gap:.4rem}.simple-key i{display:inline-block;width:34px;height:0;border-top:4px solid #7c8983}.simple-key .key-future{border-top-color:#5d7f92}
 .story-section .back,.story-roadmap .back{background:#ffffffdd}
 @media(max-width:650px){.mini-route.three{display:grid;grid-template-columns:1fr}.mini-route.three i{transform:rotate(90deg)}}
+
+/* Approved illustrated-roadmap direction */
+.illustrated-roadmap{
+  background:linear-gradient(#e8f6fb 0 25%,#dfeeda 25% 100%);
+  padding-bottom:18px;
+}
+.roadmap-title{text-align:center;max-width:760px;margin:0 auto .7rem;padding:.4rem 1rem}
+.roadmap-title h2{font-size:2.05rem;margin:.15rem 0;color:#17344f}
+.roadmap-title p:last-child{margin:.25rem auto;color:#4f625b}
+.map-landscape{
+  position:relative;max-width:1100px;height:650px;margin:0 auto;
+  overflow:hidden;border-radius:24px;border:1px solid #d2dfd8;
+  background:
+    radial-gradient(ellipse at 25% 76%,#b8d49a 0 9%,transparent 10%),
+    radial-gradient(ellipse at 80% 67%,#aacb91 0 10%,transparent 11%),
+    linear-gradient(#dff1f6 0 29%,#d8ead0 29% 100%);
+  box-shadow:0 14px 34px #29445b1e;
+}
+.map-sky{position:absolute;inset:0 0 auto;height:220px;overflow:hidden}
+.cloud{position:absolute;color:#fff;font-size:5rem;opacity:.78;text-shadow:0 4px 15px #87aeba33}.c1{left:5%;top:10px}.c2{right:7%;top:35px}
+.mountain{position:absolute;bottom:-5px;width:300px;height:155px;background:linear-gradient(145deg,#a8c9d3,#789eaa);clip-path:polygon(50% 0,100% 100%,0 100%);opacity:.75}.m1{left:-40px}.m2{left:150px;height:125px;opacity:.55}.m3{right:-30px;height:135px;opacity:.58}
+.map-river{position:absolute;left:46%;top:180px;width:190px;height:430px;background:linear-gradient(90deg,#b8dfe5,#8dc8d5,#c4e7e8);transform:rotate(13deg);border-radius:50% 40% 45% 55%;opacity:.72}
+.tree-line{position:absolute;left:2%;right:2%;top:170px;font-size:2.8rem;letter-spacing:8px;opacity:.88;white-space:nowrap}
+.garden-patch{position:absolute;font-size:2rem;letter-spacing:-7px}.gp1{left:3%;bottom:18px}.gp2{right:5%;bottom:40px}
+.road-svg{position:absolute;inset:0;width:100%;height:100%;z-index:2}
+.road-shadow{fill:none;stroke:#34464e55;stroke-width:78;stroke-linecap:round}
+.road-main{fill:none;stroke:#3e4a50;stroke-width:66;stroke-linecap:round}
+.road-dash{fill:none;stroke:#f6f4e9;stroke-width:3;stroke-dasharray:18 16;stroke-linecap:round}
+.start-flag{position:absolute;z-index:5;left:42px;top:32px;background:#3f8062;color:#fff;border-radius:7px;padding:.3rem .6rem;font-size:.7rem;font-weight:900;box-shadow:0 3px 8px #29445b33}
+.map-stop{position:absolute;z-index:6;border:0;background:transparent;padding:0;text-align:left;cursor:pointer;color:#17344f}
+.map-stop .pin{
+  position:absolute;display:grid;place-items:center;width:48px;height:48px;
+  border:4px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);
+  color:#fff;font-size:1.25rem;font-weight:900;box-shadow:0 4px 10px #29445b44
+}
+.map-stop .pin::first-line{transform:rotate(45deg)}
+.map-stop .pin{line-height:1}.map-stop .pin{--r:45deg}
+.map-stop .pin{font-family:Arial,sans-serif}
+.map-stop .pin{padding:0}
+.map-stop .pin{writing-mode:horizontal-tb}
+.map-stop .pin{display:grid}
+.map-stop .pin{place-content:center}
+.map-stop .pin{ text-indent:0}
+.map-stop .pin{ }
+.map-stop .pin::after{content:"";display:none}
+.map-stop .stop-card{
+  display:block;width:210px;background:#fff;border:1px solid #d9e1dd;border-radius:12px;
+  padding:.85rem .9rem;box-shadow:0 7px 18px #29445b22;transition:.18s ease
+}
+.map-stop:hover .stop-card,.map-stop:focus .stop-card{transform:translateY(-3px);box-shadow:0 11px 24px #29445b30}
+.map-stop b,.map-stop small,.map-stop em{display:block}.map-stop b{font-size:.95rem;margin-bottom:.28rem}.map-stop small{font-size:.75rem;line-height:1.35;color:#50615a}.map-stop em{text-align:right;margin-top:.35rem;font-style:normal;font-size:1.15rem}
+.p-green{background:#5d966f}.p-orange{background:#df8435}.p-purple{background:#7457a5}.p-blue{background:#4c84b2}.p-pink{background:#d95879}
+.stop1{left:115px;top:58px}.stop1 .pin{left:-58px;top:0}.stop2{left:700px;top:115px}.stop2 .pin{left:-58px;top:-8px}
+.stop3{left:165px;top:305px}.stop3 .pin{left:-58px;top:-10px}.stop4{left:570px;top:390px}.stop4 .pin{left:-58px;top:-10px}
+.stop5{right:30px;bottom:38px}.stop5 .pin{left:-58px;top:-10px}
+.roadmap-footer-note{max-width:1100px;margin:.55rem auto 0;display:flex;justify-content:space-between;background:#fff;border-radius:10px;padding:.55rem .9rem;font-size:.72rem;color:#52625b;border:1px solid #dce3df}
+.illustrated-title{
+  background:
+    radial-gradient(circle at 15% 15%,#dff4fb 0,transparent 28%),
+    linear-gradient(180deg,#dff2f8 0 46%,#edf5e8 46% 100%);
+}
+.illustrated-title .hero-card{box-shadow:0 14px 34px #29445b1c}
+@media(max-width:850px){
+ .map-landscape{height:auto;min-height:0;padding:1rem;background:linear-gradient(#e3f2f6,#e1eed8)}
+ .road-svg,.map-river,.tree-line,.garden-patch,.map-sky,.start-flag{display:none}
+ .map-stop{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;display:flex;align-items:center;gap:.75rem;margin:.75rem}
+ .map-stop .pin{position:relative;left:auto!important;top:auto!important;min-width:48px}
+ .map-stop .stop-card{width:auto;flex:1}
+}

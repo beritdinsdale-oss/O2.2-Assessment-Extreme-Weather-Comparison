@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Extreme Weather Roadmap</title>
-<link rel="stylesheet" href="styles.css?v=20260812-wholeactivity1">
+<link rel="stylesheet" href="styles.css?v=20260812-illustratedroadmap1">
 </head>
 <body>
 <main id="app">
@@ -27,15 +27,59 @@
   <div class="hero-photo" role="img" aria-label="Frost-covered garden"></div>
 </section>
 
-<section id="roadmap" class="screen" hidden>
-  <header class="pagehead"><p class="eyebrow">YOUR ROUTE</p><h2>Explore Extreme Weather</h2><p>Follow the roadmap from real events to evidence, then use what you learn to make a preparedness decision.</p></header>
-  <div class="road">
-    <div class="route-line" aria-hidden="true"></div>
-    <button class="stop s1" data-go="regions"><span class="num">1</span><span><b>See How Extremes Vary</b><small>Different regions · same summer</small></span></button>
-    <button class="stop s2" data-go="seasons"><span class="num">2</span><span><b>See How Extremes Vary</b><small>Same region · different seasons</small></span></button>
-    <button class="stop s3" data-go="bigpicture"><span class="num">3</span><span><b>The Big Climate Picture</b><small>Mechanism + long-term evidence</small></span></button>
-    <button class="stop s4" data-go="challenge"><span class="num">4</span><span><b>Preparedness Challenge</b><small>What does the evidence justify?</small></span></button>
-    <a class="stop s5 journal" href="https://canvas.oregonstate.edu/courses/2038983/pages/my-garden-journal?module_item_id=27047126" target="_top"><span class="num">5</span><span><b>Explore Your Region</b><small>Apply the approach in your Garden Journal</small></span></a>
+<section id="roadmap" class="screen roadmap illustrated-roadmap" hidden>
+  <div class="roadmap-title">
+    <p class="eyebrow">YOUR EXTREME WEATHER ROADMAP</p>
+    <h2>Follow the Evidence</h2>
+    <p>Experience real events, compare how extremes vary, explore the climate connection, and use evidence to make garden decisions.</p>
+  </div>
+
+  <div class="map-landscape">
+    <div class="map-sky" aria-hidden="true">
+      <span class="cloud c1">☁</span><span class="cloud c2">☁</span>
+      <div class="mountain m1"></div><div class="mountain m2"></div><div class="mountain m3"></div>
+    </div>
+    <div class="map-river" aria-hidden="true"></div>
+    <div class="tree-line" aria-hidden="true">🌲 🌳 🌲　🌳 🌲　　🌲 🌳　🌲</div>
+    <div class="garden-patch gp1" aria-hidden="true">🌻🌿🌼</div>
+    <div class="garden-patch gp2" aria-hidden="true">🌱🌾🌱</div>
+
+    <svg class="road-svg" viewBox="0 0 1100 650" preserveAspectRatio="none" aria-hidden="true">
+      <path class="road-shadow" d="M80,95 C240,45 380,95 455,160 C540,235 455,295 330,290 C185,285 95,330 120,405 C145,480 320,470 440,425 C575,375 650,375 700,440 C755,515 860,540 1025,485"/>
+      <path class="road-main" d="M80,95 C240,45 380,95 455,160 C540,235 455,295 330,290 C185,285 95,330 120,405 C145,480 320,470 440,425 C575,375 650,375 700,440 C755,515 860,540 1025,485"/>
+      <path class="road-dash" d="M80,95 C240,45 380,95 455,160 C540,235 455,295 330,290 C185,285 95,330 120,405 C145,480 320,470 440,425 C575,375 650,375 700,440 C755,515 860,540 1025,485"/>
+    </svg>
+
+    <span class="start-flag">START</span>
+
+    <button class="map-stop stop1" data-go="season" aria-label="Stop 1 Seasonal Extremes">
+      <span class="pin p-green">1</span>
+      <span class="stop-card"><b>Seasonal Extremes</b><small>Explore real events from different seasons.</small><em>☀️ ❄️ 🌱 🍂</em></span>
+    </button>
+
+    <button class="map-stop stop2" data-go="regions" aria-label="Stop 2 Different Regions">
+      <span class="pin p-orange">2</span>
+      <span class="stop-card"><b>Different Regions</b><small>Compare how extremes and evidence vary by region.</small><em>🌎</em></span>
+    </button>
+
+    <button class="map-stop stop3" data-go="bigpicture" aria-label="Stop 3 Big Climate Picture">
+      <span class="pin p-purple">3</span>
+      <span class="stop-card"><b>The Big Climate Picture</b><small>Explore why the climate connection is stronger for some extremes.</small><em>📈</em></span>
+    </button>
+
+    <button class="map-stop stop4" data-go="challenge" aria-label="Stop 4 Gardener Preparedness Challenge">
+      <span class="pin p-blue">4</span>
+      <span class="stop-card"><b>Gardener Preparedness Challenge</b><small>Use climate data to make a planning decision.</small><em>📊</em></span>
+    </button>
+
+    <button class="map-stop stop5" data-go="journal" aria-label="Stop 5 Take It Local">
+      <span class="pin p-pink">5</span>
+      <span class="stop-card"><b>Take It Local</b><small>Explore extreme-weather evidence for your own region.</small><em>📍</em></span>
+    </button>
+  </div>
+
+  <div class="roadmap-footer-note">
+    <span>📓 Observation Journal</span><span>🔊 Audio is available</span><span>ⓘ Help</span>
   </div>
 </section>
 
@@ -181,5 +225,5 @@
 </div>
 </section>
 </main>
-<script src="app.js?v=20260812-wholeactivity1"></script>
+<script src="app.js?v=20260812-illustratedroadmap1"></script>
 </body></html>
