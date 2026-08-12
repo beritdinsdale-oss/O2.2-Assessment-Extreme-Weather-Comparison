@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Extreme Weather Roadmap</title>
-<link rel="stylesheet" href="styles.css?v=20260812-realdata1">
+<link rel="stylesheet" href="styles.css?v=20260812-monthlystory1">
 </head>
 <body>
 <main id="app">
-<section id="start" class="screen hero">
+<section id="start" class="screen hero story-hero">
   <div class="hero-copy">
     <p class="eyebrow">EXTREME WEATHER</p>
     <h1>Extreme Weather Roadmap</h1>
@@ -98,138 +98,69 @@
 </div>
 </section>
 
-<section id="challenge" class="screen challenge-sequential" hidden>
-  <button class="back" data-go="roadmap">← Roadmap</button>
+<section id="challenge" class="screen monthly-challenge" hidden>
+<button class="back" data-go="roadmap">← Roadmap</button>
 
-  <div id="challengeLanding" class="challenge-landing polished-landing">
-    <div class="landing-illustration" aria-hidden="true">
-      <span class="garden-bed">🌱</span><span class="rain-cloud">🌧️</span><span class="path-arrow">→</span><span class="plan-icon">📝</span>
-    </div>
-    <p class="eyebrow">STOP 4 · APPLY THE LEARNING</p>
-    <h2>Gardener Preparedness Challenge</h2>
-    <p class="lead">Willamette Valley gardeners are deciding how to plan for future extreme weather.</p>
-    <p>Review the local climate evidence, interpret what it actually supports, and then decide how that information could influence a real garden plan.</p>
+<div id="challengeLanding" class="story-landing">
+  <div class="story-sky" aria-hidden="true"><span>☁️</span><span>☀️</span><span>🌧️</span></div>
+  <div class="story-content">
+    <p class="eyebrow">FINAL STOP · USE THE EVIDENCE</p>
+    <h2>What would you plan for?</h2>
+    <p class="lead">A Willamette Valley community garden is making plans for the decades ahead.</p>
+    <p>You’ll look at one monthly climate graph, decide what pattern you see, and then decide how much that evidence matters for a garden.</p>
+    <div class="mini-route"><span><b>1</b> Read the graph</span><i>→</i><span><b>2</b> Make a decision</span></div>
+    <button id="beginChallenge" class="primary large-cta">Explore the data →</button>
+  </div>
+  <div class="story-ground" aria-hidden="true"><span>🌱</span><span>🌿</span><span>🪴</span><span>🌻</span></div>
+</div>
 
-    <div class="challenge-route" aria-label="Challenge steps">
-      <div><span>1</span><b>Interpret</b><small>What do the data show?</small></div>
-      <i>→</i>
-      <div><span>2</span><b>Decide</b><small>How much does it matter to you?</small></div>
-      <i>→</i>
-      <div><span>3</span><b>Apply</b><small>What would you change?</small></div>
-    </div>
-
-    <button id="beginChallenge" class="primary large-cta">Begin the challenge →</button>
+<div id="challengePlay" hidden>
+  <div class="challenge-topbar">
+    <button id="backChallengeStep" class="back compact-back">← Back</button>
+    <button id="resetChallenge" class="reset-link">↻ Reset</button>
   </div>
 
-  <div id="challengePlay" class="challenge-play" hidden>
-    <div class="challenge-topbar">
-      <button id="backChallengeStep" class="back compact-back">← Back</button>
-      <button id="resetChallenge" class="reset-link">↻ Reset challenge</button>
-    </div>
-
-    <header class="challenge-context">
-      <div class="location-badge">📍 WILLAMETTE VALLEY, OREGON</div>
-      <p class="eyebrow">HEAVY PRECIPITATION</p>
-      <h2>What should gardeners plan for?</h2>
-      <p>A community garden is planning improvements that will last for many years. Gardeners want to know whether changing precipitation patterns should influence those plans.</p>
-    </header>
-
-    <div class="step-progress" aria-label="Challenge progress">
-      <div class="step-node active" data-node="1"><span>1</span><small>Interpret</small></div>
-      <div class="step-line"></div>
-      <div class="step-node" data-node="2"><span>2</span><small>Decide</small></div>
-      <div class="step-line"></div>
-      <div class="step-node" data-node="3"><span>3</span><small>Apply</small></div>
-    </div>
-
-    <div class="evidence-shell">
-      <button id="reviewEvidence" class="evidence-toggle" aria-expanded="false">
-        <span>📊 Review the Willamette Valley evidence</span><b>+</b>
-      </button>
-
-      <div id="evidenceDrawer" class="evidence-drawer polished-evidence real-data-panel" hidden>
-        <div class="evidence-source">
-          <span>REAL CLIMATE PROJECTIONS · OREGON CLIMATE ASSESSMENT 2025</span>
-          <a href="https://www.oregon.gov/odf/forestbenefits/documents/oregon-climate-assessment.pdf" target="_blank" rel="noopener">Open source report ↗</a>
-        </div>
-
-        <div class="data-intro">
-          <h3>Two pieces of evidence. One garden-planning question.</h3>
-          <p>These displays summarize projections reported in the Seventh Oregon Climate Assessment. Read both before deciding what they mean for a Willamette Valley garden.</p>
-        </div>
-
-        <div class="real-chart-grid">
-          <figure class="data-figure">
-            <figcaption>
-              <span class="chart-number">A</span>
-              <div><b>Overall summer precipitation</b><small>Western Oregon projection</small></div>
-            </figcaption>
-            <div class="range-chart" role="img" aria-label="Western Oregon summer precipitation projected to decrease by approximately 5 to 15 percent">
-              <div class="zero-line"><span>0%</span></div>
-              <div class="range-axis"><span>−20%</span><span>−15%</span><span>−10%</span><span>−5%</span><span>0%</span></div>
-              <div class="range-track">
-                <div class="range-band"><span>projected range</span></div>
-              </div>
-              <div class="range-callout"><strong>5–15% drier</strong><span>projected summer precipitation</span></div>
-            </div>
-            <p class="chart-reading"><b>Read it:</b> The assessment projects western Oregon summers to become about 5–15% drier.</p>
-          </figure>
-
-          <figure class="data-figure">
-            <figcaption>
-              <span class="chart-number">B</span>
-              <div><b>Very heavy fall precipitation</b><small>Willamette Valley / northwestern Oregon, mid-century</small></div>
-            </figcaption>
-            <div class="bar-chart-real" role="img" aria-label="Autumn 99th percentile wet days projected to become nearly 10 percent wetter and 99.9th percentile wet days nearly 20 percent wetter in the Willamette Valley">
-              <div class="ylabels"><span>20%</span><span>15%</span><span>10%</span><span>5%</span><span>0%</span></div>
-              <div class="gridlines"><i></i><i></i><i></i><i></i><i></i></div>
-              <div class="real-bars">
-                <div class="real-bar-wrap"><div class="real-bar b10"><strong>~10%</strong></div><span>Very wet days<br><small>99th percentile</small></span></div>
-                <div class="real-bar-wrap"><div class="real-bar b20"><strong>~20%</strong></div><span>Most extreme wet days<br><small>99.9th percentile</small></span></div>
-              </div>
-            </div>
-            <p class="chart-reading"><b>Read it:</b> In autumn, the wettest days are projected to get wetter, with larger increases at the most extreme end.</p>
-          </figure>
-        </div>
-
-        <div class="data-definition">
-          <span>?</span>
-          <p><b>What does “99th percentile” mean?</b> These are days at the very wet end of the historical daily precipitation distribution. The 99.9th percentile represents an even rarer, more extreme category.</p>
-        </div>
-
-        <div class="source-method">
-          <b>About these projections</b>
-          <p>Extreme-precipitation values compare 2045–2074 with 1950–2014 under SSP3-7.0 in the Oregon Climate Assessment. The summer-drying estimate is the assessment's western Oregon projection. Values shown here are the report's published approximate changes, not invented sample data.</p>
-        </div>
-      </div>
-    </div>
-
-    <article class="question-shell">
-      <div id="questionPanel"></div>
-      <div id="questionFeedback" class="question-feedback" hidden></div>
-      <div class="question-nav">
-        <button id="checkStep" class="primary" disabled>Check answer</button>
-        <button id="nextStep" class="primary" hidden>Next →</button>
-      </div>
-    </article>
+  <div class="data-story-head">
+    <div><p class="eyebrow">WILLAMETTE VALLEY · MONTH BY MONTH</p><h2>Look for the pattern</h2>
+    <p>Compare the months rather than relying on seasonal labels.</p></div>
+    <div class="data-chip">12 months · 1 graph</div>
   </div>
 
-  <div id="challengeComplete" class="challenge-complete" hidden>
-    <div class="complete-badge">✓</div>
-    <p class="eyebrow">CHALLENGE COMPLETE</p>
-    <h2>Evidence first. Garden decision second.</h2>
-    <p>You used local climate evidence to separate what the science tells us from what matters most for a particular garden.</p>
-    <div class="complete-summary">
-      <div><span>📊</span><b>Interpret the evidence</b><small>Seasonal patterns matter.</small></div>
-      <div><span>🧭</span><b>Set your priority</b><small>Not every gardener needs the same response.</small></div>
-      <div><span>🌱</span><b>Match the adaptation</b><small>Plan for fall rain without forgetting summer dryness.</small></div>
+  <article class="monthly-data-card">
+    <div class="monthly-card-head">
+      <div><p class="eyebrow">CLIMATE DATA</p><h3>Projected change in monthly precipitation</h3>
+      <p>Willamette River Basin · future compared with historical climate</p></div>
+      <button id="graphHelp" class="help-pill">? How to read</button>
     </div>
-    <div class="complete-actions">
-      <button id="restartChallenge" class="secondary">↻ Try again</button>
-      <button class="primary" data-go="roadmap">Return to roadmap →</button>
+
+    <div id="graphHelpBox" class="graph-help" hidden>
+      <b>How to read it:</b> The horizontal line is the historical baseline. Points above it indicate more precipitation in the future climate projection; points below it indicate less. The graph runs from October through September, following the water year.
     </div>
-  </div>
+
+    <div class="source-graph-wrap">
+      <img src="https://inr.oregonstate.edu/sites/inr.oregonstate.edu/files/ppt_change_macafrompdf.png" alt="Graph of projected monthly precipitation change in the Willamette River Basin. Future projections vary by month, with generally wetter winter months and lower precipitation in summer months." />
+    </div>
+
+    <div class="graph-source">
+      <span>Source: Oregon State University, Willamette Water 2100 · future climate analysis</span>
+      <a href="https://inr.oregonstate.edu/ww2100/analysis-topic/future-climate" target="_blank" rel="noopener">Explore source ↗</a>
+    </div>
+  </article>
+
+  <article class="question-shell monthly-question-shell">
+    <div id="questionPanel"></div>
+    <div id="questionFeedback" class="question-feedback" hidden></div>
+    <div class="question-nav"><button id="checkStep" class="primary" disabled>Check answer</button><button id="nextStep" class="primary" hidden>Next →</button></div>
+  </article>
+</div>
+
+<div id="challengeComplete" class="challenge-complete story-complete" hidden>
+  <div class="complete-badge">✓</div><p class="eyebrow">CHALLENGE COMPLETE</p>
+  <h2>You used the graph to make the decision.</h2>
+  <p>Climate evidence can inform garden planning without deciding every gardener’s priorities for them.</p>
+  <div class="complete-actions"><button id="restartChallenge" class="secondary">↻ Try again</button><button class="primary" data-go="roadmap">Return to roadmap →</button></div>
+</div>
 </section>
 </main>
-<script src="app.js?v=20260812-realdata1"></script>
+<script src="app.js?v=20260812-monthlystory1"></script>
 </body></html>

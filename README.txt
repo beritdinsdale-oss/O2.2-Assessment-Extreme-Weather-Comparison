@@ -1,18 +1,12 @@
-REAL-DATA DETAILED BUILD
+MONTHLY DATA + STORY DESIGN PROTOTYPE
 
-The Preparedness Challenge now uses quantitative evidence rather than answer-giving seasonal cards.
+This prototype:
+- applies a more playful illustrated/story-roadmap visual language to the challenge;
+- uses an authoritative Oregon State University Willamette Water 2100 monthly precipitation-change graph;
+- presents months rather than pre-labeled seasons;
+- gives only graph-reading instructions, not an interpretation;
+- reduces the challenge to two steps: read the graph, then make a personal planning decision.
 
-Evidence A:
-- Western Oregon summer precipitation projected to be approximately 5–15% drier.
-- Source: Seventh Oregon Climate Assessment (2025).
-
-Evidence B:
-- Willamette Valley / northwestern Oregon autumn extreme precipitation.
-- 99th-percentile wet days: nearly 10% wetter by mid-century.
-- 99.9th-percentile wet days: nearly 20% wetter by mid-century.
-- Extreme-precipitation comparison: 2045–2074 vs. 1950–2014, SSP3-7.0.
-- Source: Seventh Oregon Climate Assessment (2025), extreme precipitation chapter/figures.
-
-The activity asks learners to synthesize these two different metrics rather than reading an interpretation from cards.
-
-IMPORTANT: The plotted quantities are based on published approximate values/ranges in the report. They are not raw station observations and should be labeled as projections.
+IMPORTANT:
+The graph is loaded from the OSU source URL so the prototype does not invent or transcribe values.
+For the final production package, a locally hosted accessible recreation of the source data is preferable once exact underlying monthly values are acquired.
