@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Extreme Weather Roadmap</title>
-<link rel="stylesheet" href="styles.css?v=20260812-rich1">
+<link rel="stylesheet" href="styles.css?v=20260812-mechanisms1">
 </head>
 <body>
 <main id="app">
@@ -68,27 +68,34 @@
 <div class="evidence-question"><p class="evidence-label">WHAT DOES CLIMATE SCIENCE TELL US?</p><div class="evidence-rating-row"><strong id="seasonRating">UNCERTAIN</strong><div class="mini-scale"><i id="seasonNeedle" style="left:20%"></i></div></div>
 <div class="two-questions"><div><span>Climate influence on this event</span><b id="eventInfluence">Uncertain</b></div><div><span>Future frequency or severity</span><b id="futureRisk">Uncertain</b></div></div>
 <p id="seasonWhy">The science is not clear about how climate change influenced this particular ice storm. Future changes in damaging ice storms in the Willamette Valley are also uncertain because these events are relatively uncommon and the processes that create them are complex.</p>
-<a id="seasonScience" href="https://www.climate.gov/" target="_blank" rel="noopener">Explore the science ↗</a></div></div></article>
+<a id="seasonScience" href="#" target="_blank" rel="noopener">Explore the science ↗</a></div></div></article>
 <p class="sample-note"><b>Sample:</b> This build focuses on the revised seasonal evidence experience before applying the richer visual treatment to the entire activity.</p></section>
 
-<section id="bigpicture" class="screen big-rich" hidden>
+<section id="bigpicture" class="screen mechanism-big" hidden>
 <button class="back" data-go="roadmap">← Roadmap</button>
-<header class="pagehead"><p class="eyebrow">STOP 3 · FOLLOW THE EVIDENCE</p><h2>The Big Climate Picture</h2><p>One extreme event does not tell us what the future will look like. Choose a hazard to see what long-term observations and projections add to the story.</p></header>
-<div class="hazard-grid" role="tablist">
-<button class="hazard-card active" data-hazard="heat">☀️<b>Extreme Heat</b><small>How often are extremes occurring?</small></button>
-<button class="hazard-card" data-hazard="rain">🌧️<b>Heavy Precipitation</b><small>Does the season matter?</small></button>
-<button class="hazard-card" data-hazard="dry">🌱<b>Dry Conditions</b><small>What happens in summer?</small></button>
-<button class="hazard-card" data-hazard="ice">🧊<b>Ice Storms</b><small>Why is the answer complicated?</small></button>
+<header class="pagehead"><p class="eyebrow">STOP 3 · THE BIG CLIMATE PICTURE</p><h2>Why Can Extreme Weather Change?</h2>
+<p>Climate change can alter the conditions that produce extreme weather—but not every extreme changes in the same way or in every place. Explore four examples.</p></header>
+
+<div class="mechanism-tabs" role="tablist" aria-label="Choose an extreme-weather process">
+<button class="mechanism-tab active" data-mech="heat">☀️ <b>Extreme Heat</b></button>
+<button class="mechanism-tab" data-mech="rain">🌧️ <b>Heavy Precipitation</b></button>
+<button class="mechanism-tab" data-mech="dry">🌱 <b>Extreme Dryness</b></button>
+<button class="mechanism-tab" data-mech="ice">🧊 <b>Ice Storms</b></button>
 </div>
-<article class="climate-explorer">
-<div class="climate-summary"><span id="bigIcon">☀️</span><div><p class="eyebrow" id="bigKicker">EXTREME HEAT</p><h3 id="bigTitle">A warmer baseline changes the odds</h3><p id="bigSummary">As average temperatures rise, extreme-heat thresholds are reached more often and the hottest events can become more intense.</p></div></div>
-<div class="data-stage">
- <div class="data-head"><div><p class="eyebrow">WHAT THE DATA ADD</p><h3 id="dataHeading">Extreme heat is becoming more common</h3></div><a id="dataSource" target="_blank" rel="noopener">Explore the source ↗</a></div>
- <div id="richViz" class="rich-viz heat-viz"></div>
- <p id="dataExplanation">Long-term Northwest evidence shows that extremely hot summer conditions have affected a larger share of the region more often in recent decades.</p>
- <div id="gardenMeaning" class="garden-meaning"><b>For gardeners</b><p>Heat is a future risk worth incorporating into long-term garden planning.</p></div>
-</div>
+
+<article class="mechanism-stage">
+ <div class="mechanism-copy"><p class="eyebrow" id="mechKicker">EXTREME HEAT</p><h3 id="mechTitle">A warmer starting point changes the odds</h3><p id="mechIntro">Weather still varies from day to day. But when the whole temperature range shifts warmer, temperatures that once sat at the far edge of the curve are reached more often.</p></div>
+ <div id="mechanismVisual" class="mechanism-visual heat-curve" role="img" aria-label="Conceptual temperature distribution showing a warmer climate increasing the area above an extreme heat threshold"></div>
+ <div class="mechanism-takeaway"><span>→</span><p id="mechTakeaway"><b>The key idea:</b> A relatively small shift in average temperature can produce a much larger change in the frequency of extreme heat.</p></div>
+ <div class="where-matters"><div><p class="eyebrow">WHY LOCATION & SEASON MATTER</p><h4 id="whereTitle">The mechanism is broad; the size of the change is regional.</h4><p id="whereText">Local climate, elevation, distance from the ocean, and weather patterns affect how much extreme heat changes from one place to another.</p></div><a id="mechSource" target="_blank" rel="noopener">Explore the science ↗</a></div>
 </article>
+
+<div class="regional-overview">
+ <div class="map-idea" aria-hidden="true"><span class="pacific">Pacific<br>Ocean</span><div class="us-shape"><i class="nw">⛰️</i><i class="plains">↝</i><i class="se">💧</i></div></div>
+ <div><p class="eyebrow">ZOOM OUT</p><h3>Why aren't extreme-weather changes the same everywhere?</h3>
+ <p>Moisture sources, mountains, storm tracks, season, and the climate a region starts with all shape its extremes. That's why evidence from one U.S. region cannot simply be copied to another.</p>
+ <div class="region-factors"><span>🌊 Moisture sources</span><span>⛰️ Topography</span><span>↝ Storm tracks</span><span>🍂 Season</span></div></div>
+</div>
 </section>
 
 <section id="challenge" class="screen challenge-rich" hidden>
@@ -120,5 +127,5 @@
 <div id="complete" class="complete" hidden><span>✓</span><h3>Use the evidence to match the response to the risk.</h3><p>Strong evidence can justify targeted adaptations. Uncertain evidence can still justify flexible, broadly useful preparation.</p><button id="restartChallenge" class="secondary">↻ Try the challenge again</button></div>
 </section>
 </main>
-<script src="app.js?v=20260812-rich1"></script>
+<script src="app.js?v=20260812-mechanisms1"></script>
 </body></html>

@@ -1,15 +1,12 @@
-RICH EVIDENCE SAMPLE — Extreme Weather Roadmap
-Redeploy trigger: 2026-08-12
+MECHANISM-FIRST SAMPLE — Extreme Weather Roadmap
 
-This prototype adds:
-- Four-hazard Big Climate Picture explorer: heat, heavy precipitation, dry conditions, ice storms.
-- Seasonal precipitation distinction: dry summers can coexist with heavier fall extreme precipitation.
-- Gardener Preparedness Challenge landing page.
-- Three Willamette Valley planning scenarios using Priority adaptation / Build in flexibility / Be aware.
-- Scenario-specific practical decisions and Review the Data drawers.
-- Reset / Try Again controls.
+Changes in this sample:
+- Big Climate Picture no longer switches from the activity's regional examples into Willamette Valley datasets.
+- Four interactive conceptual explainers: extreme heat, heavy precipitation, extreme dryness, and ice storms.
+- Restores a conceptual heat-distribution curve.
+- Adds visual moisture-capacity, water-balance, and freezing-rain-layer explainers.
+- Adds a simple regional overview explaining why geography and season matter.
+- Willamette Valley-specific evidence remains in the Gardener Preparedness Challenge, where learners apply what they learned.
+- Fall seasonal card is simplified; no unrelated science link.
 
-IMPORTANT: The compact charts are instructional prototype visualizations of the cited findings, not raw station-data plots.
-The final production build should use the approved full data visualizations/data extracts.
-
-Keep Garden-Frost-Adobe-Stock-Ann.jpeg in the repository root.
+The visual explainers are conceptual, not quantitative data charts.
