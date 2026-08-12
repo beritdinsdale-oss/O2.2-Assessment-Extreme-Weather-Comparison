@@ -1,12 +1,17 @@
-MECHANISM-FIRST SAMPLE — Extreme Weather Roadmap
+DETAILED SEQUENTIAL CHALLENGE SAMPLE
 
-Changes in this sample:
-- Big Climate Picture no longer switches from the activity's regional examples into Willamette Valley datasets.
-- Four interactive conceptual explainers: extreme heat, heavy precipitation, extreme dryness, and ice storms.
-- Restores a conceptual heat-distribution curve.
-- Adds visual moisture-capacity, water-balance, and freezing-rain-layer explainers.
-- Adds a simple regional overview explaining why geography and season matter.
-- Willamette Valley-specific evidence remains in the Gardener Preparedness Challenge, where learners apply what they learned.
-- Fall seasonal card is simplified; no unrelated science link.
+This build keeps the mechanism-first Big Climate Picture and adds a polished, sequential preparedness challenge.
 
-The visual explainers are conceptual, not quantitative data charts.
+Challenge flow:
+1. Interpret the evidence — scored
+2. Make a personal planning decision — not scored
+3. Apply the evidence to a fall garden — scored
+
+Navigation:
+- Back moves one step backward; from Step 1 it returns to the challenge landing page.
+- Reset Challenge restarts the sequence.
+- Review the Data remains available throughout.
+- Incorrect scored answers reopen the evidence and allow Try Again.
+- No answer choice is visually marked as correct before submission.
+
+Keep Garden-Frost-Adobe-Stock-Ann.jpeg in the repository root.

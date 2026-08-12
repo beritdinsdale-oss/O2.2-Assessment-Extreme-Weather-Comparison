@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Extreme Weather Roadmap</title>
-<link rel="stylesheet" href="styles.css?v=20260812-singlechallenge1">
+<link rel="stylesheet" href="styles.css?v=20260812-seqchallenge1">
 </head>
 <body>
 <main id="app">
@@ -98,65 +98,102 @@
 </div>
 </section>
 
-<section id="challenge" class="screen challenge-rich" hidden>
-<button class="back" data-go="roadmap">← Roadmap</button>
+<section id="challenge" class="screen challenge-sequential" hidden>
+  <button class="back" data-go="roadmap">← Roadmap</button>
 
-<div id="challengeLanding" class="challenge-landing">
-<div class="landing-icon">🌿</div><p class="eyebrow">STOP 4 · APPLY THE LEARNING</p>
-<h2>Gardener Preparedness Challenge</h2>
-<p class="lead">Willamette Valley gardeners are trying to decide how to plan for future extreme weather.</p>
-<p>Examine local climate evidence, decide what it tells you, and then consider how that evidence might influence your own garden planning.</p>
-<button id="beginChallenge" class="primary">Begin the challenge →</button>
-</div>
+  <div id="challengeLanding" class="challenge-landing polished-landing">
+    <div class="landing-illustration" aria-hidden="true">
+      <span class="garden-bed">🌱</span><span class="rain-cloud">🌧️</span><span class="path-arrow">→</span><span class="plan-icon">📝</span>
+    </div>
+    <p class="eyebrow">STOP 4 · APPLY THE LEARNING</p>
+    <h2>Gardener Preparedness Challenge</h2>
+    <p class="lead">Willamette Valley gardeners are deciding how to plan for future extreme weather.</p>
+    <p>Review the local climate evidence, interpret what it actually supports, and then decide how that information could influence a real garden plan.</p>
 
-<div id="challengePlay" hidden>
-<button id="backToChallengeLanding" class="back">← Go Back</button>
-<header class="pagehead compact-head"><p class="eyebrow">WILLAMETTE VALLEY · HEAVY PRECIPITATION</p><h2>What should gardeners plan for?</h2></header>
+    <div class="challenge-route" aria-label="Challenge steps">
+      <div><span>1</span><b>Interpret</b><small>What do the data show?</small></div>
+      <i>→</i>
+      <div><span>2</span><b>Decide</b><small>How much does it matter to you?</small></div>
+      <i>→</i>
+      <div><span>3</span><b>Apply</b><small>What would you change?</small></div>
+    </div>
 
-<article class="challenge-card richer-challenge">
-<div class="scenario-box"><p class="eyebrow">THE SITUATION</p><p>A community garden is planning improvements that will last for many years. Gardeners want to know whether changing precipitation patterns should influence those plans.</p></div>
+    <button id="beginChallenge" class="primary large-cta">Begin the challenge →</button>
+  </div>
 
-<button id="reviewEvidence" class="evidence-toggle" aria-expanded="false">📊 Review the Willamette Valley evidence <span>+</span></button>
-<div id="evidenceDrawer" class="evidence-drawer" hidden>
-<div class="evidence-source"><span>DATA TO CONSIDER</span><a href="https://www.oregon.gov/odf/forestbenefits/documents/oregon-climate-assessment.pdf" target="_blank" rel="noopener">View source ↗</a></div>
-<h4>Season matters</h4>
-<div class="challenge-viz"><div class="mini-season"><div>🌱<b>Spring</b><small>variable</small></div><div>☀️<b>Summer</b><small>dry / drier</small></div><div>🍂<b>Fall</b><small>heavier extremes ↑</small></div><div>🌧️<b>Winter</b><small>heavy rain remains important</small></div></div></div>
-<p>Climate projections for western Oregon show continued dry summers alongside increases in the intensity of the heaviest precipitation events, with particularly notable increases projected in fall in northwestern Oregon.</p>
-</div>
+  <div id="challengePlay" class="challenge-play" hidden>
+    <div class="challenge-topbar">
+      <button id="backChallengeStep" class="back compact-back">← Back</button>
+      <button id="resetChallenge" class="reset-link">↻ Reset challenge</button>
+    </div>
 
-<div id="q1" class="challenge-question">
-<p class="question-number">1 · INTERPRET THE EVIDENCE</p>
-<fieldset><legend>What conclusion is best supported by the evidence?</legend>
-<label class="choice"><input type="radio" name="q1" value="a"><span>The Willamette Valley is expected to become wetter throughout the entire growing season.</span></label>
-<label class="choice"><input type="radio" name="q1" value="b"><span><b>The heaviest precipitation events are projected to become more intense, particularly in fall, while summers remain relatively dry or become drier.</b></span></label>
-<label class="choice"><input type="radio" name="q1" value="c"><span>Increasing heavy precipitation means summer irrigation will probably become less important.</span></label>
-</fieldset>
-</div>
+    <header class="challenge-context">
+      <div class="location-badge">📍 WILLAMETTE VALLEY, OREGON</div>
+      <p class="eyebrow">HEAVY PRECIPITATION</p>
+      <h2>What should gardeners plan for?</h2>
+      <p>A community garden is planning improvements that will last for many years. Gardeners want to know whether changing precipitation patterns should influence those plans.</p>
+    </header>
 
-<div id="q2" class="challenge-question">
-<p class="question-number">2 · MAKE A PLANNING DECISION</p>
-<fieldset><legend>How should this information influence your garden planning?</legend>
-<p class="no-right-answer">There isn't one correct choice here. Your answer may depend on when and how you garden.</p>
-<label class="choice"><input type="radio" name="q2" value="priority"><span><b>Make it a priority adaptation</b><small>This matters enough for the way I garden that I would plan specifically for it.</small></span></label>
-<label class="choice"><input type="radio" name="q2" value="flex"><span><b>Build in flexibility</b><small>I would make adaptable improvements that are useful under several conditions.</small></span></label>
-<label class="choice"><input type="radio" name="q2" value="aware"><span><b>Be aware</b><small>I would keep the evidence in mind but would not make changes right now.</small></span></label>
-</fieldset>
-</div>
+    <div class="step-progress" aria-label="Challenge progress">
+      <div class="step-node active" data-node="1"><span>1</span><small>Interpret</small></div>
+      <div class="step-line"></div>
+      <div class="step-node" data-node="2"><span>2</span><small>Decide</small></div>
+      <div class="step-line"></div>
+      <div class="step-node" data-node="3"><span>3</span><small>Apply</small></div>
+    </div>
 
-<div id="q3" class="challenge-question">
-<p class="question-number">3 · APPLY IT TO A FALL GARDEN</p>
-<fieldset><legend>If you garden into fall, which approach best matches the evidence?</legend>
-<label class="choice"><input type="radio" name="q3" value="a"><span>Reduce summer irrigation because heavier precipitation is expected.</span></label>
-<label class="choice"><input type="radio" name="q3" value="b"><span><b>Improve drainage and protect soil from heavy fall rainfall while maintaining summer irrigation capacity.</b></span></label>
-<label class="choice"><input type="radio" name="q3" value="c"><span>Plan for uniformly wetter soil conditions from spring through fall.</span></label>
-</fieldset>
-</div>
+    <div class="evidence-shell">
+      <button id="reviewEvidence" class="evidence-toggle" aria-expanded="false">
+        <span>📊 Review the Willamette Valley evidence</span><b>+</b>
+      </button>
 
-<div class="challenge-actions"><button id="checkSingle" class="primary" disabled>Check my responses</button><button id="resetSingle" class="secondary">↻ Reset answers</button></div>
-<div id="singleFeedback" class="single-feedback" hidden></div>
-</article>
-</div>
+      <div id="evidenceDrawer" class="evidence-drawer polished-evidence" hidden>
+        <div class="evidence-source">
+          <span>DATA TO CONSIDER</span>
+          <a href="https://www.oregon.gov/odf/forestbenefits/documents/oregon-climate-assessment.pdf" target="_blank" rel="noopener">View source ↗</a>
+        </div>
+        <div class="evidence-grid">
+          <div class="season-evidence">
+            <div class="ev-season spring"><span>🌱</span><b>Spring</b><small>variable</small></div>
+            <div class="ev-season summer"><span>☀️</span><b>Summer</b><small>dry / drier</small></div>
+            <div class="ev-season fall focus"><span>🍂</span><b>Fall</b><small>heavier extremes ↑</small></div>
+            <div class="ev-season winter"><span>🌧️</span><b>Winter</b><small>heavy rain remains important</small></div>
+          </div>
+          <div class="evidence-copy">
+            <h3>Season matters</h3>
+            <p>Climate projections for western Oregon show continued dry summers alongside increases in the intensity of the heaviest precipitation events. The strongest increases in northwestern Oregon are projected in fall.</p>
+            <div class="evidence-note"><b>Notice:</b> “Heavier precipitation” does not mean every season becomes wetter.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <article class="question-shell">
+      <div id="questionPanel"></div>
+      <div id="questionFeedback" class="question-feedback" hidden></div>
+      <div class="question-nav">
+        <button id="checkStep" class="primary" disabled>Check answer</button>
+        <button id="nextStep" class="primary" hidden>Next →</button>
+      </div>
+    </article>
+  </div>
+
+  <div id="challengeComplete" class="challenge-complete" hidden>
+    <div class="complete-badge">✓</div>
+    <p class="eyebrow">CHALLENGE COMPLETE</p>
+    <h2>Evidence first. Garden decision second.</h2>
+    <p>You used local climate evidence to separate what the science tells us from what matters most for a particular garden.</p>
+    <div class="complete-summary">
+      <div><span>📊</span><b>Interpret the evidence</b><small>Seasonal patterns matter.</small></div>
+      <div><span>🧭</span><b>Set your priority</b><small>Not every gardener needs the same response.</small></div>
+      <div><span>🌱</span><b>Match the adaptation</b><small>Plan for fall rain without forgetting summer dryness.</small></div>
+    </div>
+    <div class="complete-actions">
+      <button id="restartChallenge" class="secondary">↻ Try again</button>
+      <button class="primary" data-go="roadmap">Return to roadmap →</button>
+    </div>
+  </div>
 </section>
 </main>
-<script src="app.js?v=20260812-singlechallenge1"></script>
+<script src="app.js?v=20260812-seqchallenge1"></script>
 </body></html>

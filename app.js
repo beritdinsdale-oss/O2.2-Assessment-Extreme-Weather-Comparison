@@ -28,20 +28,167 @@ function renderMechanism(d){
 }
 document.querySelectorAll("[data-mech]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-mech]").forEach(x=>x.classList.toggle("active",x===b));renderMechanism(mechanisms[b.dataset.mech])});renderMechanism(mechanisms.heat);
 
-function openChallengeEvidence(open){evidenceDrawer.hidden=!open;reviewEvidence.setAttribute("aria-expanded",String(open));reviewEvidence.querySelector("span").textContent=open?"−":"+"}
-reviewEvidence.onclick=()=>openChallengeEvidence(evidenceDrawer.hidden);
-function updateSingleButton(){checkSingle.disabled=!(document.querySelector('input[name="q1"]:checked')&&document.querySelector('input[name="q2"]:checked')&&document.querySelector('input[name="q3"]:checked'))}
-document.querySelectorAll('input[name="q1"],input[name="q2"],input[name="q3"]').forEach(x=>x.onchange=updateSingleButton);
-function resetSingleChallenge(){document.querySelectorAll('input[name="q1"],input[name="q2"],input[name="q3"]').forEach(x=>x.checked=false);checkSingle.disabled=true;singleFeedback.hidden=true}
-resetSingle.onclick=resetSingleChallenge;
-checkSingle.onclick=()=>{
- let a=document.querySelector('input[name="q1"]:checked').value,q2=document.querySelector('input[name="q2"]:checked').value,c=document.querySelector('input[name="q3"]:checked').value;
- let ok1=a==="b",ok3=c==="b";
- let personal={priority:"You chose to make this a priority adaptation. That can make sense if fall or overwintering crops are important in your garden.",flex:"You chose to build in flexibility. That can make sense if you want improvements that help under several weather conditions.",aware:"You chose to stay aware without making changes now. That can make sense if your gardening is mostly during the dry summer season or the risk is less relevant to your site."}[q2];
- singleFeedback.hidden=false;singleFeedback.className="single-feedback "+((ok1&&ok3)?"":"needs-review");
- singleFeedback.innerHTML='<div class="feedback-part"><b>1. Evidence:</b> '+(ok1?'Yes. The evidence supports heavier extreme precipitation particularly in fall while summers remain dry or become drier.':'Take another look at the seasonal pattern. Heavier precipitation does not mean every season becomes wetter.')+'</div><div class="feedback-part"><b>2. Your planning decision:</b> '+personal+' There is no single correct preparedness level; relevance depends on when and how you garden.</div><div class="feedback-part"><b>3. Fall garden:</b> '+(ok3?'Yes. Fall drainage and soil protection address the wetter extreme while retaining summer irrigation addresses continued summer dryness.':'Review which season shows the strongest increase in extreme precipitation and which season remains dry.')+'</div>';
- if(!ok1||!ok3) openChallengeEvidence(true);
+
+const challengeSteps=[
+{
+  type:"scored",
+  kicker:"STEP 1 · INTERPRET THE EVIDENCE",
+  title:"What conclusion is best supported by the data?",
+  intro:"Use the seasonal pattern in the evidence panel. Focus on what changes—and when.",
+  answers:[
+    {v:"a",text:"The Willamette Valley is expected to become wetter throughout the entire growing season."},
+    {v:"b",text:"The heaviest precipitation events are projected to become more intense, particularly in fall, while summers remain relatively dry or become drier."},
+    {v:"c",text:"Increasing heavy precipitation means summer irrigation will probably become less important."}
+  ],
+  correct:"b",
+  good:"Yes. The evidence supports heavier extreme precipitation particularly in fall while summers remain dry or become drier.",
+  review:"Look again at the seasonal evidence. The key is that heavier precipitation does not mean every season becomes wetter."
+},
+{
+  type:"personal",
+  kicker:"STEP 2 · MAKE A PLANNING DECISION",
+  title:"How much should this evidence influence your garden planning?",
+  intro:"This is a judgment call, not a right-or-wrong question. Your answer can depend on when you garden, your site, and how vulnerable it is to heavy rain.",
+  answers:[
+    {v:"priority",text:"Make it a priority adaptation",small:"This matters enough for the way I garden that I would plan specifically for it."},
+    {v:"flex",text:"Build in flexibility",small:"I would make adaptable improvements that are useful under several conditions."},
+    {v:"aware",text:"Be aware",small:"I would keep the evidence in mind but would not make changes right now."}
+  ]
+},
+{
+  type:"scored",
+  kicker:"STEP 3 · APPLY IT TO A FALL GARDEN",
+  title:"If you garden into fall, which approach best matches the evidence?",
+  intro:"Now translate the seasonal evidence into a practical garden response.",
+  answers:[
+    {v:"a",text:"Reduce summer irrigation because heavier precipitation is expected."},
+    {v:"b",text:"Improve drainage and protect soil from heavy fall rainfall while maintaining summer irrigation capacity."},
+    {v:"c",text:"Plan for uniformly wetter soil conditions from spring through fall."}
+  ],
+  correct:"b",
+  good:"Yes. This response matches both parts of the evidence: summer dryness still matters, while heavier fall precipitation increases the value of drainage and soil protection.",
+  review:"Match the adaptation to the season. Which season remains dry, and which season shows the strongest increase in heavy precipitation?"
+}
+];
+
+let challengeStep=0;
+let savedSelections={};
+
+function toggleChallengeEvidence(open){
+  evidenceDrawer.hidden=!open;
+  reviewEvidence.setAttribute("aria-expanded",String(open));
+  reviewEvidence.querySelector("b").textContent=open?"−":"+";
+}
+reviewEvidence.onclick=()=>toggleChallengeEvidence(evidenceDrawer.hidden);
+
+function renderStep(){
+  let s=challengeSteps[challengeStep];
+  document.querySelectorAll(".step-node").forEach((n,i)=>{
+    n.classList.toggle("active",i===challengeStep);
+    n.classList.toggle("done",i<challengeStep);
+  });
+  let answers=s.answers.map(a=>`
+    <label class="answer">
+      <input type="radio" name="stepAnswer" value="${a.v}">
+      <span>${a.text}${a.small?`<small>${a.small}</small>`:""}</span>
+    </label>`).join("");
+  questionPanel.innerHTML=`
+    <div class="question-card">
+      <p class="question-kicker">${s.kicker}</p>
+      <h3>${s.title}</h3>
+      <p>${s.intro}</p>
+      <div class="answer-list">${answers}</div>
+    </div>`;
+  questionFeedback.hidden=true;
+  questionFeedback.className="question-feedback";
+  checkStep.hidden=false;
+  nextStep.hidden=true;
+  checkStep.disabled=true;
+  checkStep.textContent=s.type==="personal"?"Continue":"Check answer";
+  document.querySelectorAll('input[name="stepAnswer"]').forEach(x=>x.onchange=()=>checkStep.disabled=false);
+}
+
+checkStep.onclick=()=>{
+  let s=challengeSteps[challengeStep];
+  let ans=document.querySelector('input[name="stepAnswer"]:checked')?.value;
+  if(!ans)return;
+  savedSelections[challengeStep]=ans;
+
+  if(s.type==="personal"){
+    const responses={
+      priority:"If you garden into fall or have a site with drainage problems, making this a priority can be reasonable.",
+      flex:"Building in flexibility can be a strong choice when you want improvements that help under several future conditions.",
+      aware:"Staying aware can be reasonable if your garden is mostly active in summer or your site is not especially vulnerable to heavy fall rain."
+    };
+    questionFeedback.hidden=false;
+    questionFeedback.innerHTML=`<b>Your planning judgment:</b> ${responses[ans]} <div class="context-response">Climate evidence tells us what is changing. It does not determine how important that change is for every gardener.</div>`;
+    checkStep.hidden=true;
+    nextStep.hidden=false;
+    nextStep.textContent="Next →";
+    return;
+  }
+
+  let ok=ans===s.correct;
+  questionFeedback.hidden=false;
+  questionFeedback.className="question-feedback "+(ok?"":"review");
+  questionFeedback.innerHTML=(ok?`<b>Correct.</b> ${s.good}`:`<b>Review the evidence.</b> ${s.review}`);
+  checkStep.hidden=true;
+  if(ok){
+    nextStep.hidden=false;
+    nextStep.textContent=challengeStep===challengeSteps.length-1?"Finish challenge →":"Next →";
+  }else{
+    nextStep.hidden=true;
+    toggleChallengeEvidence(true);
+    setTimeout(()=>{
+      checkStep.hidden=false;
+      checkStep.textContent="Try again";
+      checkStep.disabled=false;
+    },0);
+  }
 };
-beginChallenge.onclick=()=>{challengeLanding.hidden=true;challengePlay.hidden=false;resetSingleChallenge()};
-backToChallengeLanding.onclick=()=>{challengePlay.hidden=true;challengeLanding.hidden=false;resetSingleChallenge()};
-document.querySelector('[data-go="challenge"]').addEventListener("click",()=>{challengeLanding.hidden=false;challengePlay.hidden=true;resetSingleChallenge()});
+
+nextStep.onclick=()=>{
+  if(challengeStep<challengeSteps.length-1){
+    challengeStep++;
+    renderStep();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }else{
+    challengePlay.hidden=true;
+    challengeComplete.hidden=false;
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+};
+
+backChallengeStep.onclick=()=>{
+  if(challengeStep>0){
+    challengeStep--;
+    renderStep();
+  }else{
+    challengePlay.hidden=true;
+    challengeLanding.hidden=false;
+  }
+};
+
+function resetWholeChallenge(){
+  challengeStep=0;
+  savedSelections={};
+  challengePlay.hidden=false;
+  challengeLanding.hidden=true;
+  challengeComplete.hidden=true;
+  toggleChallengeEvidence(false);
+  renderStep();
+}
+resetChallenge.onclick=resetWholeChallenge;
+beginChallenge.onclick=resetWholeChallenge;
+restartChallenge.onclick=()=>{
+  challengeComplete.hidden=true;
+  challengeLanding.hidden=false;
+  challengePlay.hidden=true;
+};
+document.querySelector('[data-go="challenge"]').addEventListener("click",()=>{
+  challengeLanding.hidden=false;
+  challengePlay.hidden=true;
+  challengeComplete.hidden=true;
+  challengeStep=0;
+  savedSelections={};
+});
