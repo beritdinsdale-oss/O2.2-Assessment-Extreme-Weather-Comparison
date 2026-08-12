@@ -225,3 +225,23 @@
 .monthly-question-shell{margin-top:1rem}.decision-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-top:1rem}.decision-cards .answer{height:100%;flex-direction:column}.decision-cards .answer input{align-self:flex-start}
 .story-complete{background:linear-gradient(145deg,#fff,#f1f7ed)}
 @media(max-width:720px){.story-content{margin:90px 18px 0}.story-content h2{font-size:1.8rem}.data-story-head,.monthly-card-head,.graph-source{display:block}.data-chip{display:inline-block;margin-top:.5rem}.decision-cards{grid-template-columns:1fr}.story-ground{font-size:2.1rem}}
+
+/* Whole-activity visual continuity */
+.story-roadmap,.story-section{background:radial-gradient(circle at 10% 6%,#dff3f6 0,transparent 27%),radial-gradient(circle at 92% 15%,#efe7f8 0,transparent 24%),linear-gradient(155deg,#fbfcf8,#eef6f0)}
+.story-roadmap .pagehead,.story-section .pagehead{max-width:900px;margin-left:auto;margin-right:auto}
+.story-roadmap .pagehead h2,.story-section .pagehead h2{color:#17344f}
+.story-roadmap .roadmap-wrap,.story-section .season-wrap,.story-section .mechanism-stage{box-shadow:0 12px 32px #29445b18}
+.mini-route.three{flex-wrap:wrap}
+.clean-monthly-chart{background:linear-gradient(#f9fbfa,#fff);border-radius:15px;padding:.6rem .7rem .3rem;border:1px solid #e0e6e3}
+.clean-monthly-chart svg{display:block;width:100%;height:auto;max-height:390px}
+.clean-monthly-chart .axis,.clean-monthly-chart .baseline{stroke:#7c8983;stroke-width:2}
+.clean-monthly-chart .baseline{stroke-dasharray:5 5}
+.clean-monthly-chart .historical-line{fill:none;stroke:#7c8983;stroke-width:4}
+.clean-monthly-chart .future-line{fill:none;stroke:#5d7f92;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.clean-monthly-chart .dots circle{fill:#5d7f92}
+.clean-monthly-chart text{font-family:Arial,sans-serif;fill:#5f6e67;font-size:15px}
+.clean-monthly-chart .axislabel{font-size:13px;font-weight:700}.clean-monthly-chart .zerolabel{font-size:12px}
+.simple-key{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;padding:.4rem 0 .2rem;font-size:.8rem;font-weight:800;color:#53635c}
+.simple-key span{display:flex;align-items:center;gap:.4rem}.simple-key i{display:inline-block;width:34px;height:0;border-top:4px solid #7c8983}.simple-key .key-future{border-top-color:#5d7f92}
+.story-section .back,.story-roadmap .back{background:#ffffffdd}
+@media(max-width:650px){.mini-route.three{display:grid;grid-template-columns:1fr}.mini-route.three i{transform:rotate(90deg)}}

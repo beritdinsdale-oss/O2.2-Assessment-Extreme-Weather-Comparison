@@ -31,40 +31,82 @@ document.querySelectorAll("[data-mech]").forEach(b=>b.onclick=()=>{document.quer
 
 const challengeSteps=[
 {
- type:"scored",kicker:"STEP 1 · READ THE GRAPH",title:"A gardener grows vegetables from May through October. What pattern in the graph is most relevant to that gardening period?",
- intro:"Use the monthly graph—not a seasonal label—to choose the statement best supported by the data.",
+ type:"scored",
+ kicker:"STEP 1 · READ THE GRAPH",
+ title:"What conclusion is best supported by the monthly precipitation graph?",
+ intro:"Use the graph to compare how projected precipitation changes across the gardening year.",
  answers:[
-  {v:"a",text:"Projected precipitation is consistently higher throughout the May–October gardening period."},
-  {v:"b",text:"The projected change varies across those months, with the strongest drying signal during the summer portion of the gardening period."},
-  {v:"c",text:"There is little difference among the months, so timing is not important."}
- ],correct:"b",
- good:"Yes. You identified the pattern from the monthly data rather than treating the whole gardening season as if it changes in the same way.",
- review:"Look specifically at May through October. Compare where the projection sits relative to the historical baseline during those months."
+  {v:"a",text:"Projected precipitation changes in roughly the same direction throughout the year."},
+  {v:"b",text:"Projected precipitation changes differ by month, so conditions during one part of the gardening year may not represent another."},
+  {v:"c",text:"The graph shows that precipitation will increase throughout the main summer gardening months."}
+ ],
+ correct:"b",
+ good:"Yes. The graph shows that the direction of projected precipitation change is not the same across all months.",
+ review:"Look across the entire monthly line. Does the future projection stay on the same side of the historical baseline all year?"
 },
 {
- type:"personal",kicker:"STEP 2 · MAKE A GARDEN DECISION",title:"How much would this evidence influence your own garden planning?",
- intro:"There is no single correct answer. Consider when you garden, your soil, irrigation access, and how much flexibility you have.",
+ type:"personal",
+ kicker:"STEP 2 · SET A PRIORITY",
+ title:"How much weight would you give this evidence in the community garden’s long-term plans?",
+ intro:"There is no single correct choice. Consider the garden’s long growing season and the fact that climate evidence is only one part of a planning decision.",
  answers:[
-  {v:"priority",text:"Make it a priority",small:"I would plan specifically around this projected monthly pattern."},
-  {v:"flex",text:"Build in flexibility",small:"I would choose options that help under a range of future conditions."},
-  {v:"aware",text:"Be aware for now",small:"I would keep watching the evidence but would not make changes yet."}
+  {v:"priority",text:"Make it a priority",small:"Use the projected monthly pattern as an important factor in long-term planning."},
+  {v:"flex",text:"Build in flexibility",small:"Choose approaches that can work under a range of future precipitation conditions."},
+  {v:"aware",text:"Be aware for now",small:"Keep watching the evidence but do not make major changes yet."}
  ]
-}];
+},
+{
+ type:"scored",
+ kicker:"STEP 3 · RECOMMEND AN ACTION",
+ title:"Which recommendation is most consistent with the climate evidence?",
+ intro:"Stay with the same community garden. Choose the planning approach that best reflects what the monthly graph can—and cannot—tell the gardeners.",
+ answers:[
+  {v:"a",text:"Build flexibility into water-management plans so the garden can respond to different precipitation conditions during different parts of the growing season."},
+  {v:"b",text:"Plan for generally wetter conditions throughout the growing season because future precipitation is projected to increase."},
+  {v:"c",text:"Use annual precipitation totals as the main guide because month-to-month differences are not important for garden planning."}
+ ],
+ correct:"a",
+ good:"Yes. This recommendation uses the monthly pattern without assuming that all months will change in the same way.",
+ review:"Think about why the graph is shown month by month. Which recommendation preserves the differences you observed rather than averaging them away?"
+}
+];
+
 let challengeStep=0,savedSelections={};
 graphHelp.onclick=()=>graphHelpBox.hidden=!graphHelpBox.hidden;
+
 function renderStep(){
  let s=challengeSteps[challengeStep];
  let answers=s.answers.map(a=>`<label class="answer"><input type="radio" name="stepAnswer" value="${a.v}"><span>${a.text}${a.small?`<small>${a.small}</small>`:""}</span></label>`).join("");
  questionPanel.innerHTML=`<div class="question-card"><p class="question-kicker">${s.kicker}</p><h3>${s.title}</h3><p>${s.intro}</p><div class="${s.type==="personal"?"decision-cards":"answer-list"}">${answers}</div></div>`;
- questionFeedback.hidden=true;questionFeedback.className="question-feedback";checkStep.hidden=false;nextStep.hidden=true;checkStep.disabled=true;checkStep.textContent=s.type==="personal"?"Continue":"Check answer";
+ questionFeedback.hidden=true;questionFeedback.className="question-feedback";checkStep.hidden=false;nextStep.hidden=true;checkStep.disabled=true;
+ checkStep.textContent=s.type==="personal"?"Continue":"Check answer";
  document.querySelectorAll('input[name="stepAnswer"]').forEach(x=>x.onchange=()=>checkStep.disabled=false);
 }
+
 checkStep.onclick=()=>{
  let s=challengeSteps[challengeStep],ans=document.querySelector('input[name="stepAnswer"]:checked')?.value;if(!ans)return;savedSelections[challengeStep]=ans;
- if(s.type==="personal"){let r={priority:"You chose to make this a priority. That may fit a garden where summer water is already a limiting factor.",flex:"You chose flexibility. That can fit a garden where several adaptations provide benefits even as conditions vary.",aware:"You chose to stay aware for now. That may fit a garden with reliable irrigation or other factors that reduce vulnerability."}[ans];questionFeedback.hidden=false;questionFeedback.innerHTML=`<b>Your decision:</b> ${r}<div class="context-response">The graph provides evidence. Your garden context determines how much priority you give that evidence.</div>`;checkStep.hidden=true;nextStep.hidden=false;nextStep.textContent="Finish challenge →";return}
- let ok=ans===s.correct;questionFeedback.hidden=false;questionFeedback.className="question-feedback "+(ok?"":"review");questionFeedback.innerHTML=ok?`<b>Supported by the graph.</b> ${s.good}`:`<b>Take another look.</b> ${s.review}`;checkStep.hidden=true;if(ok){nextStep.hidden=false;nextStep.textContent="Next →"}else{setTimeout(()=>{checkStep.hidden=false;checkStep.textContent="Try again";checkStep.disabled=false},0)}
+ if(s.type==="personal"){
+   let r={
+     priority:"You chose to make the evidence a priority in the garden’s long-term planning.",
+     flex:"You chose to build in flexibility so the garden can respond as conditions and needs change.",
+     aware:"You chose to keep the evidence in view without making major changes yet."
+   }[ans];
+   questionFeedback.hidden=false;
+   questionFeedback.innerHTML=`<b>Your planning judgment:</b> ${r}<div class="context-response">There is no single correct preparedness level. Climate evidence can inform the decision, while the garden’s crops, site, resources, and timing determine how much weight to give it.</div>`;
+   checkStep.hidden=true;nextStep.hidden=false;nextStep.textContent="Next →";return;
+ }
+ let ok=ans===s.correct;
+ questionFeedback.hidden=false;questionFeedback.className="question-feedback "+(ok?"":"review");
+ questionFeedback.innerHTML=ok?`<b>Supported by the graph.</b> ${s.good}`:`<b>Take another look.</b> ${s.review}`;
+ checkStep.hidden=true;
+ if(ok){nextStep.hidden=false;nextStep.textContent=challengeStep===challengeSteps.length-1?"Finish challenge →":"Next →"}
+ else{setTimeout(()=>{checkStep.hidden=false;checkStep.textContent="Try again";checkStep.disabled=false},0)}
 };
-nextStep.onclick=()=>{if(challengeStep<challengeSteps.length-1){challengeStep++;renderStep();window.scrollTo({top:0,behavior:"smooth"})}else{challengePlay.hidden=true;challengeComplete.hidden=false;window.scrollTo({top:0,behavior:"smooth"})}};
+
+nextStep.onclick=()=>{
+ if(challengeStep<challengeSteps.length-1){challengeStep++;renderStep();window.scrollTo({top:0,behavior:"smooth"})}
+ else{challengePlay.hidden=true;challengeComplete.hidden=false;window.scrollTo({top:0,behavior:"smooth"})}
+};
 backChallengeStep.onclick=()=>{if(challengeStep>0){challengeStep--;renderStep()}else{challengePlay.hidden=true;challengeLanding.hidden=false}};
 function resetWholeChallenge(){challengeStep=0;savedSelections={};challengePlay.hidden=false;challengeLanding.hidden=true;challengeComplete.hidden=true;graphHelpBox.hidden=true;renderStep()}
 resetChallenge.onclick=resetWholeChallenge;beginChallenge.onclick=resetWholeChallenge;

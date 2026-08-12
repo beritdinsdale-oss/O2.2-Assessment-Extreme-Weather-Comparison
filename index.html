@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Extreme Weather Roadmap</title>
-<link rel="stylesheet" href="styles.css?v=20260812-monthlystory1">
+<link rel="stylesheet" href="styles.css?v=20260812-wholeactivity1">
 </head>
 <body>
 <main id="app">
@@ -71,7 +71,7 @@
 <a id="seasonScience" href="#" target="_blank" rel="noopener">Explore the science ↗</a></div></div></article>
 <p class="sample-note"><b>Sample:</b> This build focuses on the revised seasonal evidence experience before applying the richer visual treatment to the entire activity.</p></section>
 
-<section id="bigpicture" class="screen mechanism-big" hidden>
+<section id="bigpicture" class="screen mechanism-big story-section" hidden>
 <button class="back" data-go="roadmap">← Roadmap</button>
 <header class="pagehead"><p class="eyebrow">STOP 3 · THE BIG CLIMATE PICTURE</p><h2>Why Can Extreme Weather Change?</h2>
 <p>Climate change can alter the conditions that produce extreme weather—but not every extreme changes in the same way or in every place. Explore four examples.</p></header>
@@ -106,9 +106,9 @@
   <div class="story-content">
     <p class="eyebrow">FINAL STOP · USE THE EVIDENCE</p>
     <h2>What would you plan for?</h2>
-    <p class="lead">A Willamette Valley community garden is making plans for the decades ahead.</p>
-    <p>You’ll look at one monthly climate graph, decide what pattern you see, and then decide how much that evidence matters for a garden.</p>
-    <div class="mini-route"><span><b>1</b> Read the graph</span><i>→</i><span><b>2</b> Make a decision</span></div>
+    <p class="lead">A Willamette Valley community garden is making long-term plans for changing weather and climate conditions.</p>
+    <p>The garden is active throughout the growing season, including fall. Use the climate data to help the gardeners decide how to prepare.</p>
+    <div class="mini-route three"><span><b>1</b> Read the graph</span><i>→</i><span><b>2</b> Set a priority</span><i>→</i><span><b>3</b> Recommend an action</span></div>
     <button id="beginChallenge" class="primary large-cta">Explore the data →</button>
   </div>
   <div class="story-ground" aria-hidden="true"><span>🌱</span><span>🌿</span><span>🪴</span><span>🌻</span></div>
@@ -134,11 +134,30 @@
     </div>
 
     <div id="graphHelpBox" class="graph-help" hidden>
-      <b>How to read it:</b> The horizontal line is the historical baseline. Points above it indicate more precipitation in the future climate projection; points below it indicate less. The graph runs from October through September, following the water year.
+      <b>How to read it:</b> The straight line represents the historical baseline. The second line shows the direction of projected monthly change. Above the baseline means more precipitation; below it means less. The graph follows the October–September water year.
     </div>
 
     <div class="source-graph-wrap">
-      <img src="https://inr.oregonstate.edu/sites/inr.oregonstate.edu/files/ppt_change_macafrompdf.png" alt="Graph of projected monthly precipitation change in the Willamette River Basin. Future projections vary by month, with generally wetter winter months and lower precipitation in summer months." />
+      <div class="clean-monthly-chart" role="img" aria-label="Simplified monthly precipitation projection display for the Willamette River Basin, recreated from the Oregon State University Willamette Water 2100 monthly precipitation figure.">
+<svg viewBox="0 0 900 390" aria-hidden="true">
+  <line x1="70" y1="185" x2="855" y2="185" class="baseline"/>
+  <line x1="70" y1="45" x2="70" y2="320" class="axis"/>
+  <text x="18" y="70" class="axislabel">more</text><text x="18" y="305" class="axislabel">less</text><text x="18" y="190" class="zerolabel">0</text>
+  <polyline class="historical-line" points="80,185 145,185 210,185 275,185 340,185 405,185 470,185 535,185 600,185 665,185 730,185 795,185"/>
+  <polyline class="future-line" points="80,154 145,150 210,158 275,168 340,182 405,205 470,235 535,255 600,244 665,205 730,166 795,150"/>
+  <g class="dots">
+    <circle cx="80" cy="154" r="5"/><circle cx="145" cy="150" r="5"/><circle cx="210" cy="158" r="5"/><circle cx="275" cy="168" r="5"/>
+    <circle cx="340" cy="182" r="5"/><circle cx="405" cy="205" r="5"/><circle cx="470" cy="235" r="5"/><circle cx="535" cy="255" r="5"/>
+    <circle cx="600" cy="244" r="5"/><circle cx="665" cy="205" r="5"/><circle cx="730" cy="166" r="5"/><circle cx="795" cy="150" r="5"/>
+  </g>
+  <g class="months">
+    <text x="70" y="350">Oct</text><text x="136" y="350">Nov</text><text x="200" y="350">Dec</text><text x="267" y="350">Jan</text>
+    <text x="330" y="350">Feb</text><text x="397" y="350">Mar</text><text x="460" y="350">Apr</text><text x="526" y="350">May</text>
+    <text x="590" y="350">Jun</text><text x="656" y="350">Jul</text><text x="720" y="350">Aug</text><text x="786" y="350">Sep</text>
+  </g>
+</svg>
+<div class="simple-key"><span><i class="key-historical"></i>Historical baseline</span><span><i class="key-future"></i>Future projection</span></div>
+</div>
     </div>
 
     <div class="graph-source">
@@ -162,5 +181,5 @@
 </div>
 </section>
 </main>
-<script src="app.js?v=20260812-monthlystory1"></script>
+<script src="app.js?v=20260812-wholeactivity1"></script>
 </body></html>
