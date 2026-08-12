@@ -1,4 +1,5 @@
 RICH EVIDENCE SAMPLE — Extreme Weather Roadmap
+Redeploy trigger: 2026-08-12
 
 This prototype adds:
 - Four-hazard Big Climate Picture explorer: heat, heavy precipitation, dry conditions, ice storms.
