@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Extreme Weather Roadmap</title>
-<link rel="stylesheet" href="styles.css?v=20260812-challenge1">
+<link rel="stylesheet" href="styles.css?v=20260812-rich1">
 </head>
 <body>
 <main id="app">
@@ -71,62 +71,54 @@
 <a id="seasonScience" href="https://www.climate.gov/" target="_blank" rel="noopener">Explore the science ↗</a></div></div></article>
 <p class="sample-note"><b>Sample:</b> This build focuses on the revised seasonal evidence experience before applying the richer visual treatment to the entire activity.</p></section>
 
-<section id="bigpicture" class="screen" hidden>
+<section id="bigpicture" class="screen big-rich" hidden>
 <button class="back" data-go="roadmap">← Roadmap</button>
-<header class="pagehead"><p class="eyebrow">STOP 3</p><h2>The Big Climate Picture</h2><p>Choose a pathway. Each connects a physical mechanism with long-term observations.</p></header>
-<div class="big-tabs"><button class="big-tab active" data-big="heat">☀️ Extreme heat</button><button class="big-tab" data-big="rain">🌧️ Heavy precipitation</button></div>
-<div class="story">
- <div id="mechanismIcon" class="story-icon">☀️</div>
- <div><p class="story-label">CLIMATE CONNECTION</p><h3 id="mechanismTitle">A warmer baseline changes the odds</h3><p id="mechanismText">As average temperatures rise, extreme-heat thresholds are reached more often and the hottest events can become more intense.</p></div>
- <div class="arrow">→</div>
- <div><p class="story-label">WHAT WE SEE IN THE DATA</p><h3 id="dataTitle">Extreme heat is becoming more common</h3><p id="dataText">Long-term observations show increases in extreme heat across much of the United States, including the Northwest.</p><a id="bigScience" href="https://www.epa.gov/climate-indicators/climate-change-indicators-high-and-low-temperatures" target="_blank" rel="noopener">View the long-term evidence ↗</a></div>
+<header class="pagehead"><p class="eyebrow">STOP 3 · FOLLOW THE EVIDENCE</p><h2>The Big Climate Picture</h2><p>One extreme event does not tell us what the future will look like. Choose a hazard to see what long-term observations and projections add to the story.</p></header>
+<div class="hazard-grid" role="tablist">
+<button class="hazard-card active" data-hazard="heat">☀️<b>Extreme Heat</b><small>How often are extremes occurring?</small></button>
+<button class="hazard-card" data-hazard="rain">🌧️<b>Heavy Precipitation</b><small>Does the season matter?</small></button>
+<button class="hazard-card" data-hazard="dry">🌱<b>Dry Conditions</b><small>What happens in summer?</small></button>
+<button class="hazard-card" data-hazard="ice">🧊<b>Ice Storms</b><small>Why is the answer complicated?</small></button>
 </div>
-<div class="takeaway"><b>Key idea:</b> Climate change does not affect every extreme in the same way. Evidence is stronger for some hazards, regions, and outcomes than others.</div>
+<article class="climate-explorer">
+<div class="climate-summary"><span id="bigIcon">☀️</span><div><p class="eyebrow" id="bigKicker">EXTREME HEAT</p><h3 id="bigTitle">A warmer baseline changes the odds</h3><p id="bigSummary">As average temperatures rise, extreme-heat thresholds are reached more often and the hottest events can become more intense.</p></div></div>
+<div class="data-stage">
+ <div class="data-head"><div><p class="eyebrow">WHAT THE DATA ADD</p><h3 id="dataHeading">Extreme heat is becoming more common</h3></div><a id="dataSource" target="_blank" rel="noopener">Explore the source ↗</a></div>
+ <div id="richViz" class="rich-viz heat-viz"></div>
+ <p id="dataExplanation">Long-term Northwest evidence shows that extremely hot summer conditions have affected a larger share of the region more often in recent decades.</p>
+ <div id="gardenMeaning" class="garden-meaning"><b>For gardeners</b><p>Heat is a future risk worth incorporating into long-term garden planning.</p></div>
+</div>
+</article>
 </section>
 
-<section id="challenge" class="screen challenge-sample" hidden>
+<section id="challenge" class="screen challenge-rich" hidden>
 <button class="back" data-go="roadmap">← Roadmap</button>
-<header class="pagehead"><p class="eyebrow">STOP 4 · APPLY THE EVIDENCE</p><h2>Gardener Preparedness Challenge</h2>
-<p>Imagine you are helping gardeners in the <b>Willamette Valley, Oregon</b> prepare for the future. Use the evidence—not just your memory of earlier examples—to decide which risks deserve priority.</p></header>
-
-<div class="progress" aria-label="Challenge progress"><span class="dot active">1</span><i></i><span class="dot">2</span><i></i><span class="dot">3</span></div>
-
-<article id="challengeCard" class="challenge-card richer-challenge">
-<div class="location-chip">📍 WILLAMETTE VALLEY, OREGON</div>
-<p id="challengeNum" class="eyebrow">DECISION 1 OF 3</p>
-<div class="hazard-heading"><span id="hazardIcon">☀️</span><div><small id="hazardLabel">EXTREME HEAT</small><h3 id="claim"></h3></div></div>
-<p id="context"></p>
-
-<button id="reviewEvidence" class="evidence-toggle" aria-expanded="false">📊 Review the evidence <span>+</span></button>
-<div id="evidenceDrawer" class="evidence-drawer" hidden>
-  <div class="evidence-source"><span>DATA TO CONSIDER</span><a id="evidenceSource" target="_blank" rel="noopener">View source ↗</a></div>
-  <h4 id="evidenceTitle"></h4>
-  <div id="evidenceVisual" class="evidence-visual"></div>
-  <p id="evidenceText"></p>
-  <p class="evidence-prompt"><b>Your task:</b> What conclusion does this evidence support for the Willamette Valley?</p>
+<div id="challengeLanding" class="challenge-landing">
+ <div class="landing-icon">🌿</div><p class="eyebrow">STOP 4</p><h2>Gardener Preparedness Challenge</h2>
+ <p class="lead">Willamette Valley gardeners are trying to decide how to plan for future extreme weather.</p>
+ <p>Review each scenario and its climate evidence. Then decide <b>how strongly that evidence should influence garden planning</b> and choose a practical response.</p>
+ <div class="decision-key"><div><span>1</span><b>Review the scenario</b></div><div><span>2</span><b>Examine the evidence</b></div><div><span>3</span><b>Make a recommendation</b></div></div>
+ <button id="beginChallenge" class="primary">Begin the challenge →</button>
 </div>
-
-<div class="judgment-block">
-<fieldset><legend>1. What does the evidence support?</legend>
-<label class="choice"><input type="radio" name="strength" value="strong"><span><b>Strong evidence</b><small>The evidence clearly supports an increasing future risk.</small></span></label>
-<label class="choice"><input type="radio" name="strength" value="uncertain"><span><b>Some / uncertain evidence</b><small>There is a plausible connection, but important uncertainty remains.</small></span></label>
-<label class="choice"><input type="radio" name="strength" value="insufficient"><span><b>Insufficient evidence</b><small>The available evidence does not support this conclusion.</small></span></label>
-</fieldset>
-<fieldset><legend>2. Should this be a long-term garden preparedness priority?</legend>
-<label class="choice compact"><input type="radio" name="prep" value="yes"><span><b>Yes</b> — plan for this increasing risk.</span></label>
-<label class="choice compact"><input type="radio" name="prep" value="notyet"><span><b>Not based on current evidence</b></span></label>
-</fieldset>
+<div id="challengePlay" hidden>
+ <header class="pagehead compact-head"><p class="eyebrow">WILLAMETTE VALLEY · APPLY THE EVIDENCE</p><h2 id="challengeHazard">Extreme Heat</h2></header>
+ <div class="progress"><span class="dot active">1</span><i></i><span class="dot">2</span><i></i><span class="dot">3</span></div>
+ <article class="challenge-card richer-challenge">
+  <p id="challengeNum" class="eyebrow">SCENARIO 1 OF 3</p><h3 id="claim"></h3><p id="context"></p>
+  <button id="reviewEvidence" class="evidence-toggle" aria-expanded="false">📊 Review the data <span>+</span></button>
+  <div id="evidenceDrawer" class="evidence-drawer" hidden><div class="evidence-source"><span>EVIDENCE TO CONSIDER</span><a id="evidenceSource" target="_blank" rel="noopener">View source ↗</a></div><h4 id="evidenceTitle"></h4><div id="challengeViz" class="challenge-viz"></div><p id="evidenceText"></p></div>
+  <fieldset class="recommend"><legend>How should this evidence influence long-term garden planning?</legend>
+   <label class="choice"><input type="radio" name="recommend" value="priority"><span><b>Make it a priority adaptation</b><small>The evidence is strong enough to plan specifically for this increasing risk.</small></span></label>
+   <label class="choice"><input type="radio" name="recommend" value="flex"><span><b>Build in flexibility</b><small>The risk matters, but uncertainty or seasonal differences call for adaptable responses.</small></span></label>
+   <label class="choice"><input type="radio" name="recommend" value="aware"><span><b>Be aware</b><small>Stay prepared for the event, but don't base climate-specific changes on an increasing trend that the evidence does not establish.</small></span></label>
+  </fieldset>
+  <fieldset id="actionField"><legend id="actionLegend">Which adaptation best matches the evidence?</legend><div id="actionChoices"></div></fieldset>
+  <div class="challenge-actions"><button id="check" class="primary" disabled>Check my recommendation</button><button id="resetDecision" class="secondary">Reset</button></div>
+  <div id="feedback" hidden></div><div id="retryActions" hidden><button id="retry" class="secondary">↻ Try again</button><button id="reviewAgain" class="secondary">📊 Review data</button></div><button id="next" class="primary" hidden>Next scenario →</button>
+ </article>
 </div>
-
-<div class="challenge-actions"><button id="check" class="primary" disabled>Check my reasoning</button><button id="resetDecision" class="secondary">Reset this decision</button></div>
-<div id="feedback" hidden></div>
-<div id="retryActions" hidden><button id="retry" class="secondary">↻ Try again</button><button id="reviewAgain" class="secondary">📊 Review evidence</button></div>
-<button id="next" class="primary" hidden>Next decision →</button>
-</article>
-
-<div id="complete" class="complete" hidden><span>✓</span><h3>Evidence first. Preparation second.</h3><p>You used climate evidence to decide which future risks deserve priority for Willamette Valley gardens.</p><button id="restartChallenge" class="secondary">↻ Try the challenge again</button></div>
-<p class="sample-note"><b>Sample-build note:</b> The evidence graphics in this prototype are intentionally simple. The final build can use the full long-term data displays from the Big Climate Picture.</p>
+<div id="complete" class="complete" hidden><span>✓</span><h3>Use the evidence to match the response to the risk.</h3><p>Strong evidence can justify targeted adaptations. Uncertain evidence can still justify flexible, broadly useful preparation.</p><button id="restartChallenge" class="secondary">↻ Try the challenge again</button></div>
 </section>
 </main>
-<script src="app.js?v=20260812-challenge1"></script>
+<script src="app.js?v=20260812-rich1"></script>
 </body></html>

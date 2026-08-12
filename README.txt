@@ -1,14 +1,14 @@
-CLEAN RESET PACKAGE — Extreme Weather Roadmap
+RICH EVIDENCE SAMPLE — Extreme Weather Roadmap
 
-Keep Garden-Frost-Adobe-Stock-Ann.jpeg in the GitHub repository root.
+This prototype adds:
+- Four-hazard Big Climate Picture explorer: heat, heavy precipitation, dry conditions, ice storms.
+- Seasonal precipitation distinction: dry summers can coexist with heavier fall extreme precipitation.
+- Gardener Preparedness Challenge landing page.
+- Three Willamette Valley planning scenarios using Priority adaptation / Build in flexibility / Be aware.
+- Scenario-specific practical decisions and Review the Data drawers.
+- Reset / Try Again controls.
 
-Upload every file in this ZIP to the repository root.
+IMPORTANT: The compact charts are instructional prototype visualizations of the cited findings, not raw station-data plots.
+The final production build should use the approved full data visualizations/data extracts.
 
-Optional seasonal media:
-If winter-poster.jpg, spring-poster.jpg, summer-poster.jpg, and fall-poster.jpg are not uploaded yet,
-the activity still functions, but those seasonal panels will show their gradient background rather than the photos.
-
-This clean build intentionally contains no legacy navigation, no separate climate-connection buttons in the examples,
-and no Explore Your Own Region button inside the Big Climate Picture.
-
-styles.css and app.js use cache-busting version strings in index.html.
+Keep Garden-Frost-Adobe-Stock-Ann.jpeg in the repository root.
