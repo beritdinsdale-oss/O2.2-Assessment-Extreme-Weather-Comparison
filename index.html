@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Extreme Weather Roadmap</title>
-<link rel="stylesheet" href="styles.css?v=20260812-season2">
+<link rel="stylesheet" href="styles.css?v=20260812-challenge1">
 </head>
 <body>
 <main id="app">
@@ -84,18 +84,49 @@
 <div class="takeaway"><b>Key idea:</b> Climate change does not affect every extreme in the same way. Evidence is stronger for some hazards, regions, and outcomes than others.</div>
 </section>
 
-<section id="challenge" class="screen" hidden>
+<section id="challenge" class="screen challenge-sample" hidden>
 <button class="back" data-go="roadmap">← Roadmap</button>
-<header class="pagehead"><p class="eyebrow">STOP 4</p><h2>Gardener Preparedness Challenge</h2><p>Judge the evidence first. Then decide whether it is strong enough to make the hazard a long-term gardening priority.</p></header>
+<header class="pagehead"><p class="eyebrow">STOP 4 · APPLY THE EVIDENCE</p><h2>Gardener Preparedness Challenge</h2>
+<p>Imagine you are helping gardeners in the <b>Willamette Valley, Oregon</b> prepare for the future. Use the evidence—not just your memory of earlier examples—to decide which risks deserve priority.</p></header>
+
 <div class="progress" aria-label="Challenge progress"><span class="dot active">1</span><i></i><span class="dot">2</span><i></i><span class="dot">3</span></div>
-<article id="challengeCard" class="challenge-card">
-<p id="challengeNum" class="eyebrow">DECISION 1</p><h3 id="claim"></h3><p id="context"></p>
-<label class="slider-wrap"><b>How strong is the climate evidence for increasing future risk?</b><input id="evidenceSlider" type="range" min="0" max="100" value="50"><span><i>Questionable</i><i>Moderate</i><i>Strong</i></span></label>
-<fieldset><legend>Should this be a priority in a long-term garden preparedness plan?</legend><label><input type="radio" name="prep" value="notyet"> Not as a climate-driven priority yet</label><label><input type="radio" name="prep" value="yes"> Yes, plan for this increasing risk</label></fieldset>
-<button id="check" class="primary" disabled>Compare my judgment with the evidence</button><div id="feedback" hidden></div><button id="next" class="primary" hidden>Next decision →</button>
+
+<article id="challengeCard" class="challenge-card richer-challenge">
+<div class="location-chip">📍 WILLAMETTE VALLEY, OREGON</div>
+<p id="challengeNum" class="eyebrow">DECISION 1 OF 3</p>
+<div class="hazard-heading"><span id="hazardIcon">☀️</span><div><small id="hazardLabel">EXTREME HEAT</small><h3 id="claim"></h3></div></div>
+<p id="context"></p>
+
+<button id="reviewEvidence" class="evidence-toggle" aria-expanded="false">📊 Review the evidence <span>+</span></button>
+<div id="evidenceDrawer" class="evidence-drawer" hidden>
+  <div class="evidence-source"><span>DATA TO CONSIDER</span><a id="evidenceSource" target="_blank" rel="noopener">View source ↗</a></div>
+  <h4 id="evidenceTitle"></h4>
+  <div id="evidenceVisual" class="evidence-visual"></div>
+  <p id="evidenceText"></p>
+  <p class="evidence-prompt"><b>Your task:</b> What conclusion does this evidence support for the Willamette Valley?</p>
+</div>
+
+<div class="judgment-block">
+<fieldset><legend>1. What does the evidence support?</legend>
+<label class="choice"><input type="radio" name="strength" value="strong"><span><b>Strong evidence</b><small>The evidence clearly supports an increasing future risk.</small></span></label>
+<label class="choice"><input type="radio" name="strength" value="uncertain"><span><b>Some / uncertain evidence</b><small>There is a plausible connection, but important uncertainty remains.</small></span></label>
+<label class="choice"><input type="radio" name="strength" value="insufficient"><span><b>Insufficient evidence</b><small>The available evidence does not support this conclusion.</small></span></label>
+</fieldset>
+<fieldset><legend>2. Should this be a long-term garden preparedness priority?</legend>
+<label class="choice compact"><input type="radio" name="prep" value="yes"><span><b>Yes</b> — plan for this increasing risk.</span></label>
+<label class="choice compact"><input type="radio" name="prep" value="notyet"><span><b>Not based on current evidence</b></span></label>
+</fieldset>
+</div>
+
+<div class="challenge-actions"><button id="check" class="primary" disabled>Check my reasoning</button><button id="resetDecision" class="secondary">Reset this decision</button></div>
+<div id="feedback" hidden></div>
+<div id="retryActions" hidden><button id="retry" class="secondary">↻ Try again</button><button id="reviewAgain" class="secondary">📊 Review evidence</button></div>
+<button id="next" class="primary" hidden>Next decision →</button>
 </article>
-<div id="complete" class="complete" hidden><span>✓</span><h3>Match preparation to the strength of the evidence.</h3><p>You can prepare for disruptive weather without assuming every memorable event is becoming more likely because of climate change.</p><a class="primary linkbutton" href="https://canvas.oregonstate.edu/courses/2038983/pages/my-garden-journal?module_item_id=27047126" target="_top">Explore your region in the Garden Journal →</a></div>
+
+<div id="complete" class="complete" hidden><span>✓</span><h3>Evidence first. Preparation second.</h3><p>You used climate evidence to decide which future risks deserve priority for Willamette Valley gardens.</p><button id="restartChallenge" class="secondary">↻ Try the challenge again</button></div>
+<p class="sample-note"><b>Sample-build note:</b> The evidence graphics in this prototype are intentionally simple. The final build can use the full long-term data displays from the Big Climate Picture.</p>
 </section>
 </main>
-<script src="app.js?v=20260812-season2"></script>
+<script src="app.js?v=20260812-challenge1"></script>
 </body></html>
