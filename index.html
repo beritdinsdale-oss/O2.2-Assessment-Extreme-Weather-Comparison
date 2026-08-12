@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Extreme Weather Roadmap</title>
-<link rel="stylesheet" href="styles.css?v=20260812-mechanisms1">
+<link rel="stylesheet" href="styles.css?v=20260812-singlechallenge1">
 </head>
 <body>
 <main id="app">
@@ -100,32 +100,63 @@
 
 <section id="challenge" class="screen challenge-rich" hidden>
 <button class="back" data-go="roadmap">← Roadmap</button>
+
 <div id="challengeLanding" class="challenge-landing">
- <div class="landing-icon">🌿</div><p class="eyebrow">STOP 4</p><h2>Gardener Preparedness Challenge</h2>
- <p class="lead">Willamette Valley gardeners are trying to decide how to plan for future extreme weather.</p>
- <p>Review each scenario and its climate evidence. Then decide <b>how strongly that evidence should influence garden planning</b> and choose a practical response.</p>
- <div class="decision-key"><div><span>1</span><b>Review the scenario</b></div><div><span>2</span><b>Examine the evidence</b></div><div><span>3</span><b>Make a recommendation</b></div></div>
- <button id="beginChallenge" class="primary">Begin the challenge →</button>
+<div class="landing-icon">🌿</div><p class="eyebrow">STOP 4 · APPLY THE LEARNING</p>
+<h2>Gardener Preparedness Challenge</h2>
+<p class="lead">Willamette Valley gardeners are trying to decide how to plan for future extreme weather.</p>
+<p>Examine local climate evidence, decide what it tells you, and then consider how that evidence might influence your own garden planning.</p>
+<button id="beginChallenge" class="primary">Begin the challenge →</button>
 </div>
+
 <div id="challengePlay" hidden>
- <header class="pagehead compact-head"><p class="eyebrow">WILLAMETTE VALLEY · APPLY THE EVIDENCE</p><h2 id="challengeHazard">Extreme Heat</h2></header>
- <div class="progress"><span class="dot active">1</span><i></i><span class="dot">2</span><i></i><span class="dot">3</span></div>
- <article class="challenge-card richer-challenge">
-  <p id="challengeNum" class="eyebrow">SCENARIO 1 OF 3</p><h3 id="claim"></h3><p id="context"></p>
-  <button id="reviewEvidence" class="evidence-toggle" aria-expanded="false">📊 Review the data <span>+</span></button>
-  <div id="evidenceDrawer" class="evidence-drawer" hidden><div class="evidence-source"><span>EVIDENCE TO CONSIDER</span><a id="evidenceSource" target="_blank" rel="noopener">View source ↗</a></div><h4 id="evidenceTitle"></h4><div id="challengeViz" class="challenge-viz"></div><p id="evidenceText"></p></div>
-  <fieldset class="recommend"><legend>How should this evidence influence long-term garden planning?</legend>
-   <label class="choice"><input type="radio" name="recommend" value="priority"><span><b>Make it a priority adaptation</b><small>The evidence is strong enough to plan specifically for this increasing risk.</small></span></label>
-   <label class="choice"><input type="radio" name="recommend" value="flex"><span><b>Build in flexibility</b><small>The risk matters, but uncertainty or seasonal differences call for adaptable responses.</small></span></label>
-   <label class="choice"><input type="radio" name="recommend" value="aware"><span><b>Be aware</b><small>Stay prepared for the event, but don't base climate-specific changes on an increasing trend that the evidence does not establish.</small></span></label>
-  </fieldset>
-  <fieldset id="actionField"><legend id="actionLegend">Which adaptation best matches the evidence?</legend><div id="actionChoices"></div></fieldset>
-  <div class="challenge-actions"><button id="check" class="primary" disabled>Check my recommendation</button><button id="resetDecision" class="secondary">Reset</button></div>
-  <div id="feedback" hidden></div><div id="retryActions" hidden><button id="retry" class="secondary">↻ Try again</button><button id="reviewAgain" class="secondary">📊 Review data</button></div><button id="next" class="primary" hidden>Next scenario →</button>
- </article>
+<button id="backToChallengeLanding" class="back">← Go Back</button>
+<header class="pagehead compact-head"><p class="eyebrow">WILLAMETTE VALLEY · HEAVY PRECIPITATION</p><h2>What should gardeners plan for?</h2></header>
+
+<article class="challenge-card richer-challenge">
+<div class="scenario-box"><p class="eyebrow">THE SITUATION</p><p>A community garden is planning improvements that will last for many years. Gardeners want to know whether changing precipitation patterns should influence those plans.</p></div>
+
+<button id="reviewEvidence" class="evidence-toggle" aria-expanded="false">📊 Review the Willamette Valley evidence <span>+</span></button>
+<div id="evidenceDrawer" class="evidence-drawer" hidden>
+<div class="evidence-source"><span>DATA TO CONSIDER</span><a href="https://www.oregon.gov/odf/forestbenefits/documents/oregon-climate-assessment.pdf" target="_blank" rel="noopener">View source ↗</a></div>
+<h4>Season matters</h4>
+<div class="challenge-viz"><div class="mini-season"><div>🌱<b>Spring</b><small>variable</small></div><div>☀️<b>Summer</b><small>dry / drier</small></div><div>🍂<b>Fall</b><small>heavier extremes ↑</small></div><div>🌧️<b>Winter</b><small>heavy rain remains important</small></div></div></div>
+<p>Climate projections for western Oregon show continued dry summers alongside increases in the intensity of the heaviest precipitation events, with particularly notable increases projected in fall in northwestern Oregon.</p>
 </div>
-<div id="complete" class="complete" hidden><span>✓</span><h3>Use the evidence to match the response to the risk.</h3><p>Strong evidence can justify targeted adaptations. Uncertain evidence can still justify flexible, broadly useful preparation.</p><button id="restartChallenge" class="secondary">↻ Try the challenge again</button></div>
+
+<div id="q1" class="challenge-question">
+<p class="question-number">1 · INTERPRET THE EVIDENCE</p>
+<fieldset><legend>What conclusion is best supported by the evidence?</legend>
+<label class="choice"><input type="radio" name="q1" value="a"><span>The Willamette Valley is expected to become wetter throughout the entire growing season.</span></label>
+<label class="choice"><input type="radio" name="q1" value="b"><span><b>The heaviest precipitation events are projected to become more intense, particularly in fall, while summers remain relatively dry or become drier.</b></span></label>
+<label class="choice"><input type="radio" name="q1" value="c"><span>Increasing heavy precipitation means summer irrigation will probably become less important.</span></label>
+</fieldset>
+</div>
+
+<div id="q2" class="challenge-question">
+<p class="question-number">2 · MAKE A PLANNING DECISION</p>
+<fieldset><legend>How should this information influence your garden planning?</legend>
+<p class="no-right-answer">There isn't one correct choice here. Your answer may depend on when and how you garden.</p>
+<label class="choice"><input type="radio" name="q2" value="priority"><span><b>Make it a priority adaptation</b><small>This matters enough for the way I garden that I would plan specifically for it.</small></span></label>
+<label class="choice"><input type="radio" name="q2" value="flex"><span><b>Build in flexibility</b><small>I would make adaptable improvements that are useful under several conditions.</small></span></label>
+<label class="choice"><input type="radio" name="q2" value="aware"><span><b>Be aware</b><small>I would keep the evidence in mind but would not make changes right now.</small></span></label>
+</fieldset>
+</div>
+
+<div id="q3" class="challenge-question">
+<p class="question-number">3 · APPLY IT TO A FALL GARDEN</p>
+<fieldset><legend>If you garden into fall, which approach best matches the evidence?</legend>
+<label class="choice"><input type="radio" name="q3" value="a"><span>Reduce summer irrigation because heavier precipitation is expected.</span></label>
+<label class="choice"><input type="radio" name="q3" value="b"><span><b>Improve drainage and protect soil from heavy fall rainfall while maintaining summer irrigation capacity.</b></span></label>
+<label class="choice"><input type="radio" name="q3" value="c"><span>Plan for uniformly wetter soil conditions from spring through fall.</span></label>
+</fieldset>
+</div>
+
+<div class="challenge-actions"><button id="checkSingle" class="primary" disabled>Check my responses</button><button id="resetSingle" class="secondary">↻ Reset answers</button></div>
+<div id="singleFeedback" class="single-feedback" hidden></div>
+</article>
+</div>
 </section>
 </main>
-<script src="app.js?v=20260812-mechanisms1"></script>
+<script src="app.js?v=20260812-singlechallenge1"></script>
 </body></html>
