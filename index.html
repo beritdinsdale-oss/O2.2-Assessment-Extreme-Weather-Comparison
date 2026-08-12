@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Extreme Weather Roadmap</title>
-<link rel="stylesheet" href="styles.css?v=20260812-illustratedroadmap1">
+<link rel="stylesheet" href="styles.css?v=20260812-fullrestore1">
 </head>
 <body>
 <main id="app">
@@ -96,7 +96,23 @@
  <div class="meter"><div><b>Climate evidence for increasing future risk</b><strong id="regionRating">STRONG</strong></div><div class="scale"><i id="regionNeedle" style="left:90%"></i></div><div class="labels"><span>Questionable</span><span>Moderate</span><span>Strong</span></div><p id="regionWhy">Human-caused warming is increasing the likelihood and intensity of extreme heat.</p><a id="regionScience" href="https://www.worldweatherattribution.org/western-north-american-extreme-heat-virtually-impossible-without-human-caused-climate-change/" target="_blank" rel="noopener">Explore the science ↗</a></div>
  </div>
 </article>
-</section>
+
+<div class="event-video-pair">
+ <article class="event-video">
+  <div class="video-label">PACIFIC NORTHWEST · JUNE 2021</div>
+  <div class="video-embed"><iframe src="https://www.youtube.com/embed/4z2P2qTst7M" title="Pacific Northwest 2021 heat wave video" loading="lazy" allowfullscreen></iframe></div>
+  <h3>Extreme heat</h3>
+  <p>The 2021 heat dome pushed temperatures far beyond the region’s historical experience.</p>
+  <a href="https://science.nasa.gov/photojournal/heat-wave-surface-temperature/" target="_blank" rel="noopener">NASA event evidence ↗</a>
+ </article>
+ <article class="event-video">
+  <div class="video-label">TENNESSEE · AUGUST 2021</div>
+  <div class="video-embed"><iframe src="https://www.youtube.com/embed/1qVhggSL9as" title="2021 Tennessee flooding video" loading="lazy" allowfullscreen></iframe></div>
+  <h3>Extreme rainfall and flooding</h3>
+  <p>In the same summer, record rainfall produced catastrophic flash flooding in Middle Tennessee.</p>
+  <a href="https://www.ncei.noaa.gov/stormevents/eventdetails.jsp?id=982536" target="_blank" rel="noopener">NOAA event evidence ↗</a>
+ </article>
+</div></section>
 
 <section id="seasons" class="screen season-sample" hidden>
 <button class="back" data-go="roadmap">← Roadmap</button>
@@ -115,115 +131,108 @@
 <a id="seasonScience" href="#" target="_blank" rel="noopener">Explore the science ↗</a></div></div></article>
 <p class="sample-note"><b>Sample:</b> This build focuses on the revised seasonal evidence experience before applying the richer visual treatment to the entire activity.</p></section>
 
-<section id="bigpicture" class="screen mechanism-big story-section" hidden>
+<section id="bigpicture" class="screen story-section science-cinema" hidden>
 <button class="back" data-go="roadmap">← Roadmap</button>
-<header class="pagehead"><p class="eyebrow">STOP 3 · THE BIG CLIMATE PICTURE</p><h2>Why Can Extreme Weather Change?</h2>
-<p>Climate change can alter the conditions that produce extreme weather—but not every extreme changes in the same way or in every place. Explore four examples.</p></header>
+<header class="cinema-head">
+  <p class="eyebrow">STOP 3 · THE BIG CLIMATE PICTURE</p>
+  <h2>Watch the processes behind the extremes</h2>
+  <p>These short scientific animations show physical processes rather than simply labeling an event as “climate change.” Use the tabs to move between them.</p>
+</header>
 
-<div class="mechanism-tabs" role="tablist" aria-label="Choose an extreme-weather process">
-<button class="mechanism-tab active" data-mech="heat">☀️ <b>Extreme Heat</b></button>
-<button class="mechanism-tab" data-mech="rain">🌧️ <b>Heavy Precipitation</b></button>
-<button class="mechanism-tab" data-mech="dry">🌱 <b>Extreme Dryness</b></button>
-<button class="mechanism-tab" data-mech="ice">🧊 <b>Ice Storms</b></button>
+<nav class="cinema-tabs" aria-label="Climate process animations">
+ <button class="cinema-tab active" data-cinema="heat">Extreme heat</button>
+ <button class="cinema-tab" data-cinema="rain">Heavy precipitation</button>
+ <button class="cinema-tab" data-cinema="dry">Dry conditions</button>
+ <button class="cinema-tab" data-cinema="ice">Freezing rain</button>
+</nav>
+
+<div class="cinema-stage">
+ <article class="cinema-panel active" id="cinema-heat">
+   <div class="cinema-media">
+    <img src="http://ccimgs-2017.s3.amazonaws.com/2017SummerHeatPrepPackage/2017SummerHeatPrepPackage_BellCurve_Animated_en_title_sm.gif"
+         alt="Animated bell curve showing a shift toward warmer temperatures and a larger share of extreme heat." />
+   </div>
+   <div class="cinema-copy">
+    <span class="evidence-strength strong">STRONG EVIDENCE</span>
+    <h3>A small shift changes the extremes</h3>
+    <p>Watch the temperature distribution move. The important change is at the hot end of the curve: temperatures that were once rare occupy more of the distribution.</p>
+    <a href="https://www.climate.gov/media/13232" target="_blank" rel="noopener">Explore the science ↗</a>
+    <small>Animation: Climate Central, presented by NOAA Climate.gov.</small>
+   </div>
+ </article>
+
+ <article class="cinema-panel" id="cinema-rain">
+   <div class="cinema-media source-frame">
+    <iframe src="https://psl.noaa.gov/arportal/about/" title="NOAA Physical Sciences Laboratory atmospheric river animation" loading="lazy"></iframe>
+   </div>
+   <div class="cinema-copy">
+    <span class="evidence-strength strong">STRONG EVIDENCE</span>
+    <h3>More moisture can feed heavier rain</h3>
+    <p>NOAA’s animation shows water vapor moving in an atmospheric river. A warmer atmosphere can hold more water vapor, increasing the amount available when conditions produce precipitation.</p>
+    <a href="https://psl.noaa.gov/arportal/about/" target="_blank" rel="noopener">Open NOAA animation ↗</a>
+    <small>Animation: NOAA Physical Sciences Laboratory.</small>
+   </div>
+ </article>
+
+ <article class="cinema-panel" id="cinema-dry">
+   <div class="cinema-media source-frame">
+    <iframe src="https://www.usgs.gov/media/images/20230420what-droughtgif" title="USGS drought progression animation" loading="lazy"></iframe>
+   </div>
+   <div class="cinema-copy">
+    <span class="evidence-strength strong">STRONG EVIDENCE</span>
+    <h3>Dryness develops through a water balance</h3>
+    <p>Watch conditions progress from normal toward drought. Heat can increase evaporative demand, so precipitation is only one part of the story.</p>
+    <a href="https://www.usgs.gov/media/images/20230420what-droughtgif" target="_blank" rel="noopener">Open USGS animation ↗</a>
+    <small>Animation: U.S. Geological Survey. Public domain.</small>
+   </div>
+ </article>
+
+ <article class="cinema-panel" id="cinema-ice">
+   <div class="cinema-media source-frame">
+    <iframe src="https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/what-precipitation" title="NOAA NESDIS sleet and freezing rain animation" loading="lazy"></iframe>
+   </div>
+   <div class="cinema-copy">
+    <span class="evidence-strength uncertain">UNCERTAIN FUTURE TREND</span>
+    <h3>Freezing rain needs a narrow temperature setup</h3>
+    <p>Snow melts in an above-freezing layer aloft, then liquid drops pass through shallow subfreezing air near the surface and freeze on contact. Because several temperature layers must align, changes in future ice-storm frequency are harder to project than changes in extreme heat.</p>
+    <a href="https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/what-precipitation" target="_blank" rel="noopener">Open NOAA freezing-rain animation ↗</a>
+    <small>Animation: NOAA NESDIS / NASA Space Place.</small>
+   </div>
+ </article>
 </div>
 
-<article class="mechanism-stage">
- <div class="mechanism-copy"><p class="eyebrow" id="mechKicker">EXTREME HEAT</p><h3 id="mechTitle">A warmer starting point changes the odds</h3><p id="mechIntro">Weather still varies from day to day. But when the whole temperature range shifts warmer, temperatures that once sat at the far edge of the curve are reached more often.</p></div>
- <div id="mechanismVisual" class="mechanism-visual heat-curve" role="img" aria-label="Conceptual temperature distribution showing a warmer climate increasing the area above an extreme heat threshold"></div>
- <div class="mechanism-takeaway"><span>→</span><p id="mechTakeaway"><b>The key idea:</b> A relatively small shift in average temperature can produce a much larger change in the frequency of extreme heat.</p></div>
- <div class="where-matters"><div><p class="eyebrow">WHY LOCATION & SEASON MATTER</p><h4 id="whereTitle">The mechanism is broad; the size of the change is regional.</h4><p id="whereText">Local climate, elevation, distance from the ocean, and weather patterns affect how much extreme heat changes from one place to another.</p></div><a id="mechSource" target="_blank" rel="noopener">Explore the science ↗</a></div>
-</article>
-
-<div class="regional-overview">
- <div class="map-idea" aria-hidden="true"><span class="pacific">Pacific<br>Ocean</span><div class="us-shape"><i class="nw">⛰️</i><i class="plains">↝</i><i class="se">💧</i></div></div>
- <div><p class="eyebrow">ZOOM OUT</p><h3>Why aren't extreme-weather changes the same everywhere?</h3>
- <p>Moisture sources, mountains, storm tracks, season, and the climate a region starts with all shape its extremes. That's why evidence from one U.S. region cannot simply be copied to another.</p>
- <div class="region-factors"><span>🌊 Moisture sources</span><span>⛰️ Topography</span><span>↝ Storm tracks</span><span>🍂 Season</span></div></div>
+<div class="cinema-takeaway">
+ <b>What to carry forward:</b> Climate evidence is not equally strong for every kind of extreme. That difference matters when gardeners decide what to prepare for.
 </div>
 </section>
 
-<section id="challenge" class="screen monthly-challenge" hidden>
+<section id="challenge" class="screen hazard-challenge" hidden>
 <button class="back" data-go="roadmap">← Roadmap</button>
-
-<div id="challengeLanding" class="story-landing">
-  <div class="story-sky" aria-hidden="true"><span>☁️</span><span>☀️</span><span>🌧️</span></div>
-  <div class="story-content">
-    <p class="eyebrow">FINAL STOP · USE THE EVIDENCE</p>
-    <h2>What would you plan for?</h2>
-    <p class="lead">A Willamette Valley community garden is making long-term plans for changing weather and climate conditions.</p>
-    <p>The garden is active throughout the growing season, including fall. Use the climate data to help the gardeners decide how to prepare.</p>
-    <div class="mini-route three"><span><b>1</b> Read the graph</span><i>→</i><span><b>2</b> Set a priority</span><i>→</i><span><b>3</b> Recommend an action</span></div>
-    <button id="beginChallenge" class="primary large-cta">Explore the data →</button>
-  </div>
-  <div class="story-ground" aria-hidden="true"><span>🌱</span><span>🌿</span><span>🪴</span><span>🌻</span></div>
+<div id="challengeLanding" class="story-landing hazard-landing">
+ <div class="story-content">
+  <p class="eyebrow">STOP 4 · GARDENER PREPAREDNESS CHALLENGE</p>
+  <h2>Which risks would you plan for?</h2>
+  <p class="lead">A Willamette Valley community garden is making long-term plans for future extreme weather.</p>
+  <p>You’ll review evidence for <b>heat, precipitation, and ice</b>. First judge what the evidence supports. Then decide how much weight you would give it in garden planning.</p>
+  <div class="hazard-route"><span>🌡️ Heat</span><i>→</i><span>🌧️ Precipitation</span><i>→</i><span>🧊 Ice</span></div>
+  <button id="beginChallenge" class="primary large-cta">Begin the challenge →</button>
+ </div>
 </div>
 
-<div id="challengePlay" hidden>
-  <div class="challenge-topbar">
-    <button id="backChallengeStep" class="back compact-back">← Back</button>
-    <button id="resetChallenge" class="reset-link">↻ Reset</button>
-  </div>
-
-  <div class="data-story-head">
-    <div><p class="eyebrow">WILLAMETTE VALLEY · MONTH BY MONTH</p><h2>Look for the pattern</h2>
-    <p>Compare the months rather than relying on seasonal labels.</p></div>
-    <div class="data-chip">12 months · 1 graph</div>
-  </div>
-
-  <article class="monthly-data-card">
-    <div class="monthly-card-head">
-      <div><p class="eyebrow">CLIMATE DATA</p><h3>Projected change in monthly precipitation</h3>
-      <p>Willamette River Basin · future compared with historical climate</p></div>
-      <button id="graphHelp" class="help-pill">? How to read</button>
-    </div>
-
-    <div id="graphHelpBox" class="graph-help" hidden>
-      <b>How to read it:</b> The straight line represents the historical baseline. The second line shows the direction of projected monthly change. Above the baseline means more precipitation; below it means less. The graph follows the October–September water year.
-    </div>
-
-    <div class="source-graph-wrap">
-      <div class="clean-monthly-chart" role="img" aria-label="Simplified monthly precipitation projection display for the Willamette River Basin, recreated from the Oregon State University Willamette Water 2100 monthly precipitation figure.">
-<svg viewBox="0 0 900 390" aria-hidden="true">
-  <line x1="70" y1="185" x2="855" y2="185" class="baseline"/>
-  <line x1="70" y1="45" x2="70" y2="320" class="axis"/>
-  <text x="18" y="70" class="axislabel">more</text><text x="18" y="305" class="axislabel">less</text><text x="18" y="190" class="zerolabel">0</text>
-  <polyline class="historical-line" points="80,185 145,185 210,185 275,185 340,185 405,185 470,185 535,185 600,185 665,185 730,185 795,185"/>
-  <polyline class="future-line" points="80,154 145,150 210,158 275,168 340,182 405,205 470,235 535,255 600,244 665,205 730,166 795,150"/>
-  <g class="dots">
-    <circle cx="80" cy="154" r="5"/><circle cx="145" cy="150" r="5"/><circle cx="210" cy="158" r="5"/><circle cx="275" cy="168" r="5"/>
-    <circle cx="340" cy="182" r="5"/><circle cx="405" cy="205" r="5"/><circle cx="470" cy="235" r="5"/><circle cx="535" cy="255" r="5"/>
-    <circle cx="600" cy="244" r="5"/><circle cx="665" cy="205" r="5"/><circle cx="730" cy="166" r="5"/><circle cx="795" cy="150" r="5"/>
-  </g>
-  <g class="months">
-    <text x="70" y="350">Oct</text><text x="136" y="350">Nov</text><text x="200" y="350">Dec</text><text x="267" y="350">Jan</text>
-    <text x="330" y="350">Feb</text><text x="397" y="350">Mar</text><text x="460" y="350">Apr</text><text x="526" y="350">May</text>
-    <text x="590" y="350">Jun</text><text x="656" y="350">Jul</text><text x="720" y="350">Aug</text><text x="786" y="350">Sep</text>
-  </g>
-</svg>
-<div class="simple-key"><span><i class="key-historical"></i>Historical baseline</span><span><i class="key-future"></i>Future projection</span></div>
-</div>
-    </div>
-
-    <div class="graph-source">
-      <span>Source: Oregon State University, Willamette Water 2100 · future climate analysis</span>
-      <a href="https://inr.oregonstate.edu/ww2100/analysis-topic/future-climate" target="_blank" rel="noopener">Explore source ↗</a>
-    </div>
-  </article>
-
-  <article class="question-shell monthly-question-shell">
-    <div id="questionPanel"></div>
-    <div id="questionFeedback" class="question-feedback" hidden></div>
-    <div class="question-nav"><button id="checkStep" class="primary" disabled>Check answer</button><button id="nextStep" class="primary" hidden>Next →</button></div>
-  </article>
+<div id="challengePlay" class="hazard-play" hidden>
+ <div class="challenge-topbar"><button id="backChallengeStep" class="back compact-back">← Back</button><button id="resetChallenge" class="reset-link">↻ Reset challenge</button></div>
+ <div class="hazard-progress"><span id="hazardProgress">Evidence 1 of 3</span></div>
+ <div id="hazardEvidence"></div>
+ <article class="question-shell"><div id="questionPanel"></div><div id="questionFeedback" class="question-feedback" hidden></div><div class="question-nav"><button id="checkStep" class="primary" disabled>Check answer</button><button id="nextStep" class="primary" hidden>Next →</button></div></article>
 </div>
 
-<div id="challengeComplete" class="challenge-complete story-complete" hidden>
-  <div class="complete-badge">✓</div><p class="eyebrow">CHALLENGE COMPLETE</p>
-  <h2>You used the graph to make the decision.</h2>
-  <p>Climate evidence can inform garden planning without deciding every gardener’s priorities for them.</p>
-  <div class="complete-actions"><button id="restartChallenge" class="secondary">↻ Try again</button><button class="primary" data-go="roadmap">Return to roadmap →</button></div>
+<div id="challengeComplete" class="challenge-complete" hidden>
+ <div class="complete-badge">✓</div><p class="eyebrow">CHALLENGE COMPLETE</p>
+ <h2>Evidence informs preparedness—it doesn’t make the decision for you.</h2>
+ <p>You compared hazards with different levels of scientific certainty and made planning judgments for the same Willamette Valley garden.</p>
+ <div class="complete-actions"><button id="restartChallenge" class="secondary">↻ Try again</button><button class="primary" data-go="roadmap">Return to roadmap →</button></div>
 </div>
 </section>
 </main>
-<script src="app.js?v=20260812-illustratedroadmap1"></script>
+<script src="app.js?v=20260812-fullrestore1"></script>
 </body></html>

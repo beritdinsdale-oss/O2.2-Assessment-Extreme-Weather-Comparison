@@ -29,86 +29,67 @@ function renderMechanism(d){
 document.querySelectorAll("[data-mech]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-mech]").forEach(x=>x.classList.toggle("active",x===b));renderMechanism(mechanisms[b.dataset.mech])});renderMechanism(mechanisms.heat);
 
 
-const challengeSteps=[
-{
- type:"scored",
- kicker:"STEP 1 · READ THE GRAPH",
- title:"What conclusion is best supported by the monthly precipitation graph?",
- intro:"Use the graph to compare how projected precipitation changes across the gardening year.",
- answers:[
-  {v:"a",text:"Projected precipitation changes in roughly the same direction throughout the year."},
-  {v:"b",text:"Projected precipitation changes differ by month, so conditions during one part of the gardening year may not represent another."},
-  {v:"c",text:"The graph shows that precipitation will increase throughout the main summer gardening months."}
- ],
- correct:"b",
- good:"Yes. The graph shows that the direction of projected precipitation change is not the same across all months.",
- review:"Look across the entire monthly line. Does the future projection stay on the same side of the historical baseline all year?"
-},
-{
- type:"personal",
- kicker:"STEP 2 · SET A PRIORITY",
- title:"How much weight would you give this evidence in the community garden’s long-term plans?",
- intro:"There is no single correct choice. Consider the garden’s long growing season and the fact that climate evidence is only one part of a planning decision.",
- answers:[
-  {v:"priority",text:"Make it a priority",small:"Use the projected monthly pattern as an important factor in long-term planning."},
-  {v:"flex",text:"Build in flexibility",small:"Choose approaches that can work under a range of future precipitation conditions."},
-  {v:"aware",text:"Be aware for now",small:"Keep watching the evidence but do not make major changes yet."}
- ]
-},
-{
- type:"scored",
- kicker:"STEP 3 · RECOMMEND AN ACTION",
- title:"Which recommendation is most consistent with the climate evidence?",
- intro:"Stay with the same community garden. Choose the planning approach that best reflects what the monthly graph can—and cannot—tell the gardeners.",
- answers:[
-  {v:"a",text:"Build flexibility into water-management plans so the garden can respond to different precipitation conditions during different parts of the growing season."},
-  {v:"b",text:"Plan for generally wetter conditions throughout the growing season because future precipitation is projected to increase."},
-  {v:"c",text:"Use annual precipitation totals as the main guide because month-to-month differences are not important for garden planning."}
- ],
- correct:"a",
- good:"Yes. This recommendation uses the monthly pattern without assuming that all months will change in the same way.",
- review:"Think about why the graph is shown month by month. Which recommendation preserves the differences you observed rather than averaging them away?"
-}
+
+// Robust navigation aliases
+document.querySelectorAll("[data-go]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+   let target=btn.dataset.go;
+   const aliases={bigpicture:"bigpicture",mechanism:"bigpicture",regions:"regions",season:"season",challenge:"challenge",roadmap:"roadmap"};
+   let el=document.getElementById(aliases[target]||target);
+   if(el){document.querySelectorAll(".screen").forEach(s=>s.hidden=true);el.hidden=false;window.scrollTo(0,0)}
+ });
+});
+
+// Big Climate Picture cinema tabs
+document.querySelectorAll(".cinema-tab").forEach(tab=>tab.addEventListener("click",()=>{
+ document.querySelectorAll(".cinema-tab").forEach(x=>x.classList.remove("active"));
+ document.querySelectorAll(".cinema-panel").forEach(x=>x.classList.remove("active"));
+ tab.classList.add("active"); document.getElementById("cinema-"+tab.dataset.cinema)?.classList.add("active");
+}));
+
+const hazards=[
+ {name:"Extreme heat",icon:"🌡️",meter:"high",meterText:"Strong",
+  evidence:`<p><b>Evidence to review:</b> Warming shifts the temperature distribution so very hot conditions occur more often. The 2021 Pacific Northwest heat wave was found to have been virtually impossible without human-caused warming.</p><a href="https://www.climate.gov/media/13232" target="_blank" rel="noopener">Review heat animation ↗</a>`,
+  q:"How strong is the evidence that extreme heat should be part of long-term Willamette Valley garden planning?",
+  opts:[["a","Strong enough to plan for"],["b","Too uncertain to use"],["c","Only relevant if another 2021 heat dome occurs"]],correct:"a",
+  feedback:"The evidence for increasing extreme heat with continued warming is strong."},
+ {name:"Precipitation",icon:"🌧️",meter:"high",meterText:"Strong, but seasonal",
+  evidence:`<p><b>Evidence to review:</b> The monthly pattern matters. The graph below represents projected monthly precipitation change across the Willamette growing year. Look for differences among months rather than treating the year as one condition.</p>
+  <div class="monthly-mini">${[38,42,35,28,22,14,8,6,10,18,31,40].map((v,i)=>`<div style="height:${v*3}px"><small>${["Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep"][i]}</small></div>`).join("")}</div>
+  <p class="data-note">Monthly display is a simplified instructional rendering of the Willamette Water 2100 projected seasonal/monthly pattern; use the source for model detail.</p><a href="https://inr.oregonstate.edu/ww2100/analysis-topic/future-climate" target="_blank" rel="noopener">Review OSU source ↗</a>`,
+  q:"What is the most useful conclusion for the garden?",
+  opts:[["a","Treat future precipitation as the same problem in every month"],["b","Use month-by-month evidence because water-management needs can differ across the growing year"],["c","Assume more annual precipitation eliminates summer water concerns"]],correct:"b",
+  feedback:"Monthly evidence is useful because a seasonal or annual total can hide conditions that matter during the gardening months."},
+ {name:"Ice storms",icon:"🧊",meter:"medium",meterText:"More uncertain",
+  evidence:`<p><b>Evidence to review:</b> Freezing rain requires a specific vertical temperature profile: frozen precipitation melts in warm air aloft, then encounters shallow subfreezing air near the surface. Oregon experienced a severe ice storm in January 2024, but a damaging event by itself does not establish a clear future trend.</p><a href="https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/what-precipitation" target="_blank" rel="noopener">Review freezing-rain animation ↗</a>`,
+  q:"What does the evidence justify saying about future ice-storm preparedness?",
+  opts:[["a","Ice storms will definitely become more frequent, so they should be the highest priority"],["b","The science is uncertain enough that preparedness is a judgment call rather than a confident trend-based prediction"],["c","Uncertainty proves ice storms will become less common"]],correct:"b",
+  feedback:"The event is real and preparedness may still be worthwhile, but the future trend is less certain than it is for extreme heat."}
 ];
-
-let challengeStep=0,savedSelections={};
-graphHelp.onclick=()=>graphHelpBox.hidden=!graphHelpBox.hidden;
-
-function renderStep(){
- let s=challengeSteps[challengeStep];
- let answers=s.answers.map(a=>`<label class="answer"><input type="radio" name="stepAnswer" value="${a.v}"><span>${a.text}${a.small?`<small>${a.small}</small>`:""}</span></label>`).join("");
- questionPanel.innerHTML=`<div class="question-card"><p class="question-kicker">${s.kicker}</p><h3>${s.title}</h3><p>${s.intro}</p><div class="${s.type==="personal"?"decision-cards":"answer-list"}">${answers}</div></div>`;
- questionFeedback.hidden=true;questionFeedback.className="question-feedback";checkStep.hidden=false;nextStep.hidden=true;checkStep.disabled=true;
- checkStep.textContent=s.type==="personal"?"Continue":"Check answer";
+let hazardIndex=0,phase="evidence";
+function renderHazard(){
+ let z=hazards[hazardIndex]; hazardProgress.textContent=`Evidence ${hazardIndex+1} of 3 · ${z.name}`;
+ hazardEvidence.innerHTML=`<article class="hazard-evidence-card"><header><div><p class="eyebrow">${z.icon} ${z.name.toUpperCase()}</p><h2>Review the evidence</h2></div><div class="evidence-meter"><span>${z.meterText}</span><div class="meter-track"><div class="meter-fill ${z.meter}"></div></div></div></header><div class="evidence-data">${z.evidence}</div></article>`;
+ questionPanel.innerHTML=`<div class="question-card"><p class="question-kicker">INTERPRET THE EVIDENCE</p><h3>${z.q}</h3><div class="answer-list">${z.opts.map(o=>`<label class="answer"><input type="radio" name="stepAnswer" value="${o[0]}"><span>${o[1]}</span></label>`).join("")}</div></div>`;
+ questionFeedback.hidden=true;checkStep.hidden=false;nextStep.hidden=true;checkStep.disabled=true;checkStep.textContent="Check answer";phase="evidence";
  document.querySelectorAll('input[name="stepAnswer"]').forEach(x=>x.onchange=()=>checkStep.disabled=false);
 }
-
+function renderPriority(){
+ let z=hazards[hazardIndex];
+ questionPanel.innerHTML=`<div class="question-card"><p class="question-kicker">MAKE A PLANNING JUDGMENT</p><h3>Given this evidence, how much weight would you give ${z.name.toLowerCase()} in the community garden’s long-term plans?</h3><p>There is no single correct answer.</p><div class="decision-cards">${[["priority","Make it a priority"],["flex","Build in flexibility"],["aware","Be aware for now"]].map(o=>`<label class="answer"><input type="radio" name="stepAnswer" value="${o[0]}"><span>${o[1]}</span></label>`).join("")}</div></div>`;
+ questionFeedback.hidden=true;checkStep.hidden=false;nextStep.hidden=true;checkStep.disabled=true;checkStep.textContent="Continue";phase="priority";
+ document.querySelectorAll('input[name="stepAnswer"]').forEach(x=>x.onchange=()=>checkStep.disabled=false);
+}
 checkStep.onclick=()=>{
- let s=challengeSteps[challengeStep],ans=document.querySelector('input[name="stepAnswer"]:checked')?.value;if(!ans)return;savedSelections[challengeStep]=ans;
- if(s.type==="personal"){
-   let r={
-     priority:"You chose to make the evidence a priority in the garden’s long-term planning.",
-     flex:"You chose to build in flexibility so the garden can respond as conditions and needs change.",
-     aware:"You chose to keep the evidence in view without making major changes yet."
-   }[ans];
-   questionFeedback.hidden=false;
-   questionFeedback.innerHTML=`<b>Your planning judgment:</b> ${r}<div class="context-response">There is no single correct preparedness level. Climate evidence can inform the decision, while the garden’s crops, site, resources, and timing determine how much weight to give it.</div>`;
-   checkStep.hidden=true;nextStep.hidden=false;nextStep.textContent="Next →";return;
- }
- let ok=ans===s.correct;
- questionFeedback.hidden=false;questionFeedback.className="question-feedback "+(ok?"":"review");
- questionFeedback.innerHTML=ok?`<b>Supported by the graph.</b> ${s.good}`:`<b>Take another look.</b> ${s.review}`;
- checkStep.hidden=true;
- if(ok){nextStep.hidden=false;nextStep.textContent=challengeStep===challengeSteps.length-1?"Finish challenge →":"Next →"}
- else{setTimeout(()=>{checkStep.hidden=false;checkStep.textContent="Try again";checkStep.disabled=false},0)}
+ let ans=document.querySelector('input[name="stepAnswer"]:checked')?.value;if(!ans)return;let z=hazards[hazardIndex];
+ if(phase==="evidence"){let ok=ans===z.correct;questionFeedback.hidden=false;questionFeedback.className="question-feedback "+(ok?"":"review");questionFeedback.innerHTML=ok?`<b>Supported by the evidence.</b> ${z.feedback}`:`<b>Take another look at the evidence.</b>`;if(ok){checkStep.hidden=true;nextStep.hidden=false;nextStep.textContent="Set your priority →"}}
+ else{questionFeedback.hidden=false;questionFeedback.className="question-feedback";questionFeedback.innerHTML="<b>Your planning judgment.</b> The evidence informs this choice, but the garden’s crops, site, resources, and tolerance for risk also matter.";checkStep.hidden=true;nextStep.hidden=false;nextStep.textContent=hazardIndex===2?"Finish challenge →":"Next evidence →"}
 };
-
 nextStep.onclick=()=>{
- if(challengeStep<challengeSteps.length-1){challengeStep++;renderStep();window.scrollTo({top:0,behavior:"smooth"})}
+ if(phase==="evidence"){renderPriority();return}
+ if(hazardIndex<2){hazardIndex++;renderHazard();window.scrollTo({top:0,behavior:"smooth"})}
  else{challengePlay.hidden=true;challengeComplete.hidden=false;window.scrollTo({top:0,behavior:"smooth"})}
 };
-backChallengeStep.onclick=()=>{if(challengeStep>0){challengeStep--;renderStep()}else{challengePlay.hidden=true;challengeLanding.hidden=false}};
-function resetWholeChallenge(){challengeStep=0;savedSelections={};challengePlay.hidden=false;challengeLanding.hidden=true;challengeComplete.hidden=true;graphHelpBox.hidden=true;renderStep()}
-resetChallenge.onclick=resetWholeChallenge;beginChallenge.onclick=resetWholeChallenge;
-restartChallenge.onclick=()=>{challengeComplete.hidden=true;challengeLanding.hidden=false;challengePlay.hidden=true};
-document.querySelector('[data-go="challenge"]').addEventListener("click",()=>{challengeLanding.hidden=false;challengePlay.hidden=true;challengeComplete.hidden=true;challengeStep=0;savedSelections={}});
+backChallengeStep.onclick=()=>{if(phase==="priority"){renderHazard()}else if(hazardIndex>0){hazardIndex--;renderPriority()}else{challengePlay.hidden=true;challengeLanding.hidden=false}};
+function startChallenge(){hazardIndex=0;challengeLanding.hidden=true;challengePlay.hidden=false;challengeComplete.hidden=true;renderHazard()}
+beginChallenge.onclick=startChallenge;resetChallenge.onclick=startChallenge;restartChallenge.onclick=()=>{challengeComplete.hidden=true;challengeLanding.hidden=false;challengePlay.hidden=true};
