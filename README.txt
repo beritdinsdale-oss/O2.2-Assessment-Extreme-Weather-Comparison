@@ -1,17 +1,18 @@
-DETAILED SEQUENTIAL CHALLENGE SAMPLE
+REAL-DATA DETAILED BUILD
 
-This build keeps the mechanism-first Big Climate Picture and adds a polished, sequential preparedness challenge.
+The Preparedness Challenge now uses quantitative evidence rather than answer-giving seasonal cards.
 
-Challenge flow:
-1. Interpret the evidence — scored
-2. Make a personal planning decision — not scored
-3. Apply the evidence to a fall garden — scored
+Evidence A:
+- Western Oregon summer precipitation projected to be approximately 5–15% drier.
+- Source: Seventh Oregon Climate Assessment (2025).
 
-Navigation:
-- Back moves one step backward; from Step 1 it returns to the challenge landing page.
-- Reset Challenge restarts the sequence.
-- Review the Data remains available throughout.
-- Incorrect scored answers reopen the evidence and allow Try Again.
-- No answer choice is visually marked as correct before submission.
+Evidence B:
+- Willamette Valley / northwestern Oregon autumn extreme precipitation.
+- 99th-percentile wet days: nearly 10% wetter by mid-century.
+- 99.9th-percentile wet days: nearly 20% wetter by mid-century.
+- Extreme-precipitation comparison: 2045–2074 vs. 1950–2014, SSP3-7.0.
+- Source: Seventh Oregon Climate Assessment (2025), extreme precipitation chapter/figures.
 
-Keep Garden-Frost-Adobe-Stock-Ann.jpeg in the repository root.
+The activity asks learners to synthesize these two different metrics rather than reading an interpretation from cards.
+
+IMPORTANT: The plotted quantities are based on published approximate values/ranges in the report. They are not raw station observations and should be labeled as projections.

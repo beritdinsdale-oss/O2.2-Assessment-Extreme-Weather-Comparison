@@ -34,7 +34,7 @@ const challengeSteps=[
   type:"scored",
   kicker:"STEP 1 · INTERPRET THE EVIDENCE",
   title:"What conclusion is best supported by the data?",
-  intro:"Use the seasonal pattern in the evidence panel. Focus on what changes—and when.",
+  intro:"Use both evidence displays. Pay attention to the difference between overall summer precipitation and the intensity of the wettest fall days.",
   answers:[
     {v:"a",text:"The Willamette Valley is expected to become wetter throughout the entire growing season."},
     {v:"b",text:"The heaviest precipitation events are projected to become more intense, particularly in fall, while summers remain relatively dry or become drier."},
@@ -42,7 +42,7 @@ const challengeSteps=[
   ],
   correct:"b",
   good:"Yes. The evidence supports heavier extreme precipitation particularly in fall while summers remain dry or become drier.",
-  review:"Look again at the seasonal evidence. The key is that heavier precipitation does not mean every season becomes wetter."
+  review:"Compare Display A with Display B. One describes overall summer precipitation; the other describes the intensity of very wet fall days. What conclusion can be supported by both?"
 },
 {
   type:"personal",
@@ -67,7 +67,7 @@ const challengeSteps=[
   ],
   correct:"b",
   good:"Yes. This response matches both parts of the evidence: summer dryness still matters, while heavier fall precipitation increases the value of drainage and soil protection.",
-  review:"Match the adaptation to the season. Which season remains dry, and which season shows the strongest increase in heavy precipitation?"
+  review:"Return to both data displays. Which garden response addresses the projected summer change in Display A and the fall extreme-rain change in Display B?"
 }
 ];
 

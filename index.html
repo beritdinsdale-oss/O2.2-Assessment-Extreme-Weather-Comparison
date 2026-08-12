@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Extreme Weather Roadmap</title>
-<link rel="stylesheet" href="styles.css?v=20260812-seqchallenge1">
+<link rel="stylesheet" href="styles.css?v=20260812-realdata1">
 </head>
 <body>
 <main id="app">
@@ -147,23 +147,59 @@
         <span>📊 Review the Willamette Valley evidence</span><b>+</b>
       </button>
 
-      <div id="evidenceDrawer" class="evidence-drawer polished-evidence" hidden>
+      <div id="evidenceDrawer" class="evidence-drawer polished-evidence real-data-panel" hidden>
         <div class="evidence-source">
-          <span>DATA TO CONSIDER</span>
-          <a href="https://www.oregon.gov/odf/forestbenefits/documents/oregon-climate-assessment.pdf" target="_blank" rel="noopener">View source ↗</a>
+          <span>REAL CLIMATE PROJECTIONS · OREGON CLIMATE ASSESSMENT 2025</span>
+          <a href="https://www.oregon.gov/odf/forestbenefits/documents/oregon-climate-assessment.pdf" target="_blank" rel="noopener">Open source report ↗</a>
         </div>
-        <div class="evidence-grid">
-          <div class="season-evidence">
-            <div class="ev-season spring"><span>🌱</span><b>Spring</b><small>variable</small></div>
-            <div class="ev-season summer"><span>☀️</span><b>Summer</b><small>dry / drier</small></div>
-            <div class="ev-season fall focus"><span>🍂</span><b>Fall</b><small>heavier extremes ↑</small></div>
-            <div class="ev-season winter"><span>🌧️</span><b>Winter</b><small>heavy rain remains important</small></div>
-          </div>
-          <div class="evidence-copy">
-            <h3>Season matters</h3>
-            <p>Climate projections for western Oregon show continued dry summers alongside increases in the intensity of the heaviest precipitation events. The strongest increases in northwestern Oregon are projected in fall.</p>
-            <div class="evidence-note"><b>Notice:</b> “Heavier precipitation” does not mean every season becomes wetter.</div>
-          </div>
+
+        <div class="data-intro">
+          <h3>Two pieces of evidence. One garden-planning question.</h3>
+          <p>These displays summarize projections reported in the Seventh Oregon Climate Assessment. Read both before deciding what they mean for a Willamette Valley garden.</p>
+        </div>
+
+        <div class="real-chart-grid">
+          <figure class="data-figure">
+            <figcaption>
+              <span class="chart-number">A</span>
+              <div><b>Overall summer precipitation</b><small>Western Oregon projection</small></div>
+            </figcaption>
+            <div class="range-chart" role="img" aria-label="Western Oregon summer precipitation projected to decrease by approximately 5 to 15 percent">
+              <div class="zero-line"><span>0%</span></div>
+              <div class="range-axis"><span>−20%</span><span>−15%</span><span>−10%</span><span>−5%</span><span>0%</span></div>
+              <div class="range-track">
+                <div class="range-band"><span>projected range</span></div>
+              </div>
+              <div class="range-callout"><strong>5–15% drier</strong><span>projected summer precipitation</span></div>
+            </div>
+            <p class="chart-reading"><b>Read it:</b> The assessment projects western Oregon summers to become about 5–15% drier.</p>
+          </figure>
+
+          <figure class="data-figure">
+            <figcaption>
+              <span class="chart-number">B</span>
+              <div><b>Very heavy fall precipitation</b><small>Willamette Valley / northwestern Oregon, mid-century</small></div>
+            </figcaption>
+            <div class="bar-chart-real" role="img" aria-label="Autumn 99th percentile wet days projected to become nearly 10 percent wetter and 99.9th percentile wet days nearly 20 percent wetter in the Willamette Valley">
+              <div class="ylabels"><span>20%</span><span>15%</span><span>10%</span><span>5%</span><span>0%</span></div>
+              <div class="gridlines"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="real-bars">
+                <div class="real-bar-wrap"><div class="real-bar b10"><strong>~10%</strong></div><span>Very wet days<br><small>99th percentile</small></span></div>
+                <div class="real-bar-wrap"><div class="real-bar b20"><strong>~20%</strong></div><span>Most extreme wet days<br><small>99.9th percentile</small></span></div>
+              </div>
+            </div>
+            <p class="chart-reading"><b>Read it:</b> In autumn, the wettest days are projected to get wetter, with larger increases at the most extreme end.</p>
+          </figure>
+        </div>
+
+        <div class="data-definition">
+          <span>?</span>
+          <p><b>What does “99th percentile” mean?</b> These are days at the very wet end of the historical daily precipitation distribution. The 99.9th percentile represents an even rarer, more extreme category.</p>
+        </div>
+
+        <div class="source-method">
+          <b>About these projections</b>
+          <p>Extreme-precipitation values compare 2045–2074 with 1950–2014 under SSP3-7.0 in the Oregon Climate Assessment. The summer-drying estimate is the assessment's western Oregon projection. Values shown here are the report's published approximate changes, not invented sample data.</p>
         </div>
       </div>
     </div>
@@ -195,5 +231,5 @@
   </div>
 </section>
 </main>
-<script src="app.js?v=20260812-seqchallenge1"></script>
+<script src="app.js?v=20260812-realdata1"></script>
 </body></html>
