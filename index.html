@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Extreme Weather Roadmap</title>
+<link rel="stylesheet" href="styles.css?v=20260812-season2">
+</head>
+<body>
+<main id="app">
+<section id="start" class="screen hero">
+  <div class="hero-copy">
+    <p class="eyebrow">EXTREME WEATHER</p>
+    <h1>Extreme Weather Roadmap</h1>
+    <p class="tagline">Evidence. Understanding. Preparedness.</p>
+    <p>Extreme weather can take many forms. Explore real examples of:</p>
+    <div class="hazards" aria-label="Extreme weather examples">
+      <div><span>☀️</span><b>Extreme heat</b></div>
+      <div><span>🌧️</span><b>Heavy precipitation</b></div>
+      <div><span>🌱</span><b>Dry conditions</b></div>
+      <div><span>🧊</span><b>Ice</b></div>
+    </div>
+    <p>You’ll investigate why the climate connection is stronger for some extremes than others—and what that means for how gardeners prepare for the future.</p>
+    <aside><b>The evidence isn’t equally strong for every extreme.</b> That’s part of what you’ll explore.</aside>
+    <button data-go="roadmap" class="primary">Start the Roadmap →</button>
+  </div>
+  <div class="hero-photo" role="img" aria-label="Frost-covered garden"></div>
+</section>
+
+<section id="roadmap" class="screen" hidden>
+  <header class="pagehead"><p class="eyebrow">YOUR ROUTE</p><h2>Explore Extreme Weather</h2><p>Follow the roadmap from real events to evidence, then use what you learn to make a preparedness decision.</p></header>
+  <div class="road">
+    <div class="route-line" aria-hidden="true"></div>
+    <button class="stop s1" data-go="regions"><span class="num">1</span><span><b>See How Extremes Vary</b><small>Different regions · same summer</small></span></button>
+    <button class="stop s2" data-go="seasons"><span class="num">2</span><span><b>See How Extremes Vary</b><small>Same region · different seasons</small></span></button>
+    <button class="stop s3" data-go="bigpicture"><span class="num">3</span><span><b>The Big Climate Picture</b><small>Mechanism + long-term evidence</small></span></button>
+    <button class="stop s4" data-go="challenge"><span class="num">4</span><span><b>Preparedness Challenge</b><small>What does the evidence justify?</small></span></button>
+    <a class="stop s5 journal" href="https://canvas.oregonstate.edu/courses/2038983/pages/my-garden-journal?module_item_id=27047126" target="_top"><span class="num">5</span><span><b>Explore Your Region</b><small>Apply the approach in your Garden Journal</small></span></a>
+  </div>
+</section>
+
+<section id="regions" class="screen" hidden>
+<button class="back" data-go="roadmap">← Roadmap</button>
+<header class="pagehead"><p class="eyebrow">STOP 1</p><h2>Same Summer, Different Extremes</h2><p>Explore two real 2021 events. Focus on what happened and how strong the evidence is for an increasing future risk.</p></header>
+<div class="tabs" role="tablist">
+ <button class="tab active" data-region="heat">☀️ Pacific Northwest heat</button>
+ <button class="tab" data-region="rain">🌧️ Tennessee heavy rainfall</button>
+</div>
+<article class="event-card">
+ <div id="regionVisual" class="event-visual heat-visual"><span>2021</span></div>
+ <div class="event-copy"><h3 id="regionTitle">Pacific Northwest extreme heat</h3><p id="regionText">Late June 2021 brought extraordinary heat across the Pacific Northwest, with temperatures far beyond the region’s historical experience.</p>
+ <div class="meter"><div><b>Climate evidence for increasing future risk</b><strong id="regionRating">STRONG</strong></div><div class="scale"><i id="regionNeedle" style="left:90%"></i></div><div class="labels"><span>Questionable</span><span>Moderate</span><span>Strong</span></div><p id="regionWhy">Human-caused warming is increasing the likelihood and intensity of extreme heat.</p><a id="regionScience" href="https://www.worldweatherattribution.org/western-north-american-extreme-heat-virtually-impossible-without-human-caused-climate-change/" target="_blank" rel="noopener">Explore the science ↗</a></div>
+ </div>
+</article>
+</section>
+
+<section id="seasons" class="screen season-sample" hidden>
+<button class="back" data-go="roadmap">← Roadmap</button>
+<header class="pagehead"><p class="eyebrow">STOP 2 · REAL 2021 CONDITIONS</p><h2>Same Region, Different Seasons</h2><p>Follow one year in the Willamette Valley and nearby Pacific Northwest. First ask <b>“Was this unusual?”</b> Then ask: <b>“What does climate science tell us about it?”</b></p></header>
+<nav class="season-tabs" aria-label="Choose a season">
+<button class="season active" data-season="winter">❄️ <b>Winter</b><small>Ice storm</small></button>
+<button class="season" data-season="spring">🌱 <b>Spring</b><small>Exceptional dryness</small></button>
+<button class="season" data-season="summer">☀️ <b>Summer</b><small>Extreme heat</small></button>
+<button class="season" data-season="fall">🍂 <b>Fall</b><small>Wet weather</small></button></nav>
+<article class="season-panel sample-panel"><div id="seasonVisual" class="season-visual winter"><span id="seasonVisualLabel">ICE STORM</span></div>
+<div class="season-content"><p id="seasonStatus" class="status-pill">EXTREME EVENT</p><h3 id="seasonTitle">Winter: damaging ice storm</h3><p id="seasonText">In February 2021, freezing rain coated parts of the Willamette Valley in ice, damaging trees and disrupting power.</p>
+<div id="seasonFact" class="data-fact"><span>📍</span><p><b>What the weather record tells us</b><br>This was a damaging, unusual winter weather event.</p></div>
+<div class="evidence-question"><p class="evidence-label">WHAT DOES CLIMATE SCIENCE TELL US?</p><div class="evidence-rating-row"><strong id="seasonRating">UNCERTAIN</strong><div class="mini-scale"><i id="seasonNeedle" style="left:20%"></i></div></div>
+<div class="two-questions"><div><span>Climate influence on this event</span><b id="eventInfluence">Uncertain</b></div><div><span>Future frequency or severity</span><b id="futureRisk">Uncertain</b></div></div>
+<p id="seasonWhy">The science is not clear about how climate change influenced this particular ice storm. Future changes in damaging ice storms in the Willamette Valley are also uncertain because these events are relatively uncommon and the processes that create them are complex.</p>
+<a id="seasonScience" href="https://www.climate.gov/" target="_blank" rel="noopener">Explore the science ↗</a></div></div></article>
+<p class="sample-note"><b>Sample:</b> This build focuses on the revised seasonal evidence experience before applying the richer visual treatment to the entire activity.</p></section>
+
+<section id="bigpicture" class="screen" hidden>
+<button class="back" data-go="roadmap">← Roadmap</button>
+<header class="pagehead"><p class="eyebrow">STOP 3</p><h2>The Big Climate Picture</h2><p>Choose a pathway. Each connects a physical mechanism with long-term observations.</p></header>
+<div class="big-tabs"><button class="big-tab active" data-big="heat">☀️ Extreme heat</button><button class="big-tab" data-big="rain">🌧️ Heavy precipitation</button></div>
+<div class="story">
+ <div id="mechanismIcon" class="story-icon">☀️</div>
+ <div><p class="story-label">CLIMATE CONNECTION</p><h3 id="mechanismTitle">A warmer baseline changes the odds</h3><p id="mechanismText">As average temperatures rise, extreme-heat thresholds are reached more often and the hottest events can become more intense.</p></div>
+ <div class="arrow">→</div>
+ <div><p class="story-label">WHAT WE SEE IN THE DATA</p><h3 id="dataTitle">Extreme heat is becoming more common</h3><p id="dataText">Long-term observations show increases in extreme heat across much of the United States, including the Northwest.</p><a id="bigScience" href="https://www.epa.gov/climate-indicators/climate-change-indicators-high-and-low-temperatures" target="_blank" rel="noopener">View the long-term evidence ↗</a></div>
+</div>
+<div class="takeaway"><b>Key idea:</b> Climate change does not affect every extreme in the same way. Evidence is stronger for some hazards, regions, and outcomes than others.</div>
+</section>
+
+<section id="challenge" class="screen" hidden>
+<button class="back" data-go="roadmap">← Roadmap</button>
+<header class="pagehead"><p class="eyebrow">STOP 4</p><h2>Gardener Preparedness Challenge</h2><p>Judge the evidence first. Then decide whether it is strong enough to make the hazard a long-term gardening priority.</p></header>
+<div class="progress" aria-label="Challenge progress"><span class="dot active">1</span><i></i><span class="dot">2</span><i></i><span class="dot">3</span></div>
+<article id="challengeCard" class="challenge-card">
+<p id="challengeNum" class="eyebrow">DECISION 1</p><h3 id="claim"></h3><p id="context"></p>
+<label class="slider-wrap"><b>How strong is the climate evidence for increasing future risk?</b><input id="evidenceSlider" type="range" min="0" max="100" value="50"><span><i>Questionable</i><i>Moderate</i><i>Strong</i></span></label>
+<fieldset><legend>Should this be a priority in a long-term garden preparedness plan?</legend><label><input type="radio" name="prep" value="notyet"> Not as a climate-driven priority yet</label><label><input type="radio" name="prep" value="yes"> Yes, plan for this increasing risk</label></fieldset>
+<button id="check" class="primary" disabled>Compare my judgment with the evidence</button><div id="feedback" hidden></div><button id="next" class="primary" hidden>Next decision →</button>
+</article>
+<div id="complete" class="complete" hidden><span>✓</span><h3>Match preparation to the strength of the evidence.</h3><p>You can prepare for disruptive weather without assuming every memorable event is becoming more likely because of climate change.</p><a class="primary linkbutton" href="https://canvas.oregonstate.edu/courses/2038983/pages/my-garden-journal?module_item_id=27047126" target="_top">Explore your region in the Garden Journal →</a></div>
+</section>
+</main>
+<script src="app.js?v=20260812-season2"></script>
+</body></html>
