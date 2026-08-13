@@ -1,0 +1,16 @@
+DRAFT COMPLETE v2
+
+Changes:
+- Winter Explore Science -> Willamette Basin freezing-rain/global-warming study (Rupp et al.).
+- Spring Explore Science -> OSU Extension/Oregon Climate Assessment-based drought projections and evapotranspiration explanation.
+- Tennessee heavy-rain event uses the user-provided flood photo.
+- Back to Roadmap controls are larger and more visible.
+- Big Climate Picture uses direct scientific motion media:
+  Heat: local Climate Central/NOAA bell-curve GIF.
+  Heavy precipitation: NASA SVS atmospheric-river webm.
+  Dry conditions: NASA SVS evapotranspiration webm.
+  Freezing rain: NOAA NESDIS/NASA Space Place GIF.
+- Heavy precipitation climate-connection link -> EPA Extreme Precipitation.
+- Gardener challenge now contains future-trend evidence for heat, precipitation and freezing rain plus prominent certainty indicators.
+- Take It Local links directly to the Canvas Garden Journal.
+- Removed the sample-build note from Same Region, Different Seasons.

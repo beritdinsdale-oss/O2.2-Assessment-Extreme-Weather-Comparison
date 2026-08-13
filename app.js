@@ -70,8 +70,8 @@ regionVideoButton.addEventListener("click",()=>{
 updateRegion("heat");
 
 const seasons={
-winter:{title:"Winter: damaging ice storm",text:"In February 2021, freezing rain coated parts of the Willamette Valley in ice, damaging trees and disrupting power.",status:"EXTREME EVENT",fact:"This was a damaging, unusual winter weather event.",rating:"UNCERTAIN",ratingCls:"",needle:"20%",event:"Uncertain",future:"Uncertain",why:"The science is not clear about how climate change influenced this particular ice storm. Future changes in damaging ice storms in the Willamette Valley are also uncertain because these events are relatively uncommon and the processes that create them are complex.",cls:"winter",label:"ICE STORM",link:"https://www.climate.gov/"},
-spring:{title:"Spring: exceptional dryness",text:"Spring 2021 was exceptionally dry across the Pacific Northwest, including Oregon.",status:"EXTREME CONDITIONS",fact:"Oregon, Washington, and Idaho recorded their second-driest spring since 1895, receiving about 45% of normal spring precipitation.",rating:"MODERATE",ratingCls:"moderate",needle:"58%",event:"Multiple drivers",future:"Increasing drying risk",why:"The extreme dryness was real, but drought develops from several interacting factors. Warming can increase evaporative demand, accelerate snowmelt, and intensify dry conditions; precipitation variability also remains important.",cls:"spring",label:"EXCEPTIONAL DRYNESS",link:"https://www.drought.gov/drought-status-updates/drought-status-update-pacific-northwest-2021-07-08"},
+winter:{title:"Winter: damaging ice storm",text:"In February 2021, freezing rain coated parts of the Willamette Valley in ice, damaging trees and disrupting power.",status:"EXTREME EVENT",fact:"This was a damaging, unusual winter weather event.",rating:"UNCERTAIN",ratingCls:"",needle:"20%",event:"Uncertain",future:"Uncertain",why:"The science is not clear about how climate change influenced this particular ice storm. Future changes in damaging ice storms in the Willamette Valley are also uncertain because these events are relatively uncommon and the processes that create them are complex.",cls:"winter",label:"ICE STORM",link:"https://pdxscholar.library.pdx.edu/geog_fac/282/"},
+spring:{title:"Spring: exceptional dryness",text:"Spring 2021 was exceptionally dry across the Pacific Northwest, including Oregon.",status:"EXTREME CONDITIONS",fact:"Oregon, Washington, and Idaho recorded their second-driest spring since 1895, receiving about 45% of normal spring precipitation.",rating:"MODERATE",ratingCls:"moderate",needle:"58%",event:"Multiple drivers",future:"Increasing drying risk",why:"The extreme dryness was real, but drought develops from several interacting factors. Warming can increase evaporative demand, accelerate snowmelt, and intensify dry conditions; precipitation variability also remains important.",cls:"spring",label:"EXCEPTIONAL DRYNESS",link:"https://extension.oregonstate.edu/catalog/em-9603-forests-changing-climate-how-much-will-climate-change-oregon-how-fast"},
 summer:{title:"Summer: record-shattering heat",text:"In late June 2021, extraordinary heat spread across the Pacific Northwest, including the Willamette Valley.",status:"EXTREME EVENT",fact:"Portland reached 116°F on June 28, breaking its previous all-time temperature record.",rating:"STRONG",ratingCls:"strong",needle:"91%",event:"Strong evidence",future:"Increasing heat risk",why:"Attribution research found that heat of this magnitude would have been virtually impossible without human-caused climate change. Continued warming makes severe heat more likely and more intense.",cls:"summer",label:"EXTREME HEAT",link:"https://www.worldweatherattribution.org/western-north-american-extreme-heat-virtually-impossible-without-human-caused-climate-change/"},
 fall:{title:"Fall: wet weather returns",text:"Wet weather returned to the Willamette Valley in fall 2021 after the exceptionally dry spring and hot summer.",status:"N/A",fact:"No extreme weather event is highlighted for this season.",rating:"N/A",ratingCls:"na",needle:"0%",event:"N/A",future:"N/A",why:"",cls:"fall",label:"WET WEATHER",link:""}
 };
@@ -88,49 +88,109 @@ document.querySelectorAll(".cinema-tab").forEach(tab=>tab.addEventListener("clic
  if(panel) panel.classList.add("active");
 }));
 
-const hazards=[
- {name:"Extreme heat",icon:"🌡️",meter:"high",meterText:"Strong",
-  evidence:`<p><b>Evidence to review:</b> Warming shifts the temperature distribution so very hot conditions occur more often. The 2021 Pacific Northwest heat wave was found to have been virtually impossible without human-caused warming.</p><a href="https://www.climate.gov/media/13232" target="_blank" rel="noopener">Review heat animation ↗</a>`,
-  q:"How strong is the evidence that extreme heat should be part of long-term Willamette Valley garden planning?",
-  opts:[["a","Strong enough to plan for"],["b","Too uncertain to use"],["c","Only relevant if another 2021 heat dome occurs"]],correct:"a",
-  feedback:"The evidence for increasing extreme heat with continued warming is strong."},
- {name:"Precipitation",icon:"🌧️",meter:"high",meterText:"Strong, but seasonal",
-  evidence:`<p><b>Evidence to review:</b> The monthly pattern matters. The graph below represents projected monthly precipitation change across the Willamette growing year. Look for differences among months rather than treating the year as one condition.</p>
-  <div class="monthly-mini">${[38,42,35,28,22,14,8,6,10,18,31,40].map((v,i)=>`<div style="height:${v*3}px"><small>${["Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep"][i]}</small></div>`).join("")}</div>
-  <p class="data-note">Monthly display is a simplified instructional rendering of the Willamette Water 2100 projected seasonal/monthly pattern; use the source for model detail.</p><a href="https://inr.oregonstate.edu/ww2100/analysis-topic/future-climate" target="_blank" rel="noopener">Review OSU source ↗</a>`,
-  q:"What is the most useful conclusion for the garden?",
-  opts:[["a","Treat future precipitation as the same problem in every month"],["b","Use month-by-month evidence because water-management needs can differ across the growing year"],["c","Assume more annual precipitation eliminates summer water concerns"]],correct:"b",
-  feedback:"Monthly evidence is useful because a seasonal or annual total can hide conditions that matter during the gardening months."},
- {name:"Ice storms",icon:"🧊",meter:"medium",meterText:"More uncertain",
-  evidence:`<p><b>Evidence to review:</b> Freezing rain requires a specific vertical temperature profile: frozen precipitation melts in warm air aloft, then encounters shallow subfreezing air near the surface. Oregon experienced a severe ice storm in January 2024, but a damaging event by itself does not establish a clear future trend.</p><a href="https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/what-precipitation" target="_blank" rel="noopener">Review freezing-rain animation ↗</a>`,
-  q:"What does the evidence justify saying about future ice-storm preparedness?",
-  opts:[["a","Ice storms will definitely become more frequent, so they should be the highest priority"],["b","The science is uncertain enough that preparedness is a judgment call rather than a confident trend-based prediction"],["c","Uncertainty proves ice storms will become less common"]],correct:"b",
-  feedback:"The event is real and preparedness may still be worthwhile, but the future trend is less certain than it is for extreme heat."}
+
+// Big Climate Picture tabs
+document.querySelectorAll(".cinema-tab").forEach(tab=>tab.addEventListener("click",()=>{
+  document.querySelectorAll(".cinema-tab").forEach(x=>x.classList.remove("active"));
+  document.querySelectorAll(".cinema-panel").forEach(x=>x.classList.remove("active"));
+  tab.classList.add("active");
+  const panel=document.getElementById("cinema-"+tab.dataset.cinema);
+  if(panel) panel.classList.add("active");
+}));
+
+const challengeHazards=[
+{
+ name:"Extreme heat",icon:"☀️",certainty:"HIGH",certaintyPos:92,
+ evidenceHTML:`<div class="challenge-chart">
+   <div class="chart-title">Projected days with heat index ≥90°F · April–October · selected Willamette Valley counties</div>
+   <div class="county-bars">
+   ${[
+     ["Benton",4,25],["Lane",4,24],["Linn",3,22],["Marion",3,20],["Polk",4,23],["Yamhill",5,24]
+   ].map(r=>`<div class="county-row"><span>${r[0]}</span><div class="county-bar-bg"><i class="county-future" style="width:${r[2]*3.6}%"></i><i class="county-hist" style="width:${r[1]*3.6}%"></i></div><strong>${r[1]} → ${r[2]}</strong></div>`).join("")}
+   </div>
+   <p class="data-note">Historical: 1971–2000. Mid-century: 2040–2069, RCP 8.5. Values are multi-model means reported in the Fifth Oregon Climate Assessment.</p>
+ </div>`,
+ question:"What conclusion is best supported by these projections?",
+ options:[["a","Days with dangerous heat are projected to become substantially more common across these Willamette Valley counties."],["b","Future heat risk is too uncertain to show a consistent direction across the Valley."],["c","The projections show little change from the historical period."]],
+ correct:"a",
+ explanation:"All six selected counties show a large increase in projected days with a heat index of at least 90°F."
+},
+{
+ name:"Heavy precipitation",icon:"🌧️",certainty:"HIGH for increasing intensity; timing varies",certaintyPos:82,
+ evidenceHTML:`<div class="challenge-chart">
+   <div class="chart-title">Projected change in very heavy one-day precipitation · western Oregon / west of the Cascades</div>
+   <div class="precip-bars">
+    <div class="pbar"><div style="height:100px"><strong>Historical</strong></div><span>99th-percentile wet day<br>baseline</span></div>
+    <div class="pbar"><div style="height:106px"><strong>+6%</strong></div><span>mid-century projected<br>intensity</span></div>
+   </div>
+   <p class="data-note">Regional climate modeling reported about a 6% increase in the 99th-percentile one-day precipitation west of the Cascades by mid-century. More recent Oregon assessment work also indicates that the largest increases in northwestern Oregon extreme precipitation occur in the cool-season/fall part of the year.</p>
+ </div>`,
+ question:"What does this evidence support?",
+ options:[["a","The heaviest precipitation events are expected to become more intense, so the garden may need to consider heavy-rain resilience even though precipitation still varies strongly by season."],["b","Every month in the Willamette Valley is expected to become uniformly wetter."],["c","Heavy precipitation is not projected to change in western Oregon."]],
+ correct:"a",
+ explanation:"The evidence supports increasing intensity of very heavy precipitation, not uniform wetting in every month."
+},
+{
+ name:"Freezing rain / ice",icon:"🧊",certainty:"MODERATE / LOCATION DEPENDENT",certaintyPos:48,
+ evidenceHTML:`<div class="challenge-chart">
+   <div class="chart-title">Northern Willamette Basin model projections under warming</div>
+   <div class="ice-trend-grid">
+    <div><span>Lower elevations</span><strong>↓</strong><small>freezing-rain occurrence generally decreases</small></div>
+    <div><span>Higher elevations</span><strong>↑</strong><small>freezing-rain occurrence generally increases</small></div>
+    <div><span>Some future events</span><strong>↑ ice</strong><small>longer duration / greater ice accretion possible</small></div>
+   </div>
+   <p class="data-note">High-resolution modeling of the northern Willamette Basin found different responses by elevation and stronger gap winds during future freezing-rain events. This is not a simple Valley-wide “more ice storms” projection.</p>
+ </div>`,
+ question:"Which statement best matches the evidence?",
+ options:[["a","Severe ice storms are projected to become more frequent everywhere in the Willamette Valley."],["b","Future freezing-rain changes are location dependent; frequency may decrease in some places even while some future events accumulate more ice."],["c","Climate warming eliminates the possibility of freezing rain."]],
+ correct:"b",
+ explanation:"The study projects different changes by elevation and distinguishes event frequency from how much ice may accumulate."
+}
 ];
-let hazardIndex=0,phase="evidence";
+
+let hazardIndex=0,challengePhase="evidence";
+function certaintyMarkup(h){
+ return `<div class="certainty-panel"><b>Scientific certainty / consistency of evidence</b><div class="scale"></div><div class="marker"><i style="left:${h.certaintyPos}%"></i></div><div class="labels"><span>More uncertain</span><span>Moderate</span><span>Stronger</span></div><strong>${h.certainty}</strong></div>`;
+}
 function renderHazard(){
- let z=hazards[hazardIndex]; hazardProgress.textContent=`Evidence ${hazardIndex+1} of 3 · ${z.name}`;
- hazardEvidence.innerHTML=`<article class="hazard-evidence-card"><header><div><p class="eyebrow">${z.icon} ${z.name.toUpperCase()}</p><h2>Review the evidence</h2></div><div class="evidence-meter"><span>${z.meterText}</span><div class="meter-track"><div class="meter-fill ${z.meter}"></div></div></div></header><div class="evidence-data">${z.evidence}</div></article>`;
- questionPanel.innerHTML=`<div class="question-card"><p class="question-kicker">INTERPRET THE EVIDENCE</p><h3>${z.q}</h3><div class="answer-list">${z.opts.map(o=>`<label class="answer"><input type="radio" name="stepAnswer" value="${o[0]}"><span>${o[1]}</span></label>`).join("")}</div></div>`;
- questionFeedback.hidden=true;checkStep.hidden=false;nextStep.hidden=true;checkStep.disabled=true;checkStep.textContent="Check answer";phase="evidence";
+ const h=challengeHazards[hazardIndex];
+ hazardProgress.textContent=`Evidence ${hazardIndex+1} of 3 · ${h.name}`;
+ hazardEvidence.innerHTML=`<article class="hazard-evidence-card"><header><div><p class="eyebrow">${h.icon} ${h.name.toUpperCase()}</p><h2>Review the future trend</h2></div></header>${h.evidenceHTML}${certaintyMarkup(h)}</article>`;
+ questionPanel.innerHTML=`<div class="question-card"><p class="question-kicker">INTERPRET THE EVIDENCE</p><h3>${h.question}</h3><div class="answer-list">${h.options.map(o=>`<label class="answer"><input type="radio" name="stepAnswer" value="${o[0]}"><span>${o[1]}</span></label>`).join("")}</div></div>`;
+ questionFeedback.hidden=true;checkStep.hidden=false;nextStep.hidden=true;checkStep.disabled=true;checkStep.textContent="Check answer";challengePhase="evidence";
  document.querySelectorAll('input[name="stepAnswer"]').forEach(x=>x.onchange=()=>checkStep.disabled=false);
 }
 function renderPriority(){
- let z=hazards[hazardIndex];
- questionPanel.innerHTML=`<div class="question-card"><p class="question-kicker">MAKE A PLANNING JUDGMENT</p><h3>Given this evidence, how much weight would you give ${z.name.toLowerCase()} in the community garden’s long-term plans?</h3><p>There is no single correct answer.</p><div class="decision-cards">${[["priority","Make it a priority"],["flex","Build in flexibility"],["aware","Be aware for now"]].map(o=>`<label class="answer"><input type="radio" name="stepAnswer" value="${o[0]}"><span>${o[1]}</span></label>`).join("")}</div></div>`;
- questionFeedback.hidden=true;checkStep.hidden=false;nextStep.hidden=true;checkStep.disabled=true;checkStep.textContent="Continue";phase="priority";
+ const h=challengeHazards[hazardIndex];
+ questionPanel.innerHTML=`<div class="question-card"><p class="question-kicker">MAKE A PLANNING JUDGMENT</p><h3>Given the evidence and its certainty, how much weight would you give ${h.name.toLowerCase()} in the community garden’s long-term plans?</h3><p>There is no single correct answer.</p><div class="decision-cards">${[["priority","Make it a priority"],["flex","Build in flexibility"],["aware","Be aware for now"]].map(o=>`<label class="answer"><input type="radio" name="stepAnswer" value="${o[0]}"><span>${o[1]}</span></label>`).join("")}</div></div>`;
+ questionFeedback.hidden=true;checkStep.hidden=false;nextStep.hidden=true;checkStep.disabled=true;checkStep.textContent="Continue";challengePhase="priority";
  document.querySelectorAll('input[name="stepAnswer"]').forEach(x=>x.onchange=()=>checkStep.disabled=false);
 }
 checkStep.onclick=()=>{
- let ans=document.querySelector('input[name="stepAnswer"]:checked')?.value;if(!ans)return;let z=hazards[hazardIndex];
- if(phase==="evidence"){let ok=ans===z.correct;questionFeedback.hidden=false;questionFeedback.className="question-feedback "+(ok?"":"review");questionFeedback.innerHTML=ok?`<b>Supported by the evidence.</b> ${z.feedback}`:`<b>Take another look at the evidence.</b>`;if(ok){checkStep.hidden=true;nextStep.hidden=false;nextStep.textContent="Set your priority →"}}
- else{questionFeedback.hidden=false;questionFeedback.className="question-feedback";questionFeedback.innerHTML="<b>Your planning judgment.</b> The evidence informs this choice, but the garden’s crops, site, resources, and tolerance for risk also matter.";checkStep.hidden=true;nextStep.hidden=false;nextStep.textContent=hazardIndex===2?"Finish challenge →":"Next evidence →"}
+ const ans=document.querySelector('input[name="stepAnswer"]:checked')?.value;
+ if(!ans)return;
+ const h=challengeHazards[hazardIndex];
+ if(challengePhase==="evidence"){
+   const ok=ans===h.correct;
+   questionFeedback.hidden=false;
+   questionFeedback.className="question-feedback "+(ok?"":"review");
+   questionFeedback.innerHTML=ok?`<b>Supported by the evidence.</b> ${h.explanation}`:`<b>Take another look at the projected trend and certainty scale.</b>`;
+   if(ok){checkStep.hidden=true;nextStep.hidden=false;nextStep.textContent="Set your priority →";}
+ }else{
+   questionFeedback.hidden=false;questionFeedback.className="question-feedback";
+   questionFeedback.innerHTML="<b>Your planning judgment.</b> Scientific evidence informs this decision, but crops, site conditions, resources, and tolerance for risk determine how much weight a gardener gives it.";
+   checkStep.hidden=true;nextStep.hidden=false;nextStep.textContent=hazardIndex===2?"Finish challenge →":"Next hazard →";
+ }
 };
 nextStep.onclick=()=>{
- if(phase==="evidence"){renderPriority();return}
- if(hazardIndex<2){hazardIndex++;renderHazard();window.scrollTo({top:0,behavior:"smooth"})}
- else{challengePlay.hidden=true;challengeComplete.hidden=false;window.scrollTo({top:0,behavior:"smooth"})}
+ if(challengePhase==="evidence"){renderPriority();return;}
+ if(hazardIndex<2){hazardIndex++;renderHazard();window.scrollTo({top:0,behavior:"smooth"});}
+ else{challengePlay.hidden=true;challengeComplete.hidden=false;window.scrollTo({top:0,behavior:"smooth"});}
 };
-backChallengeStep.onclick=()=>{if(phase==="priority"){renderHazard()}else if(hazardIndex>0){hazardIndex--;renderPriority()}else{challengePlay.hidden=true;challengeLanding.hidden=false}};
-function startChallenge(){hazardIndex=0;challengeLanding.hidden=true;challengePlay.hidden=false;challengeComplete.hidden=true;renderHazard()}
-beginChallenge.onclick=startChallenge;resetChallenge.onclick=startChallenge;restartChallenge.onclick=()=>{challengeComplete.hidden=true;challengeLanding.hidden=false;challengePlay.hidden=true};
+backChallengeStep.onclick=()=>{
+ if(challengePhase==="priority"){renderHazard();}
+ else if(hazardIndex>0){hazardIndex--;renderPriority();}
+ else{challengePlay.hidden=true;challengeLanding.hidden=false;}
+};
+function startChallenge(){hazardIndex=0;challengeLanding.hidden=true;challengePlay.hidden=false;challengeComplete.hidden=true;renderHazard();}
+beginChallenge.onclick=startChallenge;resetChallenge.onclick=startChallenge;restartChallenge.onclick=()=>{challengeComplete.hidden=true;challengeLanding.hidden=false;challengePlay.hidden=true;};

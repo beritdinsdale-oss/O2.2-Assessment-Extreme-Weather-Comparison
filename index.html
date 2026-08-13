@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Extreme Weather Roadmap</title>
-<link rel="stylesheet" href="styles.css?v=20260813-draftcomplete1">
+<link rel="stylesheet" href="styles.css?v=20260813-v2">
 </head>
 <body>
 <main id="app">
@@ -72,10 +72,10 @@
       <span class="stop-card"><b>Gardener Preparedness Challenge</b><small>Use climate data to make a planning decision.</small><em>📊</em></span>
     </button>
 
-    <button class="map-stop stop5" data-go="journal" aria-label="Stop 5 Take It Local">
+    <a class="map-stop stop5" href="https://canvas.oregonstate.edu/courses/2038983/pages/my-garden-journal?module_item_id=27047126" target="_top" aria-label="Stop 5 Take It Local">
       <span class="pin p-pink">5</span>
       <span class="stop-card"><b>Take It Local</b><small>Explore extreme-weather evidence for your own region.</small><em>📍</em></span>
-    </button>
+    </a>
   </div>
 
   <div class="roadmap-footer-note">
@@ -84,7 +84,7 @@
 </section>
 
 <section id="regions" class="screen" hidden>
-<button class="back" data-go="roadmap">← Roadmap</button>
+<button class="back back-roadmap" data-go="roadmap">← Back to Roadmap</button>
 <header class="pagehead"><p class="eyebrow">STOP 2</p><h2>Same Summer, Different Extremes</h2><p>Explore two real 2021 events. Focus on what happened and how strong the evidence is for an increasing future risk.</p></header>
 <div class="tabs" role="tablist">
  <button class="tab active" data-region="heat">☀️ Pacific Northwest heat</button>
@@ -113,7 +113,7 @@
 </div></section>
 
 <section id="seasons" class="screen season-sample" hidden>
-<button class="back" data-go="roadmap">← Roadmap</button>
+<button class="back back-roadmap" data-go="roadmap">← Back to Roadmap</button>
 <header class="pagehead"><p class="eyebrow">STOP 1 · REAL 2021 CONDITIONS</p><h2>Same Region, Different Seasons</h2><p>Follow one year in the Willamette Valley and nearby Pacific Northwest. First ask <b>“Was this unusual?”</b> Then ask: <b>“What does climate science tell us about it?”</b></p></header>
 <nav class="season-tabs" aria-label="Choose a season">
 <button class="season active" data-season="winter">❄️ <b>Winter</b><small>Ice storm</small></button>
@@ -127,98 +127,105 @@
 <div class="two-questions"><div><span>Climate influence on this event</span><b id="eventInfluence">Uncertain</b></div><div><span>Future frequency or severity</span><b id="futureRisk">Uncertain</b></div></div>
 <p id="seasonWhy">The science is not clear about how climate change influenced this particular ice storm. Future changes in damaging ice storms in the Willamette Valley are also uncertain because these events are relatively uncommon and the processes that create them are complex.</p>
 <a id="seasonScience" href="#" target="_blank" rel="noopener">Explore the science ↗</a></div></div></article>
-<p class="sample-note"><b>Sample:</b> This build focuses on the revised seasonal evidence experience before applying the richer visual treatment to the entire activity.</p></section>
+</section>
 
 <section id="bigpicture" class="screen story-section science-cinema" hidden>
-<button class="back" data-go="roadmap">← Roadmap</button>
+<button class="back back-roadmap" data-go="roadmap">← Back to Roadmap</button>
 <header class="cinema-head">
   <p class="eyebrow">STOP 3 · THE BIG CLIMATE PICTURE</p>
-  <h2>Watch the processes behind the extremes</h2>
-  <p>These short scientific animations show physical processes rather than simply labeling an event as “climate change.” Use the tabs to move between them.</p>
+  <h2>What changes the odds?</h2>
+  <p>Watch each process, then compare how confidently scientists can project future change.</p>
 </header>
 
 <nav class="cinema-tabs" aria-label="Climate process animations">
- <button class="cinema-tab active" data-cinema="heat">Extreme heat</button>
- <button class="cinema-tab" data-cinema="rain">Heavy precipitation</button>
- <button class="cinema-tab" data-cinema="dry">Dry conditions</button>
- <button class="cinema-tab" data-cinema="ice">Freezing rain</button>
+ <button class="cinema-tab active" data-cinema="heat">☀️ Extreme heat</button>
+ <button class="cinema-tab" data-cinema="rain">🌧️ Heavy precipitation</button>
+ <button class="cinema-tab" data-cinema="dry">🌱 Dry conditions</button>
+ <button class="cinema-tab" data-cinema="ice">🧊 Freezing rain</button>
 </nav>
 
 <div class="cinema-stage">
  <article class="cinema-panel active" id="cinema-heat">
    <div class="cinema-media">
     <img src="assets/science/climate-central-heat-bell-curve.gif"
-         alt="Animated bell curve showing a shift toward warmer temperatures and a larger share of extreme heat." />
+         alt="Animated temperature distribution shifting warmer, increasing the portion of temperatures beyond an extreme heat threshold." />
    </div>
    <div class="cinema-copy">
-    <span class="evidence-strength strong">STRONG EVIDENCE</span>
-    <h3>A small shift changes the extremes</h3>
-    <p>Watch the temperature distribution move. The important change is at the hot end of the curve: temperatures that were once rare occupy more of the distribution.</p>
+    <div class="certainty big-certainty strong"><b>Scientific certainty</b><span>HIGH</span><div><i style="width:92%"></i></div></div>
+    <h3>A warmer starting point changes the odds</h3>
+    <p>The temperature distribution shifts toward warmer conditions. That makes very hot temperatures that were once rare occur more often.</p>
     <a href="https://www.climate.gov/media/13232" target="_blank" rel="noopener">Explore the science ↗</a>
     <small>Animation: Climate Central, presented by NOAA Climate.gov.</small>
    </div>
  </article>
 
  <article class="cinema-panel" id="cinema-rain">
-   <div class="cinema-media science-preview moisture-preview" role="img" aria-label="Atmospheric moisture visual. Use the button beside it to open NOAA's atmospheric river animation.">
-      <img src="assets/science/climate-central-warmer-air-moisture.jpg" alt="Scientific visual explaining that warmer air can hold more moisture." />
+   <div class="cinema-media">
+    <video autoplay loop muted playsinline controls preload="metadata"
+      src="https://svs.gsfc.nasa.gov/vis/a010000/a012400/a012471/12471_pacific1080_high.webm">
+      Your browser does not support the NASA atmospheric-river animation.
+    </video>
    </div>
    <div class="cinema-copy">
-    <span class="evidence-strength strong">STRONG EVIDENCE</span>
-    <h3>More moisture can feed heavier rain</h3>
-    <p>NOAA’s animation shows water vapor moving in an atmospheric river. A warmer atmosphere can hold more water vapor, increasing the amount available when conditions produce precipitation.</p>
-    <a href="https://psl.noaa.gov/arportal/about/" target="_blank" rel="noopener">Open NOAA animation ↗</a>
-    <small>Animation: NOAA Physical Sciences Laboratory.</small>
+    <div class="certainty big-certainty strong"><b>Scientific certainty</b><span>HIGH</span><div><i style="width:85%"></i></div></div>
+    <h3>Moisture moves—and warmer air can carry more of it</h3>
+    <p>The NASA animation shows water vapor being transported in atmospheric rivers and the precipitation that follows. A warmer atmosphere can hold more water vapor, increasing the potential for heavier precipitation when storms develop.</p>
+    <a href="https://www.epa.gov/climatechange-science/extreme-precipitation" target="_blank" rel="noopener">Explore the climate connection ↗</a>
+    <small>Animation: NASA Scientific Visualization Studio. Climate connection: U.S. EPA.</small>
    </div>
  </article>
 
  <article class="cinema-panel" id="cinema-dry">
-   <div class="cinema-media science-preview external-animation-card">
-      <div><span class="big-icon">🌱 → ☀️ → 🏜️</span><h4>USGS drought progression animation</h4><p>This authoritative animation is opened from the USGS source so we do not redistribute an unverified copy.</p></div>
+   <div class="cinema-media">
+    <video autoplay loop muted playsinline controls preload="metadata"
+      src="https://svs.gsfc.nasa.gov/vis/a010000/a010900/a010926/evapotranspiration_text_720x480.webmhd.webm">
+      Your browser does not support the NASA evapotranspiration animation.
+    </video>
    </div>
    <div class="cinema-copy">
-    <span class="evidence-strength strong">STRONG EVIDENCE</span>
-    <h3>Dryness develops through a water balance</h3>
-    <p>Watch conditions progress from normal toward drought. Heat can increase evaporative demand, so precipitation is only one part of the story.</p>
-    <a href="https://www.usgs.gov/media/images/20230420what-droughtgif" target="_blank" rel="noopener">Open USGS animation ↗</a>
-    <small>Animation: U.S. Geological Survey. Public domain.</small>
+    <div class="certainty big-certainty moderate"><b>Scientific certainty</b><span>HIGH for increasing summer drought risk</span><div><i style="width:82%"></i></div></div>
+    <h3>Water leaves both soil and plants</h3>
+    <p>Evaporation from soil and transpiration from leaves combine as evapotranspiration. Warming increases atmospheric demand for moisture, which can intensify dry conditions even when precipitation is only part of the story.</p>
+    <a href="https://extension.oregonstate.edu/catalog/em-9603-forests-changing-climate-how-much-will-climate-change-oregon-how-fast" target="_blank" rel="noopener">Explore Oregon drought projections ↗</a>
+    <small>Animation: NASA/Goddard Space Flight Center Conceptual Image Lab.</small>
    </div>
  </article>
 
  <article class="cinema-panel" id="cinema-ice">
-   <div class="cinema-media science-preview external-animation-card">
-      <div><span class="big-icon">❄️ → 💧 → 🧊</span><h4>NOAA freezing-rain animation</h4><p>Open the NOAA/NASA source to watch the existing sleet and freezing-rain animation.</p></div>
+   <div class="cinema-media">
+    <img src="https://www.nesdis.noaa.gov/s3dl?path=%2Fs3%2F2025-08%2Fprecipitation_sleet_freezing_rain.gif"
+         alt="NOAA animation showing how sleet and freezing rain form as precipitation passes through warm and cold layers of air." />
    </div>
    <div class="cinema-copy">
-    <span class="evidence-strength uncertain">UNCERTAIN FUTURE TREND</span>
-    <h3>Freezing rain needs a narrow temperature setup</h3>
-    <p>Snow melts in an above-freezing layer aloft, then liquid drops pass through shallow subfreezing air near the surface and freeze on contact. Because several temperature layers must align, changes in future ice-storm frequency are harder to project than changes in extreme heat.</p>
-    <a href="https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/what-precipitation" target="_blank" rel="noopener">Open NOAA freezing-rain animation ↗</a>
-    <small>Animation: NOAA NESDIS / NASA Space Place.</small>
+    <div class="certainty big-certainty uncertain"><b>Scientific certainty</b><span>MORE UNCERTAIN / LOCATION DEPENDENT</span><div><i style="width:48%"></i></div></div>
+    <h3>Several temperature layers have to line up</h3>
+    <p>Freezing rain requires melted precipitation aloft and a shallow layer of subfreezing air near the surface. Northern Willamette Basin modeling projects fewer freezing-rain occurrences at some lower elevations and more at some higher elevations, while some future events may accumulate more ice.</p>
+    <a href="https://pdxscholar.library.pdx.edu/geog_fac/282/" target="_blank" rel="noopener">Explore the Willamette Basin research ↗</a>
+    <small>Animation: NOAA NESDIS / NASA Space Place. Future projections: Rupp et al.</small>
    </div>
  </article>
 </div>
 
 <div class="cinema-takeaway">
- <b>What to carry forward:</b> Climate evidence is not equally strong for every kind of extreme. That difference matters when gardeners decide what to prepare for.
+ <b>Compare the certainty:</b> Warming makes increasing heat risk relatively straightforward to project. Drought, precipitation, and especially freezing rain depend on additional processes, timing, and geography.
 </div>
 </section>
 
 <section id="challenge" class="screen hazard-challenge" hidden>
-<button class="back" data-go="roadmap">← Roadmap</button>
+<button class="back back-roadmap" data-go="roadmap">← Back to Roadmap</button>
 <div id="challengeLanding" class="story-landing hazard-landing">
  <div class="story-content">
   <p class="eyebrow">STOP 4 · GARDENER PREPAREDNESS CHALLENGE</p>
   <h2>Which risks would you plan for?</h2>
   <p class="lead">A Willamette Valley community garden is making long-term plans for future extreme weather.</p>
-  <p>You’ll review evidence for <b>heat, precipitation, and ice</b>. First judge what the evidence supports. Then decide how much weight you would give it in garden planning.</p>
-  <div class="hazard-route"><span>🌡️ Heat</span><i>→</i><span>🌧️ Precipitation</span><i>→</i><span>🧊 Ice</span></div>
+  <p>For each hazard, review the projected future trend and the strength of the scientific evidence. Then decide what the evidence supports—and how much weight you would give it in garden planning.</p>
+  <div class="hazard-route"><span>☀️ Heat</span><i>→</i><span>🌧️ Heavy rain</span><i>→</i><span>🧊 Ice</span></div>
   <button id="beginChallenge" class="primary large-cta">Begin the challenge →</button>
  </div>
 </div>
 
 <div id="challengePlay" class="hazard-play" hidden>
- <div class="challenge-topbar"><button id="backChallengeStep" class="back compact-back">← Back</button><button id="resetChallenge" class="reset-link">↻ Reset challenge</button></div>
+ <div class="challenge-topbar"><button id="backChallengeStep" class="back back-roadmap compact-back">← Back</button><button id="resetChallenge" class="reset-link">↻ Reset challenge</button></div>
  <div class="hazard-progress"><span id="hazardProgress">Evidence 1 of 3</span></div>
  <div id="hazardEvidence"></div>
  <article class="question-shell"><div id="questionPanel"></div><div id="questionFeedback" class="question-feedback" hidden></div><div class="question-nav"><button id="checkStep" class="primary" disabled>Check answer</button><button id="nextStep" class="primary" hidden>Next →</button></div></article>
@@ -227,10 +234,10 @@
 <div id="challengeComplete" class="challenge-complete" hidden>
  <div class="complete-badge">✓</div><p class="eyebrow">CHALLENGE COMPLETE</p>
  <h2>Evidence informs preparedness—it doesn’t make the decision for you.</h2>
- <p>You compared hazards with different levels of scientific certainty and made planning judgments for the same Willamette Valley garden.</p>
+ <p>You compared future trends with different levels of scientific certainty and made planning judgments for the same Willamette Valley garden.</p>
  <div class="complete-actions"><button id="restartChallenge" class="secondary">↻ Try again</button><button class="primary" data-go="roadmap">Return to roadmap →</button></div>
 </div>
 </section>
 </main>
-<script src="app.js?v=20260813-draftcomplete1"></script>
+<script src="app.js?v=20260813-v2"></script>
 </body></html>
