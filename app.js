@@ -98,99 +98,39 @@ document.querySelectorAll(".cinema-tab").forEach(tab=>tab.addEventListener("clic
   if(panel) panel.classList.add("active");
 }));
 
+
 const challengeHazards=[
 {
- name:"Extreme heat",icon:"☀️",certainty:"HIGH",certaintyPos:92,
- evidenceHTML:`<div class="challenge-chart">
-   <div class="chart-title">Projected days with heat index ≥90°F · April–October · selected Willamette Valley counties</div>
-   <div class="county-bars">
-   ${[
-     ["Benton",4,25],["Lane",4,24],["Linn",3,22],["Marion",3,20],["Polk",4,23],["Yamhill",5,24]
-   ].map(r=>`<div class="county-row"><span>${r[0]}</span><div class="county-bar-bg"><i class="county-future" style="width:${r[2]*3.6}%"></i><i class="county-hist" style="width:${r[1]*3.6}%"></i></div><strong>${r[1]} → ${r[2]}</strong></div>`).join("")}
-   </div>
-   <p class="data-note">Historical: 1971–2000. Mid-century: 2040–2069, RCP 8.5. Values are multi-model means reported in the Fifth Oregon Climate Assessment.</p>
- </div>`,
+ name:"Extreme heat",icon:"☀️",
+ evidenceHTML:`<div class="challenge-chart"><div class="chart-title">Projected days with heat index ≥90°F · April–October · selected Willamette Valley counties</div><div class="legend-row"><span><i class="legend-swatch legend-hist"></i>Historical 1971–2000</span><span><i class="legend-swatch legend-future"></i>Mid-century 2040–2069</span></div><div class="heat-compare">${[["Benton",4,25],["Lane",4,24],["Linn",3,22],["Marion",3,20],["Polk",4,23],["Yamhill",5,24]].map(r=>`<div class="heat-county"><div class="heat-county-name">${r[0]}</div><div class="double-bars"><div class="data-bar-row"><span>Historical</span><div class="bar-track"><div class="bar-fill hist" style="width:${r[1]/25*100}%"></div></div><span class="data-value">${r[1]} days</span></div><div class="data-bar-row"><span>Mid-century</span><div class="bar-track"><div class="bar-fill future" style="width:${r[2]/25*100}%"></div></div><span class="data-value">${r[2]} days</span></div></div></div>`).join("")}</div><p class="data-note">Multi-model means reported in the Fifth Oregon Climate Assessment under RCP 8.5.</p></div>`,
+ certaintyHTML:`<div class="certainty-categories"><div class="certainty-choice"><b>LOWER CERTAINTY</b><small>limited or inconsistent evidence</small></div><div class="certainty-choice"><b>MODERATE CERTAINTY</b><small>some agreement, important uncertainty</small></div><div class="certainty-choice selected"><b>HIGHER CERTAINTY</b><small>strong, consistent evidence</small></div></div><p class="certainty-note">For increasing extreme heat, the evidence is strong and consistent.</p>`,
  question:"What conclusion is best supported by these projections?",
  options:[["a","Days with dangerous heat are projected to become substantially more common across these Willamette Valley counties."],["b","Future heat risk is too uncertain to show a consistent direction across the Valley."],["c","The projections show little change from the historical period."]],
- correct:"a",
- explanation:"All six selected counties show a large increase in projected days with a heat index of at least 90°F."
+ correct:"a",explanation:"All six counties show a large increase in projected days with a heat index of at least 90°F."
 },
 {
- name:"Heavy precipitation",icon:"🌧️",certainty:"HIGH for increasing intensity; timing varies",certaintyPos:82,
- evidenceHTML:`<div class="challenge-chart">
-   <div class="chart-title">Projected change in very heavy one-day precipitation · western Oregon / west of the Cascades</div>
-   <div class="precip-bars">
-    <div class="pbar"><div style="height:100px"><strong>Historical</strong></div><span>99th-percentile wet day<br>baseline</span></div>
-    <div class="pbar"><div style="height:106px"><strong>+6%</strong></div><span>mid-century projected<br>intensity</span></div>
-   </div>
-   <p class="data-note">Regional climate modeling reported about a 6% increase in the 99th-percentile one-day precipitation west of the Cascades by mid-century. More recent Oregon assessment work also indicates that the largest increases in northwestern Oregon extreme precipitation occur in the cool-season/fall part of the year.</p>
- </div>`,
+ name:"Heavy precipitation",icon:"🌧️",
+ evidenceHTML:`<div class="challenge-chart"><div class="chart-title">Projected change in very heavy one-day precipitation · western Oregon</div><div class="precip-comparison"><div class="precip-main"><h4>How intense could a very heavy one-day event become?</h4><div class="legend-row"><span><i class="legend-swatch legend-hist"></i>Historical baseline</span><span><i class="legend-swatch" style="background:#557e91"></i>Mid-century projection</span></div><div class="precip-pair"><div class="precip-col"><div class="precip-block-wrap"><div class="precip-block hist"><strong>100%</strong></div></div><span>Historical</span><small>baseline intensity</small></div><div class="precip-col"><div class="precip-block-wrap"><div class="precip-block future"><strong>106%</strong></div></div><span>Mid-century</span><small>about 6% more intense</small></div></div><div class="precip-callout"><b>What is being compared?</b> The amount of precipitation falling during a very heavy one-day event—not total annual rainfall.</div></div><div class="season-variation"><h4>The projected change is not identical throughout the year</h4><div class="season-bars"><div class="season-box"><div class="season-column" style="height:55px"></div><b>Winter</b><small>increase</small></div><div class="season-box"><div class="season-column" style="height:42px"></div><b>Spring</b><small>smaller increase</small></div><div class="season-box"><div class="season-column" style="height:24px"></div><b>Summer</b><small>smallest signal</small></div><div class="season-box"><div class="season-column" style="height:88px"></div><b>Fall</b><small>largest signal in NW Oregon</small></div></div><p class="neutral-note">This seasonal mini-chart shows the relative pattern reported for northwestern Oregon; it is not a separate rainfall-total graph.</p></div></div></div>`,
+ certaintyHTML:`<div class="certainty-categories"><div class="certainty-choice"><b>LOWER CERTAINTY</b><small>limited or inconsistent evidence</small></div><div class="certainty-choice"><b>MODERATE CERTAINTY</b><small>some agreement, important uncertainty</small></div><div class="certainty-choice selected"><b>HIGHER CERTAINTY</b><small>strong evidence for increasing heavy-event intensity</small></div></div><p class="certainty-note">The direction toward heavier extreme precipitation is well supported, while the size and timing of change vary by region and season.</p>`,
  question:"What does this evidence support?",
- options:[["a","The heaviest precipitation events are expected to become more intense, so the garden may need to consider heavy-rain resilience even though precipitation still varies strongly by season."],["b","Every month in the Willamette Valley is expected to become uniformly wetter."],["c","Heavy precipitation is not projected to change in western Oregon."]],
- correct:"a",
- explanation:"The evidence supports increasing intensity of very heavy precipitation, not uniform wetting in every month."
+ options:[["a","Very heavy precipitation events are projected to become more intense, with the strongest seasonal signal in fall for northwestern Oregon."],["b","Every month in the Willamette Valley is expected to become uniformly wetter."],["c","Heavy precipitation is not projected to change in western Oregon."]],
+ correct:"a",explanation:"The evidence supports increasing intensity of very heavy precipitation, with important seasonal variation."
 },
 {
- name:"Freezing rain / ice",icon:"🧊",certainty:"MODERATE / LOCATION DEPENDENT",certaintyPos:48,
- evidenceHTML:`<div class="challenge-chart">
-   <div class="chart-title">Northern Willamette Basin model projections under warming</div>
-   <div class="ice-trend-grid">
-    <div><span>Lower elevations</span><strong>↓</strong><small>freezing-rain occurrence generally decreases</small></div>
-    <div><span>Higher elevations</span><strong>↑</strong><small>freezing-rain occurrence generally increases</small></div>
-    <div><span>Some future events</span><strong>↑ ice</strong><small>longer duration / greater ice accretion possible</small></div>
-   </div>
-   <p class="data-note">High-resolution modeling of the northern Willamette Basin found different responses by elevation and stronger gap winds during future freezing-rain events. This is not a simple Valley-wide “more ice storms” projection.</p>
- </div>`,
+ name:"Freezing rain / ice",icon:"🧊",
+ evidenceHTML:`<div class="challenge-chart"><div class="chart-title">Northern Willamette Basin model projections under warming</div><div class="ice-trend-grid"><div><span>Lower elevations</span><strong>↓</strong><small>freezing-rain occurrence generally decreases</small></div><div><span>Higher elevations</span><strong>↑</strong><small>freezing-rain occurrence generally increases</small></div><div><span>Some future events</span><strong>↑ ice</strong><small>longer duration / greater ice accretion possible</small></div></div><p class="data-note">The model response differs by elevation, and event frequency is not the same thing as ice accumulation.</p></div>`,
+ certaintyHTML:`<div class="certainty-categories"><div class="certainty-choice"><b>LOWER CERTAINTY</b><small>limited or inconsistent evidence</small></div><div class="certainty-choice selected"><b>MODERATE CERTAINTY</b><small>location-dependent evidence</small></div><div class="certainty-choice"><b>HIGHER CERTAINTY</b><small>strong, consistent evidence</small></div></div><p class="certainty-note">The evidence supports a complex, location-dependent response—not a simple Valley-wide increase in ice storms.</p>`,
  question:"Which statement best matches the evidence?",
  options:[["a","Severe ice storms are projected to become more frequent everywhere in the Willamette Valley."],["b","Future freezing-rain changes are location dependent; frequency may decrease in some places even while some future events accumulate more ice."],["c","Climate warming eliminates the possibility of freezing rain."]],
- correct:"b",
- explanation:"The study projects different changes by elevation and distinguishes event frequency from how much ice may accumulate."
+ correct:"b",explanation:"The study projects different changes by elevation and distinguishes event frequency from how much ice may accumulate."
 }
 ];
 
 let hazardIndex=0,challengePhase="evidence";
-function certaintyMarkup(h){
- return `<div class="certainty-panel"><b>Scientific certainty / consistency of evidence</b><div class="scale"></div><div class="marker"><i style="left:${h.certaintyPos}%"></i></div><div class="labels"><span>More uncertain</span><span>Moderate</span><span>Stronger</span></div><strong>${h.certainty}</strong></div>`;
-}
-function renderHazard(){
- const h=challengeHazards[hazardIndex];
- hazardProgress.textContent=`Evidence ${hazardIndex+1} of 3 · ${h.name}`;
- hazardEvidence.innerHTML=`<article class="hazard-evidence-card"><header><div><p class="eyebrow">${h.icon} ${h.name.toUpperCase()}</p><h2>Review the future trend</h2></div></header>${h.evidenceHTML}${certaintyMarkup(h)}</article>`;
- questionPanel.innerHTML=`<div class="question-card"><p class="question-kicker">INTERPRET THE EVIDENCE</p><h3>${h.question}</h3><div class="answer-list">${h.options.map(o=>`<label class="answer"><input type="radio" name="stepAnswer" value="${o[0]}"><span>${o[1]}</span></label>`).join("")}</div></div>`;
- questionFeedback.hidden=true;checkStep.hidden=false;nextStep.hidden=true;checkStep.disabled=true;checkStep.textContent="Check answer";challengePhase="evidence";
- document.querySelectorAll('input[name="stepAnswer"]').forEach(x=>x.onchange=()=>checkStep.disabled=false);
-}
-function renderPriority(){
- const h=challengeHazards[hazardIndex];
- questionPanel.innerHTML=`<div class="question-card"><p class="question-kicker">MAKE A PLANNING JUDGMENT</p><h3>Given the evidence and its certainty, how much weight would you give ${h.name.toLowerCase()} in the community garden’s long-term plans?</h3><p>There is no single correct answer.</p><div class="decision-cards">${[["priority","Make it a priority"],["flex","Build in flexibility"],["aware","Be aware for now"]].map(o=>`<label class="answer"><input type="radio" name="stepAnswer" value="${o[0]}"><span>${o[1]}</span></label>`).join("")}</div></div>`;
- questionFeedback.hidden=true;checkStep.hidden=false;nextStep.hidden=true;checkStep.disabled=true;checkStep.textContent="Continue";challengePhase="priority";
- document.querySelectorAll('input[name="stepAnswer"]').forEach(x=>x.onchange=()=>checkStep.disabled=false);
-}
-checkStep.onclick=()=>{
- const ans=document.querySelector('input[name="stepAnswer"]:checked')?.value;
- if(!ans)return;
- const h=challengeHazards[hazardIndex];
- if(challengePhase==="evidence"){
-   const ok=ans===h.correct;
-   questionFeedback.hidden=false;
-   questionFeedback.className="question-feedback "+(ok?"":"review");
-   questionFeedback.innerHTML=ok?`<b>Supported by the evidence.</b> ${h.explanation}`:`<b>Take another look at the projected trend and certainty scale.</b>`;
-   if(ok){checkStep.hidden=true;nextStep.hidden=false;nextStep.textContent="Set your priority →";}
- }else{
-   questionFeedback.hidden=false;questionFeedback.className="question-feedback";
-   questionFeedback.innerHTML="<b>Your planning judgment.</b> Scientific evidence informs this decision, but crops, site conditions, resources, and tolerance for risk determine how much weight a gardener gives it.";
-   checkStep.hidden=true;nextStep.hidden=false;nextStep.textContent=hazardIndex===2?"Finish challenge →":"Next hazard →";
- }
-};
-nextStep.onclick=()=>{
- if(challengePhase==="evidence"){renderPriority();return;}
- if(hazardIndex<2){hazardIndex++;renderHazard();window.scrollTo({top:0,behavior:"smooth"});}
- else{challengePlay.hidden=true;challengeComplete.hidden=false;window.scrollTo({top:0,behavior:"smooth"});}
-};
-backChallengeStep.onclick=()=>{
- if(challengePhase==="priority"){renderHazard();}
- else if(hazardIndex>0){hazardIndex--;renderPriority();}
- else{challengePlay.hidden=true;challengeLanding.hidden=false;}
-};
+function renderHazard(){const h=challengeHazards[hazardIndex];hazardProgress.textContent=`Evidence ${hazardIndex+1} of 3 · ${h.name}`;hazardEvidence.innerHTML=`<article class="hazard-evidence-card"><header><div><p class="eyebrow">${h.icon} ${h.name.toUpperCase()}</p><h2>Review the future trend</h2></div></header>${h.evidenceHTML}<div class="certainty-panel"><b>Scientific certainty / consistency of evidence</b>${h.certaintyHTML}</div></article>`;questionPanel.innerHTML=`<div class="question-card"><p class="question-kicker">INTERPRET THE EVIDENCE</p><h3>${h.question}</h3><div class="answer-list">${h.options.map(o=>`<label class="answer"><input type="radio" name="stepAnswer" value="${o[0]}"><span>${o[1]}</span></label>`).join("")}</div></div>`;questionFeedback.hidden=true;checkStep.hidden=false;nextStep.hidden=true;checkStep.disabled=true;checkStep.textContent="Check answer";challengePhase="evidence";document.querySelectorAll('input[name="stepAnswer"]').forEach(x=>x.onchange=()=>checkStep.disabled=false);}
+function renderPriority(){const h=challengeHazards[hazardIndex];questionPanel.innerHTML=`<div class="question-card"><p class="question-kicker">MAKE A PLANNING JUDGMENT</p><h3>Given the evidence and its certainty, how much weight would you give ${h.name.toLowerCase()} in the community garden’s long-term plans?</h3><p>There is no single correct answer.</p><div class="decision-cards">${[["priority","Make it a priority"],["flex","Build in flexibility"],["aware","Be aware for now"]].map(o=>`<label class="answer"><input type="radio" name="stepAnswer" value="${o[0]}"><span>${o[1]}</span></label>`).join("")}</div></div>`;questionFeedback.hidden=true;checkStep.hidden=false;nextStep.hidden=true;checkStep.disabled=true;checkStep.textContent="Continue";challengePhase="priority";document.querySelectorAll('input[name="stepAnswer"]').forEach(x=>x.onchange=()=>checkStep.disabled=false);}
+checkStep.onclick=()=>{const ans=document.querySelector('input[name="stepAnswer"]:checked')?.value;if(!ans)return;const h=challengeHazards[hazardIndex];if(challengePhase==="evidence"){const ok=ans===h.correct;questionFeedback.hidden=false;questionFeedback.className="question-feedback "+(ok?"":"review");questionFeedback.innerHTML=ok?`<b>Supported by the evidence.</b> ${h.explanation}`:`<b>Take another look at the trend and certainty category.</b>`;if(ok){checkStep.hidden=true;nextStep.hidden=false;nextStep.textContent="Set your priority →";}}else{questionFeedback.hidden=false;questionFeedback.className="question-feedback";questionFeedback.innerHTML="<b>Your planning judgment.</b> Scientific evidence informs this decision, but crops, site conditions, resources, and tolerance for risk determine how much weight a gardener gives it.";checkStep.hidden=true;nextStep.hidden=false;nextStep.textContent=hazardIndex===2?"Finish challenge →":"Next hazard →";}};
+nextStep.onclick=()=>{if(challengePhase==="evidence"){renderPriority();return;}if(hazardIndex<2){hazardIndex++;renderHazard();window.scrollTo({top:0,behavior:"smooth"});}else{challengePlay.hidden=true;challengeComplete.hidden=false;window.scrollTo({top:0,behavior:"smooth"});}};
+backChallengeStep.onclick=()=>{if(challengePhase==="priority"){renderHazard();}else if(hazardIndex>0){hazardIndex--;renderPriority();}else{challengePlay.hidden=true;challengeLanding.hidden=false;}};
 function startChallenge(){hazardIndex=0;challengeLanding.hidden=true;challengePlay.hidden=false;challengeComplete.hidden=true;renderHazard();}
 beginChallenge.onclick=startChallenge;resetChallenge.onclick=startChallenge;restartChallenge.onclick=()=>{challengeComplete.hidden=true;challengeLanding.hidden=false;challengePlay.hidden=true;};
