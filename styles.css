@@ -330,3 +330,10 @@
 .region-video-panel .video-embed{aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#172b38}
 .region-video-panel iframe{width:100%;height:100%;border:0}
 .video-caption{margin:.55rem .25rem .15rem;color:#596a63;font-size:.82rem;font-weight:700}
+
+.science-preview img{width:100%;height:100%;object-fit:contain}
+.external-animation-card{text-align:center;padding:1.5rem;background:linear-gradient(145deg,#eef5f4,#f7f3fb)}
+.external-animation-card>div{max-width:420px}
+.external-animation-card .big-icon{display:block;font-size:3.2rem;margin-bottom:.8rem}
+.external-animation-card h4{font-size:1.2rem;color:#17344f;margin:.3rem 0}
+.external-animation-card p{color:#5b6b64;line-height:1.5}

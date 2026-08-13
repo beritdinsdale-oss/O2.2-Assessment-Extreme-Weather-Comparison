@@ -1,0 +1,29 @@
+DRAFT COMPLETE MEDIA MANIFEST
+
+LOCAL FILES INCLUDED
+assets/seasonal/winter.mp4
+assets/seasonal/spring.mp4
+assets/seasonal/summer.mp4
+assets/seasonal/fall.mp4
+assets/seasonal/winter-poster.jpg
+assets/seasonal/spring-poster.jpg
+assets/seasonal/summer-poster.jpg
+assets/seasonal/fall-poster.jpg
+assets/science/climate-central-heat-bell-curve.gif
+assets/science/climate-central-warmer-air-moisture.jpg
+
+EXTERNAL VIDEO EMBEDS (INTENTIONALLY NOT DOWNLOADED)
+Pacific Northwest heat event: YouTube ID TcU8YNYQmGg
+Tennessee/Waverly rainfall event: YouTube ID gDvWd8uphXk
+
+AUTHORITATIVE EXTERNAL SCIENCE MEDIA
+NOAA PSL atmospheric river source page
+USGS drought progression animation source page
+NOAA NESDIS/NASA freezing-rain animation source page
+
+WHY SOME MEDIA REMAINS EXTERNAL
+This draft packages media already present in the prior working activity and the existing local heat animation.
+It does not copy/download third-party scientific media unless a redistributable local copy has been verified.
+External source links are therefore retained for the USGS and NOAA/NASA animations.
+
+The event YouTube videos should remain embeds for GitHub/Canvas rather than being copied into the repository.

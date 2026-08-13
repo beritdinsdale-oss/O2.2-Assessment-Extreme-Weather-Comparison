@@ -1,16 +1,24 @@
-RESTORED FULL-EVIDENCE BUILD
+EXTREME WEATHER — DRAFT COMPLETE PACKAGE
 
-Restores the broader activity architecture:
-- fixes Stop 1 / Stop 2 numbering drift and adds robust navigation aliases
-- restores videos to Same Summer, Different Experience
-- replaces homemade Big Climate Picture diagrams with authoritative scientific animations/resources
-- restores heat + precipitation + ice to the Gardener Preparedness Challenge
-- separates evidence interpretation from the learner's preparedness priority judgment
+This is a consolidated draft for GitHub Pages preview.
 
-AUTHORITATIVE MOTION SOURCES
-Heat: Climate Central animation presented by NOAA Climate.gov.
-Heavy precipitation: NOAA Physical Sciences Laboratory atmospheric-river animation.
-Dry conditions: USGS public-domain drought progression animation.
-Freezing rain: NOAA NESDIS / NASA Space Place animation.
+It contains:
+- index.html
+- styles.css
+- app.js
+- assets/seasonal/ with four local MP4 loops and poster images
+- assets/science/ with the local heat bell-curve animation and moisture visual
+- MEDIA-MANIFEST.txt documenting what is local versus intentionally external
 
-NOTE: Three scientific animations are embedded from their authoritative source pages so the activity does not redistribute media without a verified direct-media license/path. Heat uses the source GIF directly. All have source links as fallbacks.
+Current activity architecture:
+1. Seasonal Extremes
+2. Different Regions / Same Summer, Different Experience
+3. Big Climate Picture
+4. Gardener Preparedness Challenge
+5. Take It Local
+
+Previously selected event videos are restored and remain YouTube embeds.
+Only the selected event's video is displayed.
+
+The heat Big Climate Picture animation is local.
+Other authoritative scientific animation source pages remain external in this draft rather than copying media without a verified local redistribution path.
