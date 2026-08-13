@@ -1,6 +1,74 @@
-const screens=[...document.querySelectorAll(".screen")];function show(id){screens.forEach(s=>s.hidden=s.id!==id);window.scrollTo(0,0)}document.addEventListener("click",e=>{let b=e.target.closest("[data-go]");if(b)show(b.dataset.go)});
-const regionData={heat:{title:"Pacific Northwest extreme heat",text:"Late June 2021 brought extraordinary heat across the Pacific Northwest, with temperatures far beyond the region’s historical experience.",rating:"STRONG",needle:"90%",why:"Human-caused warming is increasing the likelihood and intensity of extreme heat.",link:"https://www.worldweatherattribution.org/western-north-american-extreme-heat-virtually-impossible-without-human-caused-climate-change/",cls:"heat-visual"},rain:{title:"Tennessee heavy rainfall",text:"In August 2021, exceptionally heavy rainfall produced devastating flash flooding in Middle Tennessee.",rating:"STRONG",needle:"82%",why:"A warmer atmosphere can hold more moisture, and observations show increases in heavy precipitation, although climate change does not explain every individual flood.",link:"https://www.epa.gov/climatechange-science/extreme-precipitation",cls:"rain-visual"}};
-document.querySelectorAll("[data-region]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-region]").forEach(x=>x.classList.toggle("active",x===b));let d=regionData[b.dataset.region];regionTitle.textContent=d.title;regionText.textContent=d.text;regionRating.textContent=d.rating;regionNeedle.style.left=d.needle;regionWhy.textContent=d.why;regionScience.href=d.link;regionVisual.className="event-visual "+d.cls});
+const screens=[...document.querySelectorAll(".screen")];
+const screenAliases={season:"seasons",seasons:"seasons",regions:"regions",bigpicture:"bigpicture",mechanism:"bigpicture",challenge:"challenge",roadmap:"roadmap",journal:"journal",intro:"intro"};
+function show(id){
+  const resolved=screenAliases[id]||id;
+  const target=document.getElementById(resolved);
+  if(!target){console.warn("Navigation target not found:",id);return;}
+  screens.forEach(s=>s.hidden=s!==target);
+  window.scrollTo(0,0);
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-go]");
+  if(b){e.preventDefault();show(b.dataset.go);}
+});
+const regionData={
+ heat:{
+  title:"Pacific Northwest extreme heat",
+  text:"Late June 2021 brought extraordinary heat across the Pacific Northwest, with temperatures far beyond the region’s historical experience.",
+  rating:"STRONG",needle:"90%",
+  why:"Human-caused warming is increasing the likelihood and intensity of extreme heat.",
+  link:"https://www.worldweatherattribution.org/western-north-american-extreme-heat-virtually-impossible-without-human-caused-climate-change/",
+  cls:"heat-visual",
+  video:"TcU8YNYQmGg",
+  videoLabel:"heat",
+  caption:"Pacific Northwest · June 2021 — Unprecedented heat wave"
+ },
+ rain:{
+  title:"Tennessee heavy rainfall",
+  text:"In August 2021, exceptionally heavy rainfall produced devastating flash flooding around Waverly, Tennessee.",
+  rating:"STRONG",needle:"82%",
+  why:"A warmer atmosphere can hold more moisture, and observations show increases in heavy precipitation, although climate change does not explain every individual flood.",
+  link:"https://www.epa.gov/climatechange-science/extreme-precipitation",
+  cls:"rain-visual",
+  video:"gDvWd8uphXk",
+  videoLabel:"rainfall",
+  caption:"Waverly, Tennessee · August 2021 — Record rainfall and flash flooding"
+ }
+};
+let currentRegion="heat";
+function updateRegion(key){
+ currentRegion=key;
+ document.querySelectorAll("[data-region]").forEach(x=>x.classList.toggle("active",x.dataset.region===key));
+ const d=regionData[key];
+ regionTitle.textContent=d.title;
+ regionText.textContent=d.text;
+ regionRating.textContent=d.rating;
+ regionNeedle.style.left=d.needle;
+ regionWhy.textContent=d.why;
+ regionScience.href=d.link;
+ regionVisual.className="event-visual "+d.cls;
+ // Always close/remove the previous event video when switching events.
+ regionVideoPanel.hidden=true;
+ regionVideoFrame.src="";
+ regionVideoButton.textContent="▶ Watch the "+d.videoLabel+" event video";
+ regionVideoCaption.textContent=d.caption;
+}
+document.querySelectorAll("[data-region]").forEach(b=>b.addEventListener("click",()=>updateRegion(b.dataset.region)));
+regionVideoButton.addEventListener("click",()=>{
+ const d=regionData[currentRegion];
+ if(regionVideoPanel.hidden){
+   regionVideoFrame.src="https://www.youtube-nocookie.com/embed/"+d.video;
+   regionVideoCaption.textContent=d.caption;
+   regionVideoPanel.hidden=false;
+   regionVideoButton.textContent="Hide event video";
+ }else{
+   regionVideoFrame.src="";
+   regionVideoPanel.hidden=true;
+   regionVideoButton.textContent="▶ Watch the "+d.videoLabel+" event video";
+ }
+});
+updateRegion("heat");
+
 const seasons={
 winter:{title:"Winter: damaging ice storm",text:"In February 2021, freezing rain coated parts of the Willamette Valley in ice, damaging trees and disrupting power.",status:"EXTREME EVENT",fact:"This was a damaging, unusual winter weather event.",rating:"UNCERTAIN",ratingCls:"",needle:"20%",event:"Uncertain",future:"Uncertain",why:"The science is not clear about how climate change influenced this particular ice storm. Future changes in damaging ice storms in the Willamette Valley are also uncertain because these events are relatively uncommon and the processes that create them are complex.",cls:"winter",label:"ICE STORM",link:"https://www.climate.gov/"},
 spring:{title:"Spring: exceptional dryness",text:"Spring 2021 was exceptionally dry across the Pacific Northwest, including Oregon.",status:"EXTREME CONDITIONS",fact:"Oregon, Washington, and Idaho recorded their second-driest spring since 1895, receiving about 45% of normal spring precipitation.",rating:"MODERATE",ratingCls:"moderate",needle:"58%",event:"Multiple drivers",future:"Increasing drying risk",why:"The extreme dryness was real, but drought develops from several interacting factors. Warming can increase evaporative demand, accelerate snowmelt, and intensify dry conditions; precipitation variability also remains important.",cls:"spring",label:"EXCEPTIONAL DRYNESS",link:"https://www.drought.gov/drought-status-updates/drought-status-update-pacific-northwest-2021-07-08"},
@@ -11,40 +79,13 @@ document.querySelectorAll("[data-season]").forEach(b=>b.onclick=()=>{document.qu
  seasonWhy.style.display=d.why?"block":"none";
  document.querySelector(".two-questions").style.display=d.rating==="N/A"?"none":"grid";
  seasonVisual.className="season-visual "+d.cls;seasonVisualLabel.textContent=d.label;document.querySelector(".mini-scale").style.visibility=d.rating==="N/A"?"hidden":"visible"});
-const mechanisms={
-heat:{kicker:"EXTREME HEAT",title:"A warmer starting point changes the odds",intro:"Weather still varies from day to day. But when the whole temperature range shifts warmer, temperatures that once sat at the far edge of the curve are reached more often.",take:"A relatively small shift in average temperature can produce a much larger change in the frequency of extreme heat.",whereTitle:"The mechanism is broad; the size of the change is regional.",where:"Local climate, elevation, distance from the ocean, and weather patterns affect how much extreme heat changes from one place to another.",source:"https://www.climate.gov/news-features/understanding-climate/extreme-event-attribution-climate-versus-weather-blame-game",viz:"heat"},
-rain:{kicker:"HEAVY PRECIPITATION",title:"Warmer air can carry more moisture",intro:"As air warms, evaporation increases and the atmosphere can contain more water vapor. When a storm has the right ingredients, that extra moisture can contribute to heavier precipitation.",take:"A warmer atmosphere can increase the potential for intense rainfall—but it does not make every place or every season equally wet.",whereTitle:"Moisture source, storm type, and season shape the result.",where:"Heavy-precipitation changes vary substantially across the United States. What counts as extreme also depends on the location and season.",source:"https://www.epa.gov/climatechange-science/extreme-precipitation",viz:"rain"},
-dry:{kicker:"EXTREME DRYNESS",title:"Dryness is about water in—and water out",intro:"Low precipitation is only part of the story. Higher temperatures can increase evaporation and the atmosphere's demand for moisture, pulling more water from soils and plants.",take:"A warmer climate can intensify dry conditions even when precipitation alone does not explain the full change.",whereTitle:"Drought has several ingredients.",where:"Rain and snow, temperature, soil moisture, snowmelt timing, vegetation, and atmospheric demand interact differently from place to place and season to season.",source:"https://www.gfdl.noaa.gov/extremes/",viz:"dry"},
-ice:{kicker:"ICE STORMS",title:"Freezing rain needs a narrow stack of temperatures",intro:"Snow can melt into rain in a warm layer aloft, then remain liquid while passing through a shallow layer of freezing air near the ground. It freezes when it hits cold surfaces.",take:"Warming can change several required temperature layers at once, which makes future freezing-rain changes more complicated than a simple warmer-equals-more relationship.",whereTitle:"Small temperature differences can change the precipitation type.",where:"Topography, cold-air drainage, storm tracks, and the depth of warm and cold layers can determine whether a location receives snow, freezing rain, or rain.",source:"https://www.oregon.gov/odf/forestbenefits/documents/oregon-climate-assessment.pdf",viz:"ice"}
-};
-function renderMechanism(d){
- mechKicker.textContent=d.kicker;mechTitle.textContent=d.title;mechIntro.textContent=d.intro;
- mechTakeaway.innerHTML="<b>The key idea:</b> "+d.take;whereTitle.textContent=d.whereTitle;whereText.textContent=d.where;mechSource.href=d.source;
- mechanismVisual.className="mechanism-visual";
- if(d.viz==="heat"){mechanismVisual.classList.add("heat-curve");mechanismVisual.innerHTML='<div class="threshold"><b>Extreme heat threshold</b></div><span class="curve-label past">Past climate</span><span class="curve-label warm">Warmer climate</span><span class="extreme-zone">More days cross<br>the threshold</span>'}
- if(d.viz==="rain"){mechanismVisual.classList.add("moisture-visual");mechanismVisual.innerHTML='<div class="air-box"><h4>Cooler air</h4><div class="droplets">'+Array(7).fill("<i></i>").join("")+'</div><p style="text-align:center">less water vapor capacity</p></div><div class="arrow-big">→</div><div class="air-box"><h4>Warmer air</h4><div class="droplets">'+Array(15).fill("<i></i>").join("")+'</div><p style="text-align:center">more moisture available to storms</p></div>'}
- if(d.viz==="dry"){mechanismVisual.classList.add("dry-visual");mechanismVisual.innerHTML='<div class="water-flow">🌧️<strong>Water in</strong><small>rain + snow</small></div><div class="water-flow">☀️<strong>Heat ↑</strong><small>evaporation + plant water loss</small></div><div class="water-flow">🌬️<strong>Demand ↑</strong><small>atmosphere pulls more moisture</small></div>'}
- if(d.viz==="ice"){mechanismVisual.classList.add("ice-layer");mechanismVisual.innerHTML='<div class="layer snow">❄️ Snow forms aloft</div><div class="layer warm">🌡️ Warm layer melts snow → rain</div><div class="layer cold">🥶 Shallow freezing air near ground</div><div class="ice-ground">🌧️ → 🧊 freezes on contact</div>'}
-}
-document.querySelectorAll("[data-mech]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-mech]").forEach(x=>x.classList.toggle("active",x===b));renderMechanism(mechanisms[b.dataset.mech])});renderMechanism(mechanisms.heat);
-
-
-
-// Robust navigation aliases
-document.querySelectorAll("[data-go]").forEach(btn=>{
- btn.addEventListener("click",()=>{
-   let target=btn.dataset.go;
-   const aliases={bigpicture:"bigpicture",mechanism:"bigpicture",regions:"regions",season:"season",challenge:"challenge",roadmap:"roadmap"};
-   let el=document.getElementById(aliases[target]||target);
-   if(el){document.querySelectorAll(".screen").forEach(s=>s.hidden=true);el.hidden=false;window.scrollTo(0,0)}
- });
-});
-
 // Big Climate Picture cinema tabs
 document.querySelectorAll(".cinema-tab").forEach(tab=>tab.addEventListener("click",()=>{
  document.querySelectorAll(".cinema-tab").forEach(x=>x.classList.remove("active"));
  document.querySelectorAll(".cinema-panel").forEach(x=>x.classList.remove("active"));
- tab.classList.add("active"); document.getElementById("cinema-"+tab.dataset.cinema)?.classList.add("active");
+ tab.classList.add("active");
+ const panel=document.getElementById("cinema-"+tab.dataset.cinema);
+ if(panel) panel.classList.add("active");
 }));
 
 const hazards=[

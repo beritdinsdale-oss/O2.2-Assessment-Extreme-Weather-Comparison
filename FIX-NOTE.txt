@@ -1,0 +1,19 @@
+VIDEO + RUNTIME FIX
+
+Restored previously selected event videos:
+- Pacific Northwest heat: TcU8YNYQmGg
+- Waverly, Tennessee rainfall: gDvWd8uphXk
+
+Behavior:
+- Only the video for the currently selected event can be shown.
+- Switching Heat ↔ Rainfall closes the previous video and clears its iframe.
+- The Watch button label updates with the selected event.
+
+Runtime fix:
+- Removed obsolete homemade-mechanism JavaScript that referenced DOM elements no longer present.
+- That runtime error was stopping initialization of the Big Climate Picture tabs and Gardener Preparedness Challenge.
+- Big Climate Picture tab handler is now defensive.
+
+Numbering:
+- Seasonal Extremes = Stop 1
+- Different Regions / Same Summer = Stop 2
